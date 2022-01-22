@@ -12,14 +12,7 @@
 
 @section('css')
 <style>
-    @font-face {
-  font-family: Poppins;
-  src: url('/../fonts/Poppins/Poppins-Bold.ttf');
-}
-@font-face {
-  font-family: Montserrat;
-  src: url('/../fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
-}
+  
 h1{
 
 font-family: Poppins;

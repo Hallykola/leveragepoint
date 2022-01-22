@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/newregister', function () {
-    return view('register');
+    return view('registernew');
 });
 
 Route::get('/dashboard', function () {

@@ -5,6 +5,7 @@
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
      <title>Document</title>
  <!-- import Font Awesome -->
      <link
@@ -16,6 +17,17 @@ rel="stylesheet">
 
    <!-- import MDB Pro -->
    <link rel="stylesheet" href="/css/mdb.min.css" />
+
+   <style>
+         @font-face {
+  font-family: Poppins;
+  src: url('/../fonts/Poppins/Poppins-Bold.ttf');
+}
+@font-face {
+  font-family: Montserrat;
+  src: url('/../fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+       </style>
    @yield('css')
  </head>
  <body>
