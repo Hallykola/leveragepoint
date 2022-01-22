@@ -1,0 +1,58 @@
+* {
+    /* outline: 1px solid red; */
+}
+#siginSideB {
+    background-image: url('/assets/img/signin/676345(4)2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 90vh;
+    color: #FFFFFF;
+}
+
+.signinSideA {
+    color: #434343;
+    font-size: 14px;
+}
+.signinSideAtittle {
+    color: #001307;
+    font-weight: 700;
+    font-size: 50px;
+}
+#imglatop {
+    width: 100%;
+}
+.form-control {
+    height: 50px;
+}
+.siginSideBTxt {
+    font-weight: 700;
+}
+
+.siginSideBbtn {
+    width: 100%;
+    font-weight: 600;
+}
+@media screen and (max-width: 1440px) {
+    #siginSideB {
+        min-height: 80vh;
+    } 
+}
+
+@media screen and (max-width: 1280px) {
+    #siginSideB {
+        min-height: 80vh;
+    }
+}
+@media screen and (max-width: 1030px) {
+    #imglatop {
+        width: 60px;
+    }
+    .signinSideAtittle {
+        font-size: 36px;
+    }
+}
+@media screen and (max-width: 500px){
+    .signinSideAtittle {
+        font-size: 20px;
+    }
+}

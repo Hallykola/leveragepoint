@@ -15,8 +15,9 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 */
 
 Route::get('/',[PagesController::class, 'index'])->name('home');
+Route::get('signin',[AuthenticatedSessionController::class,'signin'])->name('signin');
 
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard',[PagesController::class,'dashboard'])->name('dashboard');
-    Route::get('/logout',[AuthenticatedSessionController::class, 'destroy']);
 });
+require __DIR__.'/auth.php';
