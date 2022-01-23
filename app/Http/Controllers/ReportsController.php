@@ -6,6 +6,9 @@ use App\Models\Reports;
 use App\Http\Requests\StoreReportsRequest;
 use App\Http\Requests\UpdateReportsRequest;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 class ReportsController extends Controller
 {
     /**
@@ -37,6 +40,23 @@ class ReportsController extends Controller
     public function store(StoreReportsRequest $request)
     {
         //
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        Reports::create([
+            'user_id'=>Auth::user()->id,
+            'displayname'=>request()->input('displayname')?? '',
+            'datatype'=>request()->input('datatype')?? '',
+
+
+            ]);
     }
 
     /**
@@ -71,6 +91,24 @@ class ReportsController extends Controller
     public function update(UpdateReportsRequest $request, Reports $reports)
     {
         //
+        $report = $reports;
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        $report->update([
+            'user_id'=>Auth::user()->id,
+            'displayname'=>request()->input('displayname')?? '',
+            'datatype'=>request()->input('datatype')?? '',
+
+
+            ]);
     }
 
     /**

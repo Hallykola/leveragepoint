@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ Route::get('signin',[AuthenticatedSessionController::class,'signin'])->name('sig
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard',[PagesController::class,'dashboard'])->name('dashboard');
     Route::get('/profile',[PagesController::class,'profile'])->name('profile');
+    Route::post('/updateprofile',[ProfileController::class,'update'])->name('updateprofile');
+    Route::get('/editprofile',[ProfileController::class,'create'])->name('editprofile');
 
 });
 require __DIR__.'/auth.php';

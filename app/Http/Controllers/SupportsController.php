@@ -6,6 +6,9 @@ use App\Models\Supports;
 use App\Http\Requests\StoreSupportsRequest;
 use App\Http\Requests\UpdateSupportsRequest;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 class SupportsController extends Controller
 {
     /**
@@ -37,6 +40,24 @@ class SupportsController extends Controller
     public function store(StoreSupportsRequest $request)
     {
         //
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+       Supports::create([
+            'user_id'=>Auth::user()->id,
+            'title'=>request()->input('title')?? '',
+            'category'=>request()->input('category')?? '',
+            'description'=>request()->input('description')?? '',
+            'images'=>request()->input('images')?? '',
+
+
+            ]);
     }
 
     /**
@@ -71,6 +92,26 @@ class SupportsController extends Controller
     public function update(UpdateSupportsRequest $request, Supports $supports)
     {
         //
+        $support = $supports;
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        $support->update([
+            'user_id'=>Auth::user()->id,
+            'title'=>request()->input('title')?? '',
+            'category'=>request()->input('category')?? '',
+            'description'=>request()->input('description')?? '',
+            'images'=>request()->input('images')?? '',
+
+
+            ]);
     }
 
     /**

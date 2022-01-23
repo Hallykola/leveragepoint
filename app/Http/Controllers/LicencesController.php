@@ -6,6 +6,11 @@ use App\Models\Licences;
 use App\Http\Requests\StoreLicencesRequest;
 use App\Http\Requests\UpdateLicencesRequest;
 
+use App\Models\User;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 class LicencesController extends Controller
 {
     /**
@@ -37,6 +42,26 @@ class LicencesController extends Controller
     public function store(StoreLicencesRequest $request)
     {
         //
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        Licences::create([
+            'user_id'=>Auth::user()->id,
+            'licencenumber'=>request()->input('licencenumber')?? '',
+            'licencedate'=>request()->input('licencedate')?? '',
+            'applicant'=>request()->input('applicant')?? '',
+            'feepaid'=>request()->input('feepaid')?? '',
+            'receiptnumber'=> request()->input('receiptnumber')??'',
+            'formid'=> request()->input('formid')??'',
+            'paymentid'=>request()->input('paymentid')?? '',
+
+            ]);
     }
 
     /**
@@ -71,6 +96,28 @@ class LicencesController extends Controller
     public function update(UpdateLicencesRequest $request, Licences $licences)
     {
         //
+        $licence = $licences;
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        $licence->update([
+            'user_id'=>Auth::user()->id,
+            'licencenumber'=>request()->input('licencenumber')?? '',
+            'licencedate'=>request()->input('licencedate')?? '',
+            'applicant'=>request()->input('applicant')?? '',
+            'feepaid'=>request()->input('feepaid')?? '',
+            'receiptnumber'=> request()->input('receiptnumber')??'',
+            'formid'=> request()->input('formid')??'',
+            'paymentid'=>request()->input('paymentid')?? '',
+
+            ]);
     }
 
     /**

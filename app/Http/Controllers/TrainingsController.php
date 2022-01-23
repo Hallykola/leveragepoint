@@ -6,6 +6,9 @@ use App\Models\Trainings;
 use App\Http\Requests\StoreTrainingsRequest;
 use App\Http\Requests\UpdateTrainingsRequest;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 class TrainingsController extends Controller
 {
     /**
@@ -37,6 +40,23 @@ class TrainingsController extends Controller
     public function store(StoreTrainingsRequest $request)
     {
         //
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        Trainings::create([
+            'user_id'=>Auth::user()->id,
+            'module'=>request()->input('module')?? '',
+            'title'=>request()->input('title')?? '',
+            'status'=>request()->input('status')?? '',
+
+
+            ]);
     }
 
     /**
@@ -71,6 +91,25 @@ class TrainingsController extends Controller
     public function update(UpdateTrainingsRequest $request, Trainings $trainings)
     {
         //
+        $training = $trainings;
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        $training->update([
+            'user_id'=>Auth::user()->id,
+            'module'=>request()->input('module')?? '',
+            'title'=>request()->input('title')?? '',
+            'status'=>request()->input('status')?? '',
+
+
+            ]);
     }
 
     /**

@@ -6,6 +6,9 @@ use App\Models\LicenceAmmendentRequest;
 use App\Http\Requests\StoreLicenceAmmendentRequestRequest;
 use App\Http\Requests\UpdateLicenceAmmendentRequestRequest;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 class LicenceAmmendentRequestController extends Controller
 {
     /**
@@ -37,6 +40,26 @@ class LicenceAmmendentRequestController extends Controller
     public function store(StoreLicenceAmmendentRequestRequest $request)
     {
         //
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        LicenceAmmendentRequest::create([
+            'user_id'=>Auth::user()->id,
+            'applicantname'=>request()->input('applicantname')?? '',
+            'licencenumber'=>request()->input('licencenumber')?? '',
+            'extra'=>request()->input('extra')?? '',
+            'applicantphonenumber'=>request()->input('applicantphonenumber')?? '',
+            'applicantemailaddress'=> request()->input('applicantemailaddress')??'',
+            'applicantfax'=> request()->input('applicantfax')??'',
+
+            ]);
     }
 
     /**
@@ -59,6 +82,27 @@ class LicenceAmmendentRequestController extends Controller
     public function edit(LicenceAmmendentRequest $licenceAmmendentRequest)
     {
         //
+        //$licenceAmmendentRequest = $licenceAmmendentRequest;
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        $licenceAmmendentRequest->update([
+            'user_id'=>Auth::user()->id,
+            'applicantname'=>request()->input('applicantname')?? '',
+            'licencenumber'=>request()->input('licencenumber')?? '',
+            'extra'=>request()->input('extra')?? '',
+            'applicantphonenumber'=>request()->input('applicantphonenumber')?? '',
+            'applicantemailaddress'=> request()->input('applicantemailaddress')??'',
+            'applicantfax'=> request()->input('applicantfax')??'',
+
+            ]);
     }
 
     /**

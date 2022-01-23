@@ -6,6 +6,9 @@ use App\Models\Surrenderlicence;
 use App\Http\Requests\StoreSurrenderlicenceRequest;
 use App\Http\Requests\UpdateSurrenderlicenceRequest;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 class SurrenderlicenceController extends Controller
 {
     /**
@@ -37,6 +40,25 @@ class SurrenderlicenceController extends Controller
     public function store(StoreSurrenderlicenceRequest $request)
     {
         //
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        Surrenderlicence::create([
+            'user_id'=>Auth::user()->id,
+            'applicantname'=>request()->input('applicantname')?? '',
+            'licencenumber'=>request()->input('licencenumber')?? '',
+            'reasonsforsurrendering'=>request()->input('reasonsforsurrendering')?? '',
+            'applicantphone'=>request()->input('applicantphone')?? '',
+            'applicantemail'=> request()->input('applicantemail')??'',
+            'applicantfax'=> request()->input('applicantfax')??'',
+
+            ]);
     }
 
     /**
@@ -71,6 +93,27 @@ class SurrenderlicenceController extends Controller
     public function update(UpdateSurrenderlicenceRequest $request, Surrenderlicence $surrenderlicence)
     {
         //
+       // $surrenderlicence = $surrenderlicence ;
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        $surrenderlicence->update([
+            'user_id'=>Auth::user()->id,
+            'applicantname'=>request()->input('applicantname')?? '',
+            'licencenumber'=>request()->input('licencenumber')?? '',
+            'reasonsforsurrendering'=>request()->input('reasonsforsurrendering')?? '',
+            'applicantphone'=>request()->input('applicantphone')?? '',
+            'applicantemail'=> request()->input('applicantemail')??'',
+            'applicantfax'=> request()->input('applicantfax')??'',
+
+            ]);
     }
 
     /**

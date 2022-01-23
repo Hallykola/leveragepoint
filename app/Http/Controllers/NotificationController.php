@@ -6,6 +6,12 @@ use App\Models\Notification;
 use App\Http\Requests\StoreNotificationRequest;
 use App\Http\Requests\UpdateNotificationRequest;
 
+use App\Models\User;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 class NotificationController extends Controller
 {
     /**
@@ -37,6 +43,27 @@ class NotificationController extends Controller
     public function store(StoreNotificationRequest $request)
     {
         //
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        Notification::create([
+            'user_id'=>Auth::user()->id,
+            'title'=>request()->input('title')?? '',
+            'date'=>request()->input('date')?? '',
+            'time'=>request()->input('time')?? '',
+            'message'=>request()->input('message')?? '',
+            'response'=> request()->input('response')??'',
+            'origin'=> request()->input('origin')??'',
+            'destination'=>request()->input('destination')?? '',
+
+            ]);
     }
 
     /**
@@ -71,6 +98,29 @@ class NotificationController extends Controller
     public function update(UpdateNotificationRequest $request, Notification $notification)
     {
         //
+        $mynotifications = $notification;
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        $mynotifications->update([
+            'user_id'=>Auth::user()->id,
+            'title'=>request()->input('title')?? '',
+            'date'=>request()->input('date')?? '',
+            'time'=>request()->input('time')?? '',
+            'message'=>request()->input('message')?? '',
+            'response'=> request()->input('response')??'',
+            'origin'=> request()->input('origin')??'',
+            'destination'=>request()->input('destination')?? '',
+
+            ]);
+
     }
 
     /**

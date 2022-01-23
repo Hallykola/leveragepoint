@@ -6,6 +6,9 @@ use App\Models\Companies;
 use App\Http\Requests\StoreCompaniesRequest;
 use App\Http\Requests\UpdateCompaniesRequest;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 class CompaniesController extends Controller
 {
     /**
@@ -37,6 +40,25 @@ class CompaniesController extends Controller
     public function store(StoreCompaniesRequest $request)
     {
         //
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        Companies::create([
+            'user_id'=>Auth::user()->id,
+            'applicantname'=>request()->input('applicantname')?? '',
+            'applicantadd'=>request()->input('applicantadd')?? '',
+            'applicant'=>request()->input('applicant')?? '',
+            'appliedfor'=>request()->input('appliedfor')?? '',
+            'directors'=> request()->input('directors')??'',
+            'shareholders'=> request()->input('shareholders')??'',
+
+            ]);
     }
 
     /**
@@ -71,6 +93,27 @@ class CompaniesController extends Controller
     public function update(UpdateCompaniesRequest $request, Companies $companies)
     {
         //
+        $company = $companies;
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        $company->update([
+            'user_id'=>Auth::user()->id,
+            'applicantname'=>request()->input('applicantname')?? '',
+            'applicantadd'=>request()->input('applicantadd')?? '',
+            'applicant'=>request()->input('applicant')?? '',
+            'appliedfor'=>request()->input('appliedfor')?? '',
+            'directors'=> request()->input('directors')??'',
+            'shareholders'=> request()->input('shareholders')??'',
+
+            ]);
     }
 
     /**

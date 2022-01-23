@@ -6,6 +6,10 @@ use App\Models\Employees;
 use App\Http\Requests\StoreEmployeesRequest;
 use App\Http\Requests\UpdateEmployeesRequest;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 class EmployeesController extends Controller
 {
     /**
@@ -37,6 +41,25 @@ class EmployeesController extends Controller
     public function store(StoreEmployeesRequest $request)
     {
         //
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        Employees::create([
+            'user_id'=>Auth::user()->id,
+            'name'=>request()->input('name')?? '',
+            'employmentnumber'=>request()->input('employmentnumber')?? '',
+            'position'=>request()->input('position')?? '',
+            'telephone'=>request()->input('telephone')?? '',
+            'email'=> request()->input('email')??'',
+
+
+            ]);
     }
 
     /**
@@ -71,6 +94,27 @@ class EmployeesController extends Controller
     public function update(UpdateEmployeesRequest $request, Employees $employees)
     {
         //
+        $employee = $employees;
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        $employee->update([
+            'user_id'=>Auth::user()->id,
+            'name'=>request()->input('name')?? '',
+            'employmentnumber'=>request()->input('employmentnumber')?? '',
+            'position'=>request()->input('position')?? '',
+            'telephone'=>request()->input('telephone')?? '',
+            'email'=> request()->input('email')??'',
+
+
+            ]);
     }
 
     /**

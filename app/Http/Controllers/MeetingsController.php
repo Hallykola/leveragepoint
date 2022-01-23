@@ -6,6 +6,9 @@ use App\Models\Meetings;
 use App\Http\Requests\StoreMeetingsRequest;
 use App\Http\Requests\UpdateMeetingsRequest;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 class MeetingsController extends Controller
 {
     /**
@@ -37,6 +40,25 @@ class MeetingsController extends Controller
     public function store(StoreMeetingsRequest $request)
     {
         //
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        Meetings::create([
+            'user_id'=>Auth::user()->id,
+            'meetingid'=>request()->input('meetingid')?? '',
+            'meetingdate'=>request()->input('meetingdate')?? '',
+            'purpose'=>request()->input('purpose')?? '',
+            'status'=>request()->input('status')?? '',
+
+
+            ]);
     }
 
     /**
@@ -71,6 +93,26 @@ class MeetingsController extends Controller
     public function update(UpdateMeetingsRequest $request, Meetings $meetings)
     {
         //
+        $meeting = $meetings;
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        $meeting->update([
+            'user_id'=>Auth::user()->id,
+            'meetingid'=>request()->input('meetingid')?? '',
+            'meetingdate'=>request()->input('meetingdate')?? '',
+            'purpose'=>request()->input('purpose')?? '',
+            'status'=>request()->input('status')?? '',
+
+
+            ]);
     }
 
     /**
