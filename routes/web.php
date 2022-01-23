@@ -21,6 +21,7 @@ Route::get('signin',[AuthenticatedSessionController::class,'signin'])->name('sig
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard',[PagesController::class,'dashboard'])->name('dashboard');
     Route::get('/profile',[PagesController::class,'profile'])->name('profile');
+    Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
 
 });
 require __DIR__.'/auth.php';

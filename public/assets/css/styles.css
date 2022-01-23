@@ -10,6 +10,7 @@
     font-family: "Poppins";
     src: url("/assets/fonts/Poppins/Poppins-Regular.ttf");
   }
+/* Signin.blade.php start */
 #siginSideB {
     background-image: url('/assets/img/signin/676345(4)2.png');
     background-repeat: no-repeat;
@@ -67,3 +68,29 @@
         font-size: 20px;
     }
 }
+/* Signin.blade.php end */
+
+/* sideNav.blade.php start */
+
+.sideNav {
+    color: #FFFFFF;
+    background-color: #072B57;
+    min-height: 100vh;
+    position: relative;
+}
+.sideNavItem {
+    line-height: 45px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 20px;
+}
+.sideNavItem .active {
+    color: #00489F !important;
+    background-color: white;
+}
+.sideNavItem .logout {
+    position: absolute;
+    bottom: 0px;
+}
+/* sideNav.blade.php end */
