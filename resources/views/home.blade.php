@@ -50,7 +50,7 @@
   <!-- Sidebar -->
 
   <!-- Navbar -->
-  <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white ">
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
@@ -221,7 +221,10 @@
 
 <!--Main layout-->
 <main style="margin-top: 58px;">
-  <div class="container pt-4"></div>
+  <div class="container pt-4">
+
+
+  </div>
 </main>
 <!--Main layout-->
 
