@@ -15,6 +15,13 @@ class CreateLicenceAmmendentRequestsTable extends Migration
     {
         Schema::create('licence_ammendent_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
+            $table->string('applicantname');
+            $table->string('licencenumber');
+            $table->string('extra');
+            $table->string('applicantphonenumber');
+            $table->string('applicantemailaddress');
+            $table->string('applicantfax');
             $table->timestamps();
         });
     }

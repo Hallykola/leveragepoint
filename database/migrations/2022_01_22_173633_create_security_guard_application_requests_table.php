@@ -15,6 +15,7 @@ class CreateSecurityGuardApplicationRequestsTable extends Migration
     {
         Schema::create('security_guard_application_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('name');
             $table->string('placeofbirth');
             $table->string('dateofbirth');
@@ -35,19 +36,19 @@ class CreateSecurityGuardApplicationRequestsTable extends Migration
             $table->string('currentemployerphone');
             $table->string('currentemployerfax');
             $table->string('currentemployeremail');
-            $table->string('currentemployername');
+            //$table->string('currentemployername');
             $table->string('previousemployerdetails');
             $table->string('academicinfo');
             $table->string('exconvict');
             $table->string('convictiondetails');
             $table->string('contactpersondetails');
-            $table->string('currentemployername');
+            //$table->string('currentemployername');
             $table->string('supervisorsfullname');
             $table->string('supervisorsomangno');
             $table->string('supervisorspassportno');
             $table->string('supervisorslastaddress');
             $table->string('formeremployeepersonelno');
-            $table->string('supervisorsfullname');
+            $table->string('supervisorsfullnameagain');
 
             //
             $table->string('particularofservice');
@@ -62,7 +63,7 @@ class CreateSecurityGuardApplicationRequestsTable extends Migration
             $table->string('reasonfortermination');
             $table->string('formerparticularsofmisconduct');
             $table->string('disciplinaryproceedingdetail');
-            $table->string('supervisorsfullname');
+            $table->string('anothersupervisorsfullname');
             $table->string('validid');
             $table->string('healthcertificate');
             $table->string('supportingdocuments');

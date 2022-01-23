@@ -15,6 +15,7 @@ class CreateLicenceRenewalRequestsTable extends Migration
     {
         Schema::create('licence_renewal_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('licencenumber');
             $table->string('rejectedcancelledsurrendered');
             $table->string('numberofemployees');

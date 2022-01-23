@@ -15,6 +15,7 @@ class CreateChangeOwnershipRequestsTable extends Migration
     {
         Schema::create('change_ownership_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('applicantphone');
             $table->string('applicantaddress');
             $table->string('applicantfax');

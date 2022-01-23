@@ -15,6 +15,7 @@ class CreateSurrenderlicencesTable extends Migration
     {
         Schema::create('surrenderlicences', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('applicantname');
             $table->string('licencenumber');
             $table->string('reasonsforsurrendering');

@@ -15,6 +15,7 @@ class CreateTrainingsTable extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('module');
             $table->string('title');
             $table->string('status');

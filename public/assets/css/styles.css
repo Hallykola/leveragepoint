@@ -1,6 +1,15 @@
 * {
     /* outline: 1px solid red; */
 }
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+  }
+  @font-face {
+    font-family: "Poppins";
+    src: url("/assets/fonts/Poppins/Poppins-Regular.ttf");
+  }
 #siginSideB {
     background-image: url('/assets/img/signin/676345(4)2.png');
     background-repeat: no-repeat;
@@ -17,6 +26,8 @@
     color: #001307;
     font-weight: 700;
     font-size: 50px;
+    font-family: Montserrat;
+
 }
 #imglatop {
     width: 100%;
@@ -35,7 +46,7 @@
 @media screen and (max-width: 1440px) {
     #siginSideB {
         min-height: 80vh;
-    } 
+    }
 }
 
 @media screen and (max-width: 1280px) {

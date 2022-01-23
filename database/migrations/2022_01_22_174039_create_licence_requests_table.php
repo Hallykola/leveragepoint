@@ -15,6 +15,7 @@ class CreateLicenceRequestsTable extends Migration
     {
         Schema::create('licence_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->timestamps();
         });
     }

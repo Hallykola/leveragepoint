@@ -20,5 +20,7 @@ Route::get('signin',[AuthenticatedSessionController::class,'signin'])->name('sig
 
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard',[PagesController::class,'dashboard'])->name('dashboard');
+    Route::get('/profile',[PagesController::class,'profile'])->name('profile');
+
 });
 require __DIR__.'/auth.php';

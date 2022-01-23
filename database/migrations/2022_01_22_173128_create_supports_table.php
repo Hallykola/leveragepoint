@@ -15,6 +15,7 @@ class CreateSupportsTable extends Migration
     {
         Schema::create('supports', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('title');
             $table->string('category');
             $table->string('description');
