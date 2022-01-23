@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,16 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/',[PagesController::class, 'index'])->name('home');
+Route::get('signin',[AuthenticatedSessionController::class,'signin'])->name('signin');
+
+
+Route::middleware('auth')->group(function() {
+    Route::get('/dashboard',[PagesController::class,'dashboard'])->name('dashboard');
 });
-
-Route::get('/newregister', function () {
-    return view('registernew');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 require __DIR__.'/auth.php';

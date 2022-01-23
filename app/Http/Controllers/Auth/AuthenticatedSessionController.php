@@ -20,6 +20,12 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login');
     }
 
+    public function signin()
+    {
+        $pageTittle = 'SignIn';
+        return view('auth.signin',['pageTittle'=> $pageTittle]);
+    }
+
     /**
      * Handle an incoming authentication request.
      *
