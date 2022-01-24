@@ -2,10 +2,10 @@
     <div class="row p-3">
         <div class="col text-center sideNavTittle pt-3">
             <span>
-                <h3>
+                <h4>
                     <img src="/assets/img/sideNav/iconoir_app-notification.png" alt="">
                     <b>Leverage Point</b>
-                </h3>
+                </h4>
             </span>
         </div>
     </div>
@@ -91,7 +91,7 @@
                 <a class="ps-3" href="{{ route('dashboard')}}" style="color: inherit !important">Payments</a>
             </div>
         </div>
-        <div class="col-10 sideNavItem py-2">
+        <div class="col-10 sideNavItem pt-2 pb-5">
             <div class="container rounded
             @if($pageTittle == 'Reports')
                 active 

@@ -29,22 +29,24 @@ rel="stylesheet">
  <body>
 
     <!-- Start your project here-->
-    <div class="row">
-        <div class="col-3">
-            @include('components.sideNav')
-        </div>
-        <div class="col-9">
-            <div class="row">
-                <div class="col">
-                    @include('components.topBar')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 p-0">
+                @include('components.sideNav')
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div class="col">
+                        @include('components.topBar')
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        @yield('content')
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    @yield('content')
-                </div>
-            </div>
-        </div>
+        </div>        
     </div>
     <!-- End your project here-->
 
@@ -53,11 +55,8 @@ rel="stylesheet">
     type="text/javascript"
     src="{{ asset('js/mdb.min.js') }}">
 </script>
-<script>
-    // function Logout(){
-        
-    // }
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
  </body>
 
 

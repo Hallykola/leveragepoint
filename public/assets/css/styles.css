@@ -1,6 +1,6 @@
-* {
-    /* outline: 1px solid red; */
-}
+/* * {
+    outline: 1px solid red;
+} */
 
 @font-face {
     font-family: "Montserrat";
@@ -76,6 +76,7 @@
     color: #FFFFFF;
     background-color: #072B57;
     min-height: 100vh;
+    max-width: 395px;
     position: relative;
 }
 .sideNavItem {
@@ -91,6 +92,30 @@
 }
 .sideNavItem .logout {
     position: absolute;
-    bottom: 0px;
+    bottom: 10px;
 }
 /* sideNav.blade.php end */
+
+/* topBAr.balde.php start */
+
+.searchBar {
+    background-color: #c4c4c4b2;
+    border: #FFFFFF;
+    height: 50px;
+    width: 100%;
+    border-radius: 30px;
+    text-align: start;
+    padding-left: 50px;
+}
+
+.searchIcon {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}
+
+/* .bellIcon {
+    position: relative;
+    top: 10px;
+} */
+/* topBAr.balde.php end */
