@@ -6,6 +6,9 @@ use App\Models\LicenceRenewalRequest;
 use App\Http\Requests\StoreLicenceRenewalRequestRequest;
 use App\Http\Requests\UpdateLicenceRenewalRequestRequest;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 class LicenceRenewalRequestController extends Controller
 {
     /**
@@ -37,6 +40,31 @@ class LicenceRenewalRequestController extends Controller
     public function store(StoreLicenceRenewalRequestRequest $request)
     {
         //
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        LicenceRenewalRequest::create([
+            'user_id'=>Auth::user()->id,
+            'licencenumber'=>request()->input('licencenumber')?? '',
+            'rejectedcancelledsurrendered'=>request()->input('rejectedcancelledsurrendered')?? '',
+            'numberofemployees'=>request()->input('numberofemployees')?? '',
+            'validid'=>request()->input('validid')?? '',
+            'taxclearance'=> request()->input('taxclearance')??'',
+            'otherdocuments'=> request()->input('otherdocuments')??'',
+            'applicantname'=>request()->input('applicantname')?? '',
+            'applicantaddress'=>request()->input('applicantaddress')?? '',
+            'privateserviceappliedfor'=>request()->input('privateserviceappliedfor')?? '',
+            'directorsofapplicant'=> request()->input('directorsofapplicant')??'',
+            'beneficialshareholders'=> request()->input('beneficialshareholders')??'',
+
+            ]);
     }
 
     /**
@@ -71,6 +99,32 @@ class LicenceRenewalRequestController extends Controller
     public function update(UpdateLicenceRenewalRequestRequest $request, LicenceRenewalRequest $licenceRenewalRequest)
     {
         //
+        //$licenceRenewalRequest = $licenceRenewalRequest;
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        $licenceRenewalRequest->update([
+            'user_id'=>Auth::user()->id,
+            'licencenumber'=>request()->input('licencenumber')?? '',
+            'rejectedcancelledsurrendered'=>request()->input('rejectedcancelledsurrendered')?? '',
+            'numberofemployees'=>request()->input('numberofemployees')?? '',
+            'validid'=>request()->input('validid')?? '',
+            'taxclearance'=> request()->input('taxclearance')??'',
+            'otherdocuments'=> request()->input('otherdocuments')??'',
+            'applicantname'=>request()->input('applicantname')?? '',
+            'applicantaddress'=>request()->input('applicantaddress')?? '',
+            'privateserviceappliedfor'=>request()->input('privateserviceappliedfor')?? '',
+            'directorsofapplicant'=> request()->input('directorsofapplicant')??'',
+            'beneficialshareholders'=> request()->input('beneficialshareholders')??'',
+
+            ]);
     }
 
     /**

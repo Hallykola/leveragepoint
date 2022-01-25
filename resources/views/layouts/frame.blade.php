@@ -8,7 +8,7 @@
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     
+
      <title>{{$tittle}}</title>
 
  <!-- import Font Awesome -->
@@ -23,7 +23,7 @@ rel="stylesheet">
    <link rel="stylesheet" href="/css/mdb.min.css" />
 
    <link rel="stylesheet" href="/assets/css/styles.css" />
-
+   @livewireStyles
    @yield('css')
  </head>
  <body>
@@ -37,7 +37,7 @@ rel="stylesheet">
     type="text/javascript"
     src="{{ asset('js/mdb.min.js') }}">
 </script>
-
+ @livewireScripts
  </body>
 
 

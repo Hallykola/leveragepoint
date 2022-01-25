@@ -6,6 +6,11 @@ use App\Models\Payments;
 use App\Http\Requests\StorePaymentsRequest;
 use App\Http\Requests\UpdatePaymentsRequest;
 
+use App\Models\User;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 class PaymentsController extends Controller
 {
     /**
@@ -37,6 +42,31 @@ class PaymentsController extends Controller
     public function store(StorePaymentsRequest $request)
     {
         //
+
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        Payments::create([
+            'user_id'=>Auth::user()->id,
+            'paymentdate'=>request()->input('paymentdate')?? '',
+            'paymenttype'=>request()->input('paymenttype')?? '',
+            'amount'=>request()->input('amount')?? '',
+            'currency'=>request()->input('currency')?? '',
+            'paymentstatus'=> request()->input('paymentstatus')??'',
+            'creditcardno'=> request()->input('creditcardno')??'',
+            'cardtype'=>request()->input('cardtype')?? '',
+            'expiration'=>request()->input('expiration')?? '',
+            'security'=>request()->input('security')?? '',
+            'billingaddress'=>request()->input('billingaddress')?? '',
+
+            ]);
     }
 
     /**
@@ -71,6 +101,31 @@ class PaymentsController extends Controller
     public function update(UpdatePaymentsRequest $request, Payments $payments)
     {
         //
+        $payment = $payments;
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+       $payment->update([
+            'user_id'=>Auth::user()->id,
+            'paymentdate'=>request()->input('paymentdate')?? '',
+            'paymenttype'=>request()->input('paymenttype')?? '',
+            'amount'=>request()->input('amount')?? '',
+            'currency'=>request()->input('currency')?? '',
+            'paymentstatus'=> request()->input('paymentstatus')??'',
+            'creditcardno'=> request()->input('creditcardno')??'',
+            'cardtype'=>request()->input('cardtype')?? '',
+            'expiration'=>request()->input('expiration')?? '',
+            'security'=>request()->input('security')?? '',
+            'billingaddress'=>request()->input('billingaddress')?? '',
+
+            ]);
     }
 
     /**
