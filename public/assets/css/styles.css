@@ -76,7 +76,6 @@
     color: #FFFFFF;
     background-color: #072B57;
     min-height: 100vh;
-    max-width: 395px;
     position: relative;
 }
 .sideNavItem {
@@ -111,11 +110,67 @@
 .searchIcon {
     position: absolute;
     right: 30px;
-    top: 20px;
+    top: 10px;
 }
 
-/* .bellIcon {
-    position: relative;
-    top: 10px;
-} */
 /* topBAr.balde.php end */
+
+/* dashBoard.blade.php start*/
+.welcomeTab {
+    background-color: #145FB9;
+    border-radius: 10px;
+    color: #FFFFFF;
+}
+.TheadBlue {
+    background-color: #006BEA !important;
+    color: #FFFFFF;
+    font-weight: 700 !important;
+}
+
+.statusG {
+    background-color: #ACE3B5;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    color: #2ea842;
+}
+
+.statusR {
+    background-color: #FFDBD3;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    color: #e68671;
+}
+
+.TheadRed {
+    background-color: #EE6243 !important;
+    color: #FFFFFF;
+    font-weight: 700 !important;
+}
+
+.checkText {
+    font-size: 12px;
+}
+
+.quickLinks {
+    background-color: #ddadad70;
+    color: #565555;
+    line-height: 35px;
+}
+.quickLinks a {
+    color: #565555;
+}
+.notifications {
+    background-color: #F8F8F8;
+    border-radius: 10px 0px 0px 10px;
+    border-left: 5px solid #18CF77;
+}
+
+.notiText {
+    font-size: 10px;
+    
+}
+.notiRed {
+    font-size: 8px;
+    color: #E33F1B;
+}
+/* dashBoard.blade.php end*/

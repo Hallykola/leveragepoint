@@ -12,9 +12,9 @@
      <title>{{$tittle}}</title>
 
  <!-- import Font Awesome -->
-     <link
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> --}}
+
 
    <!-- import Material Icons from Google Fonts -->
    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
@@ -34,7 +34,7 @@ rel="stylesheet">
             <div class="col-3 p-0">
                 @include('components.sideNav')
             </div>
-            <div class="col-9">
+            <div class="col" style="height: 100vh;overflow-y: scroll;">
                 <div class="row">
                     <div class="col">
                         @include('components.topBar')
