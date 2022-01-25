@@ -15,6 +15,12 @@ class EmployeesFactory extends Factory
     {
         return [
             //
+            'name'=>$this->faker->name(),
+            'user_id'=>$this->faker->randomNumber(),
+            'email'=>$this->faker->unique()->safeEmail(),
+            'telephone'=>$this->faker->phoneNumber(),
+            'position'=>$this->faker->title(),
+            'employmentnumber'=>$this->faker->phoneNumber()
         ];
     }
 }

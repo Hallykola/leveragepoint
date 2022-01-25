@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Database\Factories\EmployeesFactory;
 use Illuminate\Database\Seeder;
 
 class EmployeesSeeder extends Seeder
@@ -13,6 +14,6 @@ class EmployeesSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }
