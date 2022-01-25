@@ -20,6 +20,20 @@ class CreateMeetingsTable extends Migration
             $table->string('meetingdate');
             $table->string('purpose');
             $table->string('status');
+            $table->string('meetingnumber');
+            $table->string('facilitator');
+            $table->string('meetingcalledby');
+            $table->string('meetingtype');
+            $table->string('notetaker');
+            $table->string('timekeeper');
+            $table->string('subject');
+            $table->string('startdatentime');
+            $table->string('enddatentime');
+            $table->string('location');
+            $table->string('label');
+            $table->string('status');
+            $table->string('description');
+
             $table->timestamps();
         });
     }

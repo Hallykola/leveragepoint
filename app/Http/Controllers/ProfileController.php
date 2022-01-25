@@ -125,7 +125,7 @@ class ProfileController extends Controller
         ] );
 
         $valididurl = $this->saveimage('valididurl');
-        
+
         $myprofile->update([
             'user_id'=>Auth::user()->id,
             'firstname'=>request()->input('firstname')?? '',
