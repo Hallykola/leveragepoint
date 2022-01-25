@@ -11,8 +11,9 @@ class PagesController extends Controller
         return view('home');
     }
 
-    public function dashboard(){
-        return view('dashboard');
+    public function dashboard(Request $request){
+        $pageTittle = 'Dashboard';
+        return view('dashBoard', ['pageTittle' => $pageTittle]);
     }
 
     public function profile(){

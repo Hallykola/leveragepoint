@@ -1,6 +1,6 @@
-* {
-    /* outline: 1px solid red; */
-}
+/* * {
+    outline: 1px solid red;
+} */
 
 @font-face {
     font-family: "Montserrat";
@@ -10,6 +10,7 @@
     font-family: "Poppins";
     src: url("/assets/fonts/Poppins/Poppins-Regular.ttf");
   }
+/* Signin.blade.php start */
 #siginSideB {
     background-image: url('/assets/img/signin/676345(4)2.png');
     background-repeat: no-repeat;
@@ -67,3 +68,109 @@
         font-size: 20px;
     }
 }
+/* Signin.blade.php end */
+
+/* sideNav.blade.php start */
+
+.sideNav {
+    color: #FFFFFF;
+    background-color: #072B57;
+    min-height: 100vh;
+    position: relative;
+}
+.sideNavItem {
+    line-height: 45px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 20px;
+}
+.sideNavItem .active {
+    color: #00489F !important;
+    background-color: white;
+}
+.sideNavItem .logout {
+    position: absolute;
+    bottom: 10px;
+}
+/* sideNav.blade.php end */
+
+/* topBAr.balde.php start */
+
+.searchBar {
+    background-color: #c4c4c4b2;
+    border: #FFFFFF;
+    height: 50px;
+    width: 100%;
+    border-radius: 30px;
+    text-align: start;
+    padding-left: 50px;
+}
+
+.searchIcon {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+}
+
+/* topBAr.balde.php end */
+
+/* dashBoard.blade.php start*/
+.welcomeTab {
+    background-color: #145FB9;
+    border-radius: 10px;
+    color: #FFFFFF;
+}
+.TheadBlue {
+    background-color: #006BEA !important;
+    color: #FFFFFF;
+    font-weight: 700 !important;
+}
+
+.statusG {
+    background-color: #ACE3B5;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    color: #2ea842;
+}
+
+.statusR {
+    background-color: #FFDBD3;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    color: #e68671;
+}
+
+.TheadRed {
+    background-color: #EE6243 !important;
+    color: #FFFFFF;
+    font-weight: 700 !important;
+}
+
+.checkText {
+    font-size: 12px;
+}
+
+.quickLinks {
+    background-color: #ddadad70;
+    color: #565555;
+    line-height: 35px;
+}
+.quickLinks a {
+    color: #565555;
+}
+.notifications {
+    background-color: #F8F8F8;
+    border-radius: 10px 0px 0px 10px;
+    border-left: 5px solid #18CF77;
+}
+
+.notiText {
+    font-size: 10px;
+    
+}
+.notiRed {
+    font-size: 8px;
+    color: #E33F1B;
+}
+/* dashBoard.blade.php end*/
