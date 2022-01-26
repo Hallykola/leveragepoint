@@ -1,4 +1,4 @@
-@extends('layouts.frame')
+@extends('layouts.dashBoardframe')
 
 @section('content')
 <form action="/updateprofile" method="post" enctype="multipart/form-data">
