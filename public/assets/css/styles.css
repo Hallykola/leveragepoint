@@ -128,17 +128,17 @@
 }
 
 .statusG {
-    background-color: #ACE3B5;
+    background-color: #18CF77;
     border-radius: 10px;
     padding: 10px 20px 10px 20px;
-    color: #2ea842;
+    color: #FFFFFF;
 }
 
 .statusR {
-    background-color: #FFDBD3;
+    background-color: #EE6243;
     border-radius: 10px;
     padding: 10px 20px 10px 20px;
-    color: #e68671;
+    color: #FFFFFF;
 }
 
 .TheadRed {
@@ -174,3 +174,21 @@
     color: #E33F1B;
 }
 /* dashBoard.blade.php end*/
+
+/* Payments.blade.php start */
+.PaymentThead {
+    background-color: #145FB9 !important;
+    color: #FFFFFF;
+    font-weight: 700 !important;
+}
+
+.PaymentTbody {
+    background-color: #D5E7FD;
+    border-top: 15px solid #FFFFFF;
+    border-bottom: 15px solid #FFFFFF;
+}
+.PaymentTbody td {
+    font-weight: 500;
+    font-size: 16px;
+}
+/* Payments.blade.php end */
