@@ -17,6 +17,7 @@ class CreateActionplansTable extends Migration
             $table->id();
             $table->string('assesmentno');
             $table->string('status');
+            $table->string('businessid');
             $table->string('interventiondate');
             $table->string('interventiontype');
             $table->string('summary');

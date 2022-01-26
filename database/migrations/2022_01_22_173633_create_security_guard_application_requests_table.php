@@ -58,6 +58,7 @@ class CreateSecurityGuardApplicationRequestsTable extends Migration
             $table->string('emailaddress');
             $table->string('address');
             $table->string('postaladdress');
+            $table->string('position');
             $table->string('dateoftermination');
             $table->string('capacityemployedin');
             $table->string('reasonfortermination');
@@ -70,6 +71,7 @@ class CreateSecurityGuardApplicationRequestsTable extends Migration
             $table->string('anotherfullname');
             $table->string('anotherfullnameposition');
             $table->string('fullnameagain');
+            $table->string('status');
             $table->timestamps();
         });
     }

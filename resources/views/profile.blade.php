@@ -8,5 +8,7 @@
 
     <input type="submit" value="submit">
 </form>
-<livewire:employees/>
+<livewire:paymentslv/>
+
+
 @endsection

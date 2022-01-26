@@ -1,6 +1,5 @@
 <div>
-    {{-- Stop trying to control. --}}
-    <h1>Employees </h1>
+    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
     <div class="table-responsive">
 <div class="container">
 <div class="row">
@@ -18,6 +17,8 @@
                         <tr>
 
                             <th scope="col" class="TheadBlue" style="border-radius: 10px 0px 0px 0px;">Name</th>
+                            <th scope="col" class="TheadBlue" style="border-radius: 10px 0px 0px 0px;">Name</th>
+                            <th scope="col" class="TheadBlue" style="border-radius: 10px 0px 0px 0px;">Name</th>
                             <th scope="col" class="TheadBlue"  >Employment Number </th>
                             <th scope="col" class="TheadBlue" >position</th>
                             <th scope="col" class="TheadBlue" >Telephone</th>
@@ -27,20 +28,24 @@
                     <tbody>
                         <tr >
                         <td><input wire:model.debounce.300ms="searchname" type="text"  name="search" placeholder="Search name"/> </td>
+                        <td><input wire:model.debounce.300ms="searchname" type="text"  name="search" placeholder="Search name"/> </td>
+                        <td><input wire:model.debounce.300ms="searchname" type="text"  name="search" placeholder="Search name"/> </td>
                         <td><input wire:model.debounce.300ms="searchemploymentnumber" type="text"  name="search" placeholder="Search name employment number"/></td>
                         <td><input wire:model.debounce.300ms="searchposition" type="text"  name="search" placeholder="Search position"/></td>
                         <td><input wire:model.debounce.300ms="searchemail" type="text"  name="search" placeholder="Search email"/></td>
                         <td><input wire:model.debounce.300ms="searchtelephone" type="text"  name="search " placeholder="Search telephone"/></td>
 
                         </tr>
-    @foreach($employees as $employee)
+    @foreach($companies as $company)
 
         <tr>
-        <td>{{$employee->name}}</td>
-        <td>{{$employee->employmentnumber}}</td>
-        <td>{{$employee->position}}</td>
-        <td>{{$employee->telephone}}</td>
-        <td>{{$employee->email}}</td>
+        <td>{{$company->name}}</td>
+        <td>{{$company->employmentnumber}}</td>
+        <td>{{$company->position}}</td>
+        <td>{{$company->telephone}}</td>
+        <td>{{$company->email}}</td>
+        <td>{{$company->email}}</td>
+        <td>{{$company->shareholders}}</td>
 
       </tr>
 
@@ -50,6 +55,6 @@
             </div>
         </div>
 
-  {{ $employees->onEachSide(3)->links('pagination::bootstrap-4') }}
+  {{ $companies->onEachSide(3)->links('pagination::bootstrap-4') }}
 </div>
 </div>
