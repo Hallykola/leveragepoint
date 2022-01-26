@@ -20,12 +20,13 @@ Route::get('signin',[AuthenticatedSessionController::class,'signin'])->name('sig
 
 
 Route::middleware('auth')->group(function() {
-    Route::get('/dashboard',[PagesController::class,'dashboard'])->name('dashboard');
-    Route::get('/profile',[PagesController::class,'profile'])->name('profile');
+  Route::get('/dashboard',[PagesController::class,'dashboard'])->name('dashboard');
+  Route::get('/profile',[PagesController::class,'profile'])->name('profile');
+  Route::get('/payments',[PagesController::class,'Payments'])->name('payments');
 
-    Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
+  Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
   Route::post('/updateprofile',[ProfileController::class,'update'])->name('updateprofile');
-    Route::get('/editprofile',[ProfileController::class,'create'])->name('editprofile');
+  Route::get('/editprofile',[ProfileController::class,'create'])->name('editprofile');
 
 
 });

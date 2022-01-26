@@ -18,8 +18,13 @@ class PagesController extends Controller
 
     public function profile(){
         $user  = Auth::user();
+        $pageTittle = 'Profile';
+        // dd($user->notifications->count());
+        return view('profile',['pageTittle' => $pageTittle]);
+    }
 
-        dd($user->notifications->count());
-        return view('profile');
+    public function Payments(){
+        $pageTittle = 'Payments';
+        return view('Payments',['pageTittle' => $pageTittle]);
     }
 }

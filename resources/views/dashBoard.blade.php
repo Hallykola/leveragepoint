@@ -102,7 +102,7 @@
                 </table>
             </div>
             <div class="col-7">
-                <table  class="table">
+                <table  class="table table-borderless">
                     <thead>
                         <tr>
                             <th class="TheadRed" style="border-radius: 10px 10px 0px 0px">Quick Links</th>
@@ -207,7 +207,7 @@
     <div class="col-4 border-start">
         <div class="row">
             <div class="col">
-                <table class="table table-striped">
+                <table class="table">
                     <thead>
                         <tr>
                             <th class="TheadBlue" style="border-radius: 10px 10px 0px 0px;">Employee </th>
@@ -227,7 +227,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <table class="table table-striped">
+                <table class="table">
                     <thead>
                         <tr>
                             <th class="TheadBlue" style="border-radius: 10px 10px 0px 0px;">Training Status </th>
@@ -247,7 +247,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <table class="table border">
+                <table class="table table-borderless border">
                     <thead>
                         <tr>
                             <th class="TheadRed" style="border-radius: 10px 10px 0px 0px;">
@@ -256,14 +256,16 @@
                                         Notification Panel
                                     </div>
                                     <div class="col-5">
-                                        <div class="row">
-                                            <div class="col-9">
-                                                View All 
+                                        <a href="{{ route('dashboard')}}">
+                                            <div class="row">
+                                                <div class="col-9" style="color: #FFFFFF">
+                                                    View All 
+                                                </div>
+                                                <div class="col-3">
+                                                    <img src="/assets/img/dashbord/Vector2.svg">
+                                                </div>
                                             </div>
-                                            <div class="col-3">
-                                                <img src="/assets/img/dashbord/Vector2.svg">
-                                            </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
                             </th>
