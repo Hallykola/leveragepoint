@@ -24,21 +24,21 @@
                         <td>Licence Renewal</td>
                         <td>500.00</td>
                         <td>BWP</td>
-                        <td><span class="statusG">Accepted</span></td>
+                        <td class="text-end"><span class="statusG">Accepted</span></td>
                     </tr>
                     <tr class="PaymentTbody">
                         <td>02-01-2022</td>
                         <td>Licence Renewal</td>
                         <td>500.00</td>
                         <td>BWP</td>
-                        <td><span class="statusG">Accepted</span></td>
+                        <td class="text-end"><span class="statusG">Accepted</span></td>
                     </tr>
                     <tr class="PaymentTbody">
                         <td>02-01-2022</td>
                         <td>Licence Renewal</td>
                         <td>500.00</td>
                         <td>BWP</td>
-                        <td><span class="statusR">Declined</span></td>
+                        <td class="text-end"><span class="statusR">Declined</span></td>
                     </tr>
                 </tbody>
             </table>

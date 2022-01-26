@@ -31,7 +31,7 @@
     <!-- Start your project here-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-3 p-0">
+            <div class="col-2 p-0">
                 @include('components.sideNav')
             </div>
             <div class="col" style="height: 100vh;overflow-y: scroll;">
