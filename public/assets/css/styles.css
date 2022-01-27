@@ -84,7 +84,7 @@
     justify-content: start;
     align-items: center;
     font-size: 14px;
-    padding-top: 3px;
+    padding-top: 5px;
     padding-bottom: 3px;
 }
 
@@ -201,3 +201,16 @@
     font-size: 16px;
 }
 /* Payments.blade.php end */
+
+/* Licence.blade.php start */
+.LicenceTbody {
+    background-color: #D5E7FD;
+    border-top: 15px solid #FFFFFF;
+    border-bottom: 15px solid #FFFFFF;
+}
+.LicenceTbody td{
+    font-weight: 700;
+    font-size: 16px;
+    color: #5B5B5B;
+}
+/* Licence.blade.php end */

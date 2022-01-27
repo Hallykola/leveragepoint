@@ -146,7 +146,7 @@
         <div class="col-12 sideNavItem">
             @if($pageTittle == 'Licences')
                 <div class="container-fluid active">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('licences') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/ph_medal-light.png" width="30px">
                         </div>
@@ -155,7 +155,7 @@
                 </div>
             @else
                 <div class="container-fluid">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('licences') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/licences.png" width="30px">
                         </div>

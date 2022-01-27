@@ -27,4 +27,8 @@ class PagesController extends Controller
         $pageTittle = 'Payments';
         return view('Payments',['pageTittle' => $pageTittle]);
     }
+    public function Licences(){
+        $pageTittle = 'Licences';
+        return view('Licences',['pageTittle' => $pageTittle]);
+    }
 }
