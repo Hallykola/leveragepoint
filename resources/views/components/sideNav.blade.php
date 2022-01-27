@@ -80,7 +80,7 @@
         <div class="col-12 sideNavItem">
             @if($pageTittle == 'Support')
                 <div class="container-fluid active">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('support') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/ri_customer-service-2-fill.png" width="30px">
                         </div>
@@ -89,7 +89,7 @@
                 </div>
             @else
                 <div class="container-fluid">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('support') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/rcustomer-service.png" width="30px">
                         </div>
@@ -168,7 +168,7 @@
         <div class="col-12 sideNavItem">
             @if($pageTittle == 'Meetings')
                 <div class="container-fluid active">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('meetings') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/Meeting.png" width="30px">
                         </div>
@@ -177,7 +177,7 @@
                 </div>
             @else
                 <div class="container-fluid">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('meetings') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/Meeting2.png" width="30px">
                         </div>
@@ -212,7 +212,7 @@
         <div class="col-12 sideNavItem pt-2 pb-5">
             @if($pageTittle == 'Reports')
                 <div class="container-fluid active">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('reports') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/Group.png" width="30px">
                         </div>
@@ -221,7 +221,7 @@
                 </div>
             @else
                 <div class="container-fluid">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('reports') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/reports.png" width="30px">
                         </div>
@@ -231,7 +231,7 @@
             @endif
         </div>
         {{-- logout --}}
-        <div class="col-12 sideNavItem">
+        <div class="col-12 sideNavItem text-center">
             <div class="container logout">
                 <img src="/assets/img/sideNav/Vector3.png" alt="">
                 <a class="ps-3" href="/logout" style="color: inherit !important">Logout</a>

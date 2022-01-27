@@ -27,8 +27,24 @@ class PagesController extends Controller
         $pageTittle = 'Payments';
         return view('Payments',['pageTittle' => $pageTittle]);
     }
+
     public function Licences(){
         $pageTittle = 'Licences';
         return view('Licences',['pageTittle' => $pageTittle]);
+    }
+
+    public function Meetings(){
+        $pageTittle = 'Meetings';
+        return view('Meetings',['pageTittle' => $pageTittle]);
+    }
+
+    public function Reports(){
+        $pageTittle = 'Reports';
+        return view('Reports',['pageTittle' => $pageTittle]);
+    }
+
+    public function Support(){
+        $pageTittle = 'Support';
+        return view('Support',['pageTittle' => $pageTittle]);
     }
 }
