@@ -22,6 +22,13 @@ class CreateLicenceRenewalRequestsTable extends Migration
             $table->string('validid');
             $table->string('taxclearance');
             $table->string('otherdocuments');
+            $table->string('applicationnumber');
+            $table->string('applicantname');
+            $table->string('town');
+            $table->string('submittedby');
+            $table->string('applicationdate');
+            $table->string('status');
+            $table->string('applicant');
 
             $table->string('applicantname');
             $table->string('applicantaddress');

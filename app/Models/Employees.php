@@ -35,8 +35,6 @@ class Employees extends Model
                         ['telephone', 'like', '%'.$searchtelephone.'%'],
 
                     ]);
-               
-
 
     }
 }

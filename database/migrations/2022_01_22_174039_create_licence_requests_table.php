@@ -16,6 +16,15 @@ class CreateLicenceRequestsTable extends Migration
         Schema::create('licence_requests', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
+            $table->string('type');
+            $table->string('applicationnumber');
+            $table->string('applicantname');
+            $table->string('town');
+            $table->string('submittedby');
+            $table->string('applicationdate');
+            $table->string('status');
+            $table->string('applicant');
+
             $table->timestamps();
         });
     }

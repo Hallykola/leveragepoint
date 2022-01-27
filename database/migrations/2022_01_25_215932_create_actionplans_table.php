@@ -27,7 +27,7 @@ class CreateActionplansTable extends Migration
             $table->string('attachments');
             $table->string('comments');
             $table->string('statushistory');
-            $table->string('audithistory');
+            $table->string('audithistory');    
 
             $table->timestamps();
         });

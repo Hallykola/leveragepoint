@@ -16,9 +16,12 @@ class CreateDirectorsTable extends Migration
         Schema::create('directors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('percentage');
+            $table->string('sharenumber');
             $table->string('address');
             $table->string('contact');
             $table->string('nationality');
+
             $table->string('form');
             $table->string('extra');
 

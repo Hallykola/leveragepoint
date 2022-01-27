@@ -22,7 +22,6 @@ class CreateChangeOwnershipRequestsTable extends Migration
             $table->string('transfereeid');
             $table->string('clearancecertificate');
             $table->string('otherdocuments');
-            //
             $table->string('applicantname');
             $table->string('licencenumber');
             $table->string('nameoftransferee');

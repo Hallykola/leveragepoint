@@ -17,11 +17,11 @@
                     <thead>
                         <tr>
 
-                            <th scope="col" class="TheadBlue" style="border-radius: 10px 0px 0px 0px;">Date Created</th>
-                            <th scope="col" class="TheadBlue" >Business ID tag</th>
-                            <th scope="col" class="TheadBlue" >Type</th>
-                            <th scope="col" class="TheadBlue">Intervention Date</th>
-                            <th scope="col" class="TheadBlue"  >Created by </th>
+                            <th scope="col" class="TheadBlue" style="border-radius: 10px 0px 0px 0px;">Name</th>
+                            <th scope="col" class="TheadBlue" >Current Employer Phone</th>
+                            <th scope="col" class="TheadBlue" >Position</th>
+                            <th scope="col" class="TheadBlue">Telephone</th>
+                            <th scope="col" class="TheadBlue"  >Email Address </th>
                             <th scope="col" class="TheadBlue" >Status</th>
                             <th scope="col" class="TheadBlue" style="border-radius: 10px 0px 0px 0px;">Edit</th>
 
@@ -29,12 +29,12 @@
                     </thead>
                     <tbody>
                         <tr >
-                        <td><input wire:model.debounce.300ms="searchdatecreated" type="text"  name="search" placeholder="Search by date created"/> </td>
-                        <td><input wire:model.debounce.300ms="searchbusinessidtag" type="text"  name="search" placeholder="Search by business id tag"/> </td>
-                        <td><input wire:model.debounce.300ms="searchtype" type="text"  name="search" placeholder="Search by type"/></td>
-                        <td><input wire:model.debounce.300ms="searchinterventiondate" type="text"  name="search" placeholder="Search by intervention date"/></td>
-                        <td><input wire:model.debounce.300ms="searchcreatedby" type="text"  name="search " placeholder="Search by creator"/></td>
-                        <td><input wire:model.debounce.300ms="searchstatus" type="text"  name="search" placeholder="Search by status"/></td>
+                        <td><input wire:model.debounce.300ms="name" type="text"  name="search" placeholder="Search by name"/> </td>
+                        <td><input wire:model.debounce.300ms="currentemployerphone" type="text"  name="search" placeholder="Search by current employer phone"/> </td>
+                        <td><input wire:model.debounce.300ms="position" type="text"  name="search" placeholder="Search by position"/></td>
+                        <td><input wire:model.debounce.300ms="telephone" type="text"  name="search" placeholder="Search by telephone"/></td>
+                        <td><input wire:model.debounce.300ms="emailaddress" type="text"  name="search " placeholder="Search by email address"/></td>
+                        <td><input wire:model.debounce.300ms="status" type="text"  name="search" placeholder="Search by status"/></td>
                         <td></td>
                     </tr>
     @foreach($securityguards as $securityguard)

@@ -23,6 +23,7 @@ class CreateLicencesTable extends Migration
             $table->string('receiptnumber');
             $table->string('formid');
             $table->string('paymentid');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -22,6 +22,13 @@ class CreateLicenceAmmendentRequestsTable extends Migration
             $table->string('applicantphonenumber');
             $table->string('applicantemailaddress');
             $table->string('applicantfax');
+
+            $table->string('applicationnumber');
+            $table->string('town');
+            $table->string('submittedby');
+            $table->string('applicationdate');
+            $table->string('status');
+            $table->string('applicant');
             $table->timestamps();
         });
     }

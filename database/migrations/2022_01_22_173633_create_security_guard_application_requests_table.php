@@ -17,6 +17,9 @@ class CreateSecurityGuardApplicationRequestsTable extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('name');
+            $table->string('applicationnumber');
+            $table->string('type');
+            $table->string('applicationdate');
             $table->string('placeofbirth');
             $table->string('dateofbirth');
             $table->string('gender');

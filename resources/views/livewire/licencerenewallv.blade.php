@@ -1,5 +1,5 @@
 <div>
-    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
+    {{-- In work, do what you enjoy. --}}
     <div class="table-responsive">
 <div class="container">
 <div class="row">
@@ -16,36 +16,36 @@
                     <thead>
                         <tr>
 
-                            <th scope="col" class="TheadBlue" style="border-radius: 10px 0px 0px 0px;">Name</th>
-                            <th scope="col" class="TheadBlue" style="border-radius: 10px 0px 0px 0px;">Name</th>
-                            <th scope="col" class="TheadBlue" style="border-radius: 10px 0px 0px 0px;">Name</th>
-                            <th scope="col" class="TheadBlue"  >Employment Number </th>
-                            <th scope="col" class="TheadBlue" >position</th>
-                            <th scope="col" class="TheadBlue" >Telephone</th>
-                            <th scope="col" class="TheadBlue" style="border-radius: 0px 10px 0px 0px;">Email </th>
+                            <th scope="col" class="TheadBlue" style="border-radius: 10px 0px 0px 0px;">Application number</th>
+                            <th scope="col" class="TheadBlue" >Applicant name</th>
+                            <th scope="col" class="TheadBlue" >Town</th>
+                            <th scope="col" class="TheadBlue"  >Submitted by </th>
+                            <th scope="col" class="TheadBlue" >Application date</th>
+                            <th scope="col" class="TheadBlue" >Status</th>
+                            <th scope="col" class="TheadBlue" style="border-radius: 0px 10px 0px 0px;">Applicant </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr >
-                        <td><input wire:model.debounce.300ms="searchname" type="text"  name="search" placeholder="Search name"/> </td>
-                        <td><input wire:model.debounce.300ms="searchname" type="text"  name="search" placeholder="Search name"/> </td>
-                        <td><input wire:model.debounce.300ms="searchname" type="text"  name="search" placeholder="Search name"/> </td>
-                        <td><input wire:model.debounce.300ms="searchemploymentnumber" type="text"  name="search" placeholder="Search name employment number"/></td>
-                        <td><input wire:model.debounce.300ms="searchposition" type="text"  name="search" placeholder="Search position"/></td>
-                        <td><input wire:model.debounce.300ms="searchemail" type="text"  name="search" placeholder="Search email"/></td>
-                        <td><input wire:model.debounce.300ms="searchtelephone" type="text"  name="search " placeholder="Search telephone"/></td>
+                        <td><input wire:model.debounce.300ms="applicationnumber" type="text"  name="search" placeholder="Search application number"/> </td>
+                        <td><input wire:model.debounce.300ms="applicantname" type="text"  name="search" placeholder="Search applicant names"/> </td>
+                        <td><input wire:model.debounce.300ms="town" type="text"  name="search" placeholder="Search town"/> </td>
+                        <td><input wire:model.debounce.300ms="submittedby" type="text"  name="search" placeholder="Search by who submitted"/></td>
+                        <td><input wire:model.debounce.300ms="aplicationdate" type="text"  name="search" placeholder="Search application date"/></td>
+                        <td><input wire:model.debounce.300ms="status" type="text"  name="search" placeholder="Search status"/></td>
+                        <td><input wire:model.debounce.300ms="applicant" type="text"  name="search " placeholder="Search applicants"/></td>
 
                         </tr>
-    @foreach($companies as $company)
+    @foreach($newlicences as $newlicence)
 
         <tr>
-        <td>{{$company->name}}</td>
-        <td>{{$company->employmentnumber}}</td>
-        <td>{{$company->position}}</td>
-        <td>{{$company->telephone}}</td>
-        <td>{{$company->email}}</td>
-        <td>{{$company->email}}</td>
-        <td>{{$company->shareholders}}</td>
+        <td>{{$newlicence->applicationnumber}}</td>
+        <td>{{$newlicence->applicantname}}</td>
+        <td>{{$newlicence->town}}</td>
+        <td>{{$newlicence->submittedby}}</td>
+        <td>{{$newlicence->aplicationdate}}</td>
+        <td>{{$newlicence->status}}</td>
+        <td>{{$newlicence->applicant}}</td>
 
       </tr>
 
@@ -55,6 +55,6 @@
             </div>
         </div>
 
-  {{ $companies->onEachSide(3)->links('pagination::bootstrap-4') }}
+  {{ $newlicences->onEachSide(3)->links('pagination::bootstrap-4') }}
 </div>
 </div>

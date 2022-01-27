@@ -21,7 +21,7 @@ class CreateActionItemsTable extends Migration
             $table->string('duedate');
             $table->string('delegatedto');
             $table->string('status');
-            $table->string('extra');
+            $table->string('extra');        
 
             $table->timestamps();
         });
