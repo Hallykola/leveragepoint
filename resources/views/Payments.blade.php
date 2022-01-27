@@ -15,7 +15,7 @@
                         <th class="PaymentThead">Payment Type</th>
                         <th class="PaymentThead">Amount</th>
                         <th class="PaymentThead">Currency</th>
-                        <th class="PaymentThead" style="border-radius: 0px 10px 0px 0px;">Status</th>
+                        <th class="PaymentThead text-center" style="border-radius: 0px 10px 0px 0px;">Status</th>
                     </tr>
                 </thead>
                 <tbody>

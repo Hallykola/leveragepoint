@@ -214,3 +214,25 @@
     color: #5B5B5B;
 }
 /* Licence.blade.php end */
+
+/* Support.blade.php start */
+.SupportForm {
+    background-color: #FFFFFF;
+}
+
+.SupportFormInput {
+    background-color: #72b2ff14;
+    border-radius: 10px;
+}
+
+.labels {
+    font-size: 16px;
+    color: #565555;
+    font-weight: 500;
+}
+.SupportFormText {
+    background-color: #72b2ff14;
+    border-radius: 10px;
+    height: 300px;
+}
+/* Support.blade.php end */

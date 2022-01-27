@@ -24,7 +24,9 @@ Route::middleware('auth')->group(function() {
   Route::get('/profile',[PagesController::class,'profile'])->name('profile');
   Route::get('/payments',[PagesController::class,'Payments'])->name('payments');
   Route::get('/licences', [PagesController::class, 'Licences'])->name('licences');
-
+  Route::get('/meetings',[PagesController::class, 'Meetings'])->name('meetings');
+  Route::get('/reports',[PagesController::class, 'Reports'])->name('reports');
+  Route::get('/support',[PagesController::class, 'Support'])->name('support');
 
   Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
   Route::post('/updateprofile',[ProfileController::class,'update'])->name('updateprofile');
