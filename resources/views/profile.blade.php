@@ -7,22 +7,26 @@
       <div class="pt-4">
         <!-- Tabs navs -->
         <ul class="nav nav-tabs nav-fill mb-3" id="ex1" role="tablist">
-          <li class="nav-item" role="presentation" style="border: 1px">
+          <li class="nav-item" role="presentation">
             <a class="nav-link active" id="ex2-tab-1" data-mdb-toggle="tab" href="#ex2-tabs-1" 
-             role="tab" aria-controls="ex2-tabs-1" aria-selected="true">
-              Link
+             role="tab" aria-controls="ex2-tabs-1" aria-selected="true" 
+             style="border-radius: 10px 0px 0px 10px;"
+             >
+             Basic Information
             </a>
           </li>
           <li class="nav-item" role="presentation">
             <a class="nav-link" id="ex2-tab-2" data-mdb-toggle="tab" href="#ex2-tabs-2"
               role="tab" aria-controls="ex2-tabs-2" aria-selected="false">
-                Very very very very long link
+              Security settings
             </a>
           </li>
           <li class="nav-item" role="presentation">
             <a class="nav-link" id="ex2-tab-3" data-mdb-toggle="tab" href="#ex2-tabs-3"
-              role="tab" aria-controls="ex2-tabs-3" aria-selected="false">
-                Another link
+              role="tab" aria-controls="ex2-tabs-3" aria-selected="false"
+              style="border-radius: 0px 10px 10px 0px;"
+              >
+              Uploaded documents
             </a>
           </li>
         </ul>

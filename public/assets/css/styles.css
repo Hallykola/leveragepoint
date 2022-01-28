@@ -243,4 +243,14 @@
     font-size: 15px;
     align-self: center;
 }
+#ex1 {
+    background-color: #EFEDED;
+    border-radius: 10px;
+}
+.nav-link.active {
+    background-color: #FFFFFF;
+    color: #00489F;
+    font-weight: 600;
+    border: 1px solid #0000001a;
+}
 /* profile.blade.php start */
