@@ -16,7 +16,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 */
 
 Route::get('/',[PagesController::class, 'index'])->name('home');
-Route::get('signin',[AuthenticatedSessionController::class,'signin'])->name('signin');
+Route::get('login',[AuthenticatedSessionController::class,'signin'])->name('login');
 
 
 Route::middleware('auth')->group(function() {
