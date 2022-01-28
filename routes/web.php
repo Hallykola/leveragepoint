@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Mail\NotificationEmail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,11 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 Route::get('/',[PagesController::class, 'index'])->name('home');
 Route::get('signin',[AuthenticatedSessionController::class,'signin'])->name('signin');
+
+Route::get('/sendtest',function(){
+    $details = ['title'=>'Test mail', 'body'=>'test mail from leverage point'];
+    Mail::to('haliruyusuf6@gmail.com')->send(new NotificationEmail($details));
+})->name('home');
 
 
 Route::middleware('auth')->group(function() {
