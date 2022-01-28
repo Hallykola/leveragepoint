@@ -253,4 +253,12 @@
     font-weight: 600;
     border: 1px solid #0000001a;
 }
+.documents {
+    border-radius: 30px;
+    background-color: #FF7F63;
+    width: 200px;
+    color: #FFFFFF;
+    font-size: 15px;
+    justify-content: space-between;
+}
 /* profile.blade.php start */
