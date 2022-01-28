@@ -8,16 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Licencerefusal extends Model
 {
     use HasFactory;
-    public static function searchand($search,$searchname,$searchemploymentnumber,$searchposition ,$searchemail,$searchtelephone){
-        return (empty($search) && empty($searchname)&&empty($searchemploymentnumber)&&empty($searchposition)&&empty($searchemail) && empty($searchtelephone)) ? static::query()  //->where('user_id', Auth::user()->id)
+    public static function searchand(
+        $refusalnumber,
+        $refusaldate,
+        $applicant,
+        $status
+        ){
+        return (
+            empty($refusalnumber)&&
+            empty($refusaldate)&&
+            empty($applicant)&&
+            empty($status)
+            ) ? static::query()  //->where('user_id', Auth::user()->id)
             :
             static::query()
                     ->where([
-                        ['name', 'like', '%'.$searchname.'%'],
-                        ['employmentnumber', 'like', '%'.$searchemploymentnumber.'%'],
-                        ['position', 'like', '%'.$searchposition.'%'],
-                        ['email', 'like', '%'.$searchemail.'%'],
-                        ['telephone', 'like', '%'.$searchtelephone.'%'],
+                        ['refusalnumber', 'like', '%'.$refusalnumber.'%'],
+                        ['refusaldate', 'like', '%'.$refusaldate.'%'],
+                        ['applicant', 'like', '%'.$applicant.'%'],
+                        ['status', 'like', '%'.$status.'%'],
 
                     ]);
 

@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
+
+    public function profiledetails(){
+        return view('profiledetails');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -77,7 +81,13 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile)
     {
-        //
+        //\
+        $user  = Auth::user();
+        if($user->profile==null){
+            $this->store();
+        }
+        $pageTittle = 'Profile';
+        return view('profile',['pageTittle' => $pageTittle, 'profiledetails'=>$user->profile]);
     }
 
     /**
@@ -102,7 +112,7 @@ class ProfileController extends Controller
     {
         $this->store();
         //
-        $myprofile =  Auth::user()->profile->refresh();
+        $myprofile =  Auth::user()->profile;
 
         $vreq = request()->validate([
         //     //'user_id'=>'required',
@@ -142,6 +152,9 @@ class ProfileController extends Controller
             'healthcertificateurl'=> request()->input('healthcertificateurl')??'',
             'accounttype'=> request()->input('accounttype')??'',
             ]);
+
+            $pageTittle = 'Profile';
+        return view('profile',['pageTittle' => $pageTittle, 'profiledetails'=>$myprofile]);
 
 
     }

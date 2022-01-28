@@ -29,8 +29,6 @@ class CreateLicenceRenewalRequestsTable extends Migration
             $table->string('applicationdate');
             $table->string('status');
             $table->string('applicant');
-
-            $table->string('applicantname');
             $table->string('applicantaddress');
             $table->string('privateserviceappliedfor');
             $table->string('directorsofapplicant');

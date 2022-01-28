@@ -20,7 +20,7 @@ class CreateContactpeopleTable extends Migration
             $table->string('contact');
             $table->string('nationality');
             $table->string('form');
-            $table->string('extra');
+            $table->string('extra');        
             $table->timestamps();
         });
     }

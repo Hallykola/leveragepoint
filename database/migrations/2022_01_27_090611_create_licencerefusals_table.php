@@ -19,7 +19,7 @@ class CreateLicencerefusalsTable extends Migration
             $table->string('refusalnumber');
             $table->string('refusaldate');
             $table->string('applicant');
-            $table->string('status');
+            $table->string('status');       
             $table->timestamps();
         });
     }

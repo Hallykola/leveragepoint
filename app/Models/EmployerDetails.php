@@ -8,16 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class EmployerDetails extends Model
 {
     use HasFactory;
-    public static function searchand($search,$searchname,$searchemploymentnumber,$searchposition ,$searchemail,$searchtelephone){
-        return (empty($search) && empty($searchname)&&empty($searchemploymentnumber)&&empty($searchposition)&&empty($searchemail) && empty($searchtelephone)) ? static::query()  //->where('user_id', Auth::user()->id)
+    public static function searchand(
+        $form,
+        $name,
+        $period,
+        $address
+        ){
+        return (
+            empty($form)&&
+            empty($name)&&
+            empty($period)&&
+            empty($address)
+            ) ? static::query()  //->where('user_id', Auth::user()->id)
             :
             static::query()
                     ->where([
-                        ['name', 'like', '%'.$searchname.'%'],
-                        ['employmentnumber', 'like', '%'.$searchemploymentnumber.'%'],
-                        ['position', 'like', '%'.$searchposition.'%'],
-                        ['email', 'like', '%'.$searchemail.'%'],
-                        ['telephone', 'like', '%'.$searchtelephone.'%'],
+
+                        ['form', 'like', '%'.$form.'%'],
+                        ['name', 'like', '%'.$name.'%'],
+                        ['period', 'like', '%'.$period.'%'],
+                        ['address', 'like', '%'.$address.'%'],
 
                     ]);
 

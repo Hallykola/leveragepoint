@@ -18,8 +18,8 @@ class CreateInterventionsTable extends Migration
             $table->string('userid');
             $table->string('interventiondate');
             $table->string('summary');
-            $table->string('status');
-            
+            $table->string('status');           
+
 
             $table->timestamps();
         });

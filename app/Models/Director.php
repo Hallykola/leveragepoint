@@ -8,16 +8,38 @@ use Illuminate\Database\Eloquent\Model;
 class Director extends Model
 {
     use HasFactory;
-    public static function searchand($search,$searchname,$searchemploymentnumber,$searchposition ,$searchemail,$searchtelephone){
-        return (empty($search) && empty($searchname)&&empty($searchemploymentnumber)&&empty($searchposition)&&empty($searchemail) && empty($searchtelephone)) ? static::query()  //->where('user_id', Auth::user()->id)
+    public static function searchand(
+        $name,
+        $percentage,
+        $sharenumber,
+        $address,
+        $contact,
+        $nationality,
+        $form,
+        $extra
+        ){
+        return (
+            empty($name)&&
+            empty($percentage)&&
+            empty($sharenumber)&&
+            empty($address)&&
+            empty($contact)&&
+            empty($nationality)&&
+            empty($form)&&
+            empty($extra)
+            ) ? static::query()  //->where('user_id', Auth::user()->id)
             :
             static::query()
                     ->where([
-                        ['name', 'like', '%'.$searchname.'%'],
-                        ['employmentnumber', 'like', '%'.$searchemploymentnumber.'%'],
-                        ['position', 'like', '%'.$searchposition.'%'],
-                        ['email', 'like', '%'.$searchemail.'%'],
-                        ['telephone', 'like', '%'.$searchtelephone.'%'],
+
+                        ['name', 'like', '%'.$name.'%'],
+                        ['percentage', 'like', '%'.$percentage.'%'],
+                        ['sharenumber', 'like', '%'.$sharenumber.'%'],
+                        ['address', 'like', '%'.$address.'%'],
+                        ['contact', 'like', '%'.$contact.'%'],
+                        ['nationality', 'like', '%'.$nationality.'%'],
+                        ['form', 'like', '%'.$form.'%'],
+                        ['extra', 'like', '%'.$extra.'%'],
 
                     ]);
 

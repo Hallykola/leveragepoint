@@ -21,9 +21,8 @@ class CreateDirectorsTable extends Migration
             $table->string('address');
             $table->string('contact');
             $table->string('nationality');
-
             $table->string('form');
-            $table->string('extra');
+            $table->string('extra');        
 
             $table->timestamps();
         });

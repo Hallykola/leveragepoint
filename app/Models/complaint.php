@@ -8,16 +8,56 @@ use Illuminate\Database\Eloquent\Model;
 class complaint extends Model
 {
     use HasFactory;
-    public static function searchand($search,$searchname,$searchemploymentnumber,$searchposition ,$searchemail,$searchtelephone){
-        return (empty($search) && empty($searchname)&&empty($searchemploymentnumber)&&empty($searchposition)&&empty($searchemail) && empty($searchtelephone)) ? static::query()  //->where('user_id', Auth::user()->id)
+    public static function searchand(
+
+$type,
+$status,
+$dateresolved,
+$datereceived,
+$dateclosed,
+$datestarted,
+$casenumber,
+$company,
+$title,
+$description,
+$attachments,
+$comments,
+$statushistory,
+$audithistory
+        ){
+        return (
+            empty($type)&&
+            empty($status)&&
+            empty($dateresolved)&&
+            empty($datereceived)&&
+            empty($dateclosed)&&
+            empty($datestarted)&&
+            empty($casenumber)&&
+            empty($company)&&
+            empty($title)&&
+            empty($description)&&
+            empty($attachments)&&
+            empty($comments)&&
+            empty($statushistory)&&
+            empty($audithistory)
+            ) ? static::query()  //->where('user_id', Auth::user()->id)
             :
             static::query()
                     ->where([
-                        ['name', 'like', '%'.$searchname.'%'],
-                        ['employmentnumber', 'like', '%'.$searchemploymentnumber.'%'],
-                        ['position', 'like', '%'.$searchposition.'%'],
-                        ['email', 'like', '%'.$searchemail.'%'],
-                        ['telephone', 'like', '%'.$searchtelephone.'%'],
+                        ['type', 'like', '%'.$type.'%'],
+                        ['status', 'like', '%'.$status.'%'],
+                        ['dateresolved', 'like', '%'.$dateresolved.'%'],
+                        ['datereceived', 'like', '%'.$datereceived.'%'],
+                        ['dateclosed', 'like', '%'.$dateclosed.'%'],
+                        ['datestarted', 'like', '%'.$datestarted.'%'],
+                        ['casenumber', 'like', '%'.$casenumber.'%'],
+                        ['company', 'like', '%'.$company.'%'],
+                        ['title', 'like', '%'.$title.'%'],
+                        ['description', 'like', '%'.$description.'%'],
+                        ['attachments', 'like', '%'.$attachments.'%'],
+                        ['comments', 'like', '%'.$comments.'%'],
+                        ['statushistory', 'like', '%'.$statushistory.'%'],
+                        ['audithistory', 'like', '%'.$audithistory.'%'],
 
                     ]);
 

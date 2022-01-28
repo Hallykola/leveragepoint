@@ -21,7 +21,8 @@ Route::get('signin',[AuthenticatedSessionController::class,'signin'])->name('sig
 
 Route::middleware('auth')->group(function() {
   Route::get('/dashboard',[PagesController::class,'dashboard'])->name('dashboard');
-  Route::get('/profile',[PagesController::class,'profile'])->name('profile');
+  Route::get('/profile',[ProfileController::class,'show'])->name('profile');
+  Route::get('/profiledetails',[ProfileController::class,'profiledetails'])->name('profiledetails');
   Route::get('/payments',[PagesController::class,'Payments'])->name('payments');
   Route::get('/licences', [PagesController::class, 'Licences'])->name('licences');
 

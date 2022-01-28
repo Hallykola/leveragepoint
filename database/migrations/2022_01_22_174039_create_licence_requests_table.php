@@ -23,7 +23,7 @@ class CreateLicenceRequestsTable extends Migration
             $table->string('submittedby');
             $table->string('applicationdate');
             $table->string('status');
-            $table->string('applicant');
+            $table->string('applicant');        
 
             $table->timestamps();
         });

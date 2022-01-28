@@ -18,7 +18,7 @@ class CreateMeetingactionsTable extends Migration
             $table->string('topic');
             $table->string('responsible');
             $table->string('deadline');
-            $table->string('meeting');
+            $table->string('meeting');      
 
             $table->timestamps();
         });
