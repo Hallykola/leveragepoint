@@ -17,10 +17,10 @@ class NotificationEmail extends Mailable
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct()
     {
         //
-        $this->$details = $details;
+        // $this->$details = $details;
     }
 
     /**

@@ -1,6 +1,6 @@
 <nav class="nav flex-column sideNav">
     <div class="row p-3">
-        <div class="col text-center sideNavTittle pt-3">
+        <div class="col text-center sideNavTitle pt-3">
             <span>
                 <h6>
                     <img src="/assets/img/sideNav/iconoir_app-notification.png" alt="">
@@ -12,7 +12,7 @@
     <div class="row">
         {{-- Dashboard --}}
         <div class="col-12 sideNavItem">
-            @if($pageTittle == 'Dashboard')
+            @if($pageTitle == 'Dashboard')
                 <div class="container-fluid active">
                     <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
@@ -21,7 +21,7 @@
                         <div class="text-center py-1">Dashboard</div>
                     </a>
                 </div>
-            @else 
+            @else
                 <div class="container-fluid">
                     <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
@@ -34,7 +34,7 @@
         </div>
         {{-- Profile --}}
         <div class="col-12 sideNavItem">
-            @if($pageTittle == 'Profile')
+            @if($pageTitle == 'Profile')
                 <div class="container-fluid active">
                     <a class="sideNavLink" href="{{ route('profile') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
@@ -56,7 +56,7 @@
         </div>
         {{-- Request --}}
         <div class="col-12 sideNavItem">
-            @if($pageTittle == 'Requests')
+            @if($pageTitle == 'Requests')
                 <div class="container-fluid active">
                     <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
@@ -78,7 +78,7 @@
         </div>
         {{-- Support --}}
         <div class="col-12 sideNavItem">
-            @if($pageTittle == 'Support')
+            @if($pageTitle == 'Support')
                 <div class="container-fluid active">
                     <a class="sideNavLink" href="{{ route('support') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
@@ -100,7 +100,7 @@
         </div>
         {{-- HRM --}}
         <div class="col-12 sideNavItem">
-            @if($pageTittle == 'HRM')
+            @if($pageTitle == 'HRM')
                 <div class="container-fluid active">
                     <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
@@ -122,7 +122,7 @@
         </div>
         {{-- Traning --}}
         <div class="col-12 sideNavItem">
-            @if($pageTittle == 'Training')
+            @if($pageTitle == 'Training')
                 <div class="container-fluid active">
                     <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
@@ -144,7 +144,7 @@
         </div>
         {{-- Licences --}}
         <div class="col-12 sideNavItem">
-            @if($pageTittle == 'Licences')
+            @if($pageTitle == 'Licences')
                 <div class="container-fluid active">
                     <a class="sideNavLink" href="{{ route('licences') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
@@ -166,7 +166,7 @@
         </div>
         {{-- Meetings --}}
         <div class="col-12 sideNavItem">
-            @if($pageTittle == 'Meetings')
+            @if($pageTitle == 'Meetings')
                 <div class="container-fluid active">
                     <a class="sideNavLink" href="{{ route('meetings') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
@@ -188,7 +188,7 @@
         </div>
         {{-- payents --}}
         <div class="col-12 sideNavItem">
-            @if($pageTittle == 'Payments')
+            @if($pageTitle == 'Payments')
                 <div class="container-fluid active">
                     <a class="sideNavLink" href="{{ route('payments') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
@@ -210,7 +210,7 @@
         </div>
         {{-- reports --}}
         <div class="col-12 sideNavItem pt-2 pb-5">
-            @if($pageTittle == 'Reports')
+            @if($pageTitle == 'Reports')
                 <div class="container-fluid active">
                     <a class="sideNavLink" href="{{ route('reports') }}" style="color: inherit !important">
                         <div class="text-center pt-1">

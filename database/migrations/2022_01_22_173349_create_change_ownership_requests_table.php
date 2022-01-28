@@ -27,6 +27,7 @@ class CreateChangeOwnershipRequestsTable extends Migration
             $table->string('nameoftransferee');
             $table->string('licenceephysicaladdress');
             $table->string('licenceepostaladdress');
+            $table->string('applicationnumber');
             $table->timestamps();
         });
     }

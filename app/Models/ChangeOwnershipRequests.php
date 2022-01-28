@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChangeOwnershipRequests extends Model
 {
+    protected $guarded = [];
     use HasFactory;
     public static function searchand(
         $applicantphone,

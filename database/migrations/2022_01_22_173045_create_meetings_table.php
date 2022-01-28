@@ -31,7 +31,6 @@ class CreateMeetingsTable extends Migration
             $table->string('enddatentime');
             $table->string('location');
             $table->string('label');
-            $table->string('status');
             $table->string('description');
 
             $table->timestamps();

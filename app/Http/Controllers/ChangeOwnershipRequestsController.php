@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ChangeOwnershipRequests;
 use App\Http\Requests\StoreChangeOwnershipRequestsRequest;
 use App\Http\Requests\UpdateChangeOwnershipRequestsRequest;
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -19,40 +19,26 @@ class ChangeOwnershipRequestsController extends Controller
     public function index()
     {
         //
+        $pageTitle = 'Change of Ownership Applications';
+        return view('listchangeownership',['pageTitle' => $pageTitle]);
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
+
     public function create()
     {
-        //
-        $vreq = request()->validate([
-            //'user_id'=>'required',
-            // 'profile_name'=> 'required',
-            // 'role'=> 'required',
-
-        ] );
-
-
-
-        ChangeOwnershipRequests::create([
-            'user_id'=>Auth::user()->id,
-            'applicantphone'=>request()->input('applicantphone')?? '',
-            'applicantaddress'=>request()->input('applicantaddress')?? '',
-            'applicantfax'=>request()->input('applicantfax')?? '',
-            'transfereeid'=>request()->input('transfereeid')?? '',
-            'clearancecertificate'=> request()->input('clearancecertificate')??'',
-            'otherdocuments'=> request()->input('otherdocuments')??'',
-            'applicantname'=>request()->input('applicantname')?? '',
-            'licencenumber'=>request()->input('licencenumber')?? '',
-            'nameoftransferee'=> request()->input('nameoftransferee')??'',
-            'licenceephysicaladdress'=> request()->input('licenceephysicaladdress')??'',
-            'licenceepostaladdress'=>request()->input('licenceepostaladdress')?? '',
-
-            ]);
+        $pageTitle = 'Change of Ownership';
+        return view('changeofownership',['pageTitle' => $pageTitle]);
     }
 
     /**
@@ -61,9 +47,40 @@ class ChangeOwnershipRequestsController extends Controller
      * @param  \App\Http\Requests\StoreChangeOwnershipRequestsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreChangeOwnershipRequestsRequest $request)
+    public function store(Request $request)
     {
-        //
+
+          $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+        $idcard = MyHelper::saveimage('transfereeid');
+        $clearance = MyHelper::saveimage('clearancecertificate');
+        $otherdocs =MyHelper::saveimage('otherdocuments');
+
+
+        ChangeOwnershipRequests::create([
+            'user_id'=>Auth::user()->id,
+            'applicantphone'=>request()->input('applicantphone')?? '',
+            'applicantaddress'=>request()->input('applicantaddress')?? '',
+            'applicantfax'=>request()->input('applicantfax')?? '',
+            'transfereeid'=> $idcard,
+            'clearancecertificate'=> $clearance,
+            'otherdocuments'=> $otherdocs,
+            'applicantname'=>request()->input('applicantname')?? '',
+            'licencenumber'=>request()->input('licencenumber')?? '',
+            'nameoftransferee'=> request()->input('nameoftransferee')??'',
+            'licenceephysicaladdress'=> request()->input('licenceephysicaladdress')??'',
+            'licenceepostaladdress'=>request()->input('licenceepostaladdress')?? '',
+            'applicationnumber'=>request()->input('applicationnumber')?? '',
+
+            ]);
+            $applicationnumber = request()->input('applicationnumber');
+            return redirect(route('viewchangeownership', ['appno' => $applicationnumber]));
+            //return redirect(route('viewchangeownership/'.$applicationnumber));
     }
 
     /**
@@ -72,9 +89,12 @@ class ChangeOwnershipRequestsController extends Controller
      * @param  \App\Models\ChangeOwnershipRequests  $changeOwnershipRequests
      * @return \Illuminate\Http\Response
      */
-    public function show(ChangeOwnershipRequests $changeOwnershipRequests)
+    public function show($appno)
     {
         //
+        $pageTitle = 'View Application';
+        $myapplication = ChangeOwnershipRequests::where('applicationnumber',$appno)->first();
+        return view('showchangeownershipform', ['myapplication'=>$myapplication, 'pageTitle'=>$pageTitle ]);
     }
 
     /**
@@ -122,6 +142,7 @@ class ChangeOwnershipRequestsController extends Controller
             'nameoftransferee'=> request()->input('nameoftransferee')??'',
             'licenceephysicaladdress'=> request()->input('licenceephysicaladdress')??'',
             'licenceepostaladdress'=>request()->input('licenceepostaladdress')?? '',
+            'applicationnumber'=>request()->input('applicationnumber')?? '',
 
             ]);
     }
@@ -135,5 +156,10 @@ class ChangeOwnershipRequestsController extends Controller
     public function destroy(ChangeOwnershipRequests $changeOwnershipRequests)
     {
         //
+    }
+
+    public function showform()
+    {
+        return view('changeofownership');
     }
 }
