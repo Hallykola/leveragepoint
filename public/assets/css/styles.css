@@ -236,3 +236,11 @@
     height: 300px;
 }
 /* Support.blade.php end */
+
+/* profile.blade.php start */
+#saveChanges {
+    font-weight: 700;
+    font-size: 15px;
+    align-self: center;
+}
+/* profile.blade.php start */
