@@ -7,22 +7,26 @@
       <div class="pt-4">
         <!-- Tabs navs -->
         <ul class="nav nav-tabs nav-fill mb-3" id="ex1" role="tablist">
-          <li class="nav-item" role="presentation" style="border: 1px">
+          <li class="nav-item" role="presentation">
             <a class="nav-link active" id="ex2-tab-1" data-mdb-toggle="tab" href="#ex2-tabs-1" 
-             role="tab" aria-controls="ex2-tabs-1" aria-selected="true">
-              Link
+             role="tab" aria-controls="ex2-tabs-1" aria-selected="true" 
+             style="border-radius: 10px 0px 0px 10px;"
+             >
+             Basic Information
             </a>
           </li>
           <li class="nav-item" role="presentation">
             <a class="nav-link" id="ex2-tab-2" data-mdb-toggle="tab" href="#ex2-tabs-2"
               role="tab" aria-controls="ex2-tabs-2" aria-selected="false">
-                Very very very very long link
+              Security settings
             </a>
           </li>
           <li class="nav-item" role="presentation">
             <a class="nav-link" id="ex2-tab-3" data-mdb-toggle="tab" href="#ex2-tabs-3"
-              role="tab" aria-controls="ex2-tabs-3" aria-selected="false">
-                Another link
+              role="tab" aria-controls="ex2-tabs-3" aria-selected="false"
+              style="border-radius: 0px 10px 10px 0px;"
+              >
+              Uploaded documents
             </a>
           </li>
         </ul>
@@ -102,7 +106,7 @@
                             <button type="submit" class="btn btn-primary form-control">
                               <div class="row">
                                 <div class="col-8 d-flex">
-                                  <p id="saveChanges" class="m-0">Save Changes</p>
+                                  <span id="saveChanges" class="m-0">Save Changes</span>
                                 </div>
                                 <div class="col-4">
                                   <img src="/assets/img/profile/save.png">
@@ -119,10 +123,89 @@
             </div>
           </div>
           <div class="tab-pane fade" id="ex2-tabs-2" role="tabpanel" aria-labelledby="ex2-tab-2">
-            Tab 2 content
+            <div class="container">
+              <div class="row">
+                <div class="col py-5">
+                  <form method="post" action="#">
+                    @csrf
+                    <div class="form-group py-3">
+                      <label for="password" class="label">Current Password</label>
+                      <input id="password" class="form-control SupportFormInput" type="password" name="password">
+                    </div>
+                    <div class="form-group py-3">
+                      <label for="newpassword" class="label">New  Password</label>
+                      <input id="newpassword" class="form-control SupportFormInput" type="password" name="newpassword">
+                    </div>
+                    <div class="form-group py-3">
+                      <label for="confirmpassword" class="label">Confirm Password</label>
+                      <input id="confirmpassword" class="form-control SupportFormInput" type="password" name="confirmpassword">
+                    </div>
+                    <div class="form-group py-5">
+                      <button type="submit" class="btn btn-primary">Set Password</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="tab-pane fade" id="ex2-tabs-3" role="tabpanel" aria-labelledby="ex2-tab-3">
-            Tab 3 content
+            <div class="container">
+              <div class="row">
+                <div class="col py-5">
+                  <form method="post" action="#">
+                    @csrf
+                    <div class="form-group py-3">
+                      <label for="tax" class="label">Tax clearance:</label>
+                      <ul>
+                        <li class="documents py-1 px-2 my-2 d-flex">
+                          <span>Tax clearance.pdf </span>
+                          <span> <i class="fas fa-trash-alt"></i></span>
+                        </li>
+                      </ul>
+                      <input id="tax" class="pt-2" type="file" name="tax">
+                    </div>
+                    <div class="form-group py-3">
+                      <label for="Identification" class="label">Valid means of Identification:</label>
+                      <ul>
+                        <li class="documents py-1 px-2 my-2 d-flex">
+                          <span>Drivers license.jpg</span>
+                          <span> <i class="fas fa-trash-alt"></i></span>
+                        </li>
+                        <li class="documents py-1 px-2 my-2 d-flex">
+                          <span>passport.pdf</span>
+                          <span> <i class="fas fa-trash-alt"></i></span>
+                        </li>
+                      </ul>
+                      <input id="Identification" class="pt-2" type="file" name="Identification">
+                    </div>
+                    <div class="form-group py-3">
+                      <label for="Certificate" class="label">Health Certificate:</label>
+                      <ul>
+                        <li class="documents py-1 px-2 my-2 d-flex">
+                          <span>Health cert.pdf</span>
+                          <span> <i class="fas fa-trash-alt"></i></span>
+                        </li>
+                      </ul>
+                      <input id="Certificate" class="pt-2" type="file" name="Certificate">
+                    </div>
+                    <div class="form-group py-5" style="width: 300px;">
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-primary form-control">
+                          <div class="row">
+                            <div class="col-8 d-flex">
+                              <span id="saveChanges" class="m-0">Save Changes</span>
+                            </div>
+                            <div class="col-4">
+                              <img src="/assets/img/profile/save.png">
+                            </div>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <!-- Tabs content -->
