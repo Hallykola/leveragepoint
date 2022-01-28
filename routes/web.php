@@ -18,7 +18,7 @@ use App\Mail\NotificationEmail;
 */
 
 Route::get('/',[PagesController::class, 'index'])->name('home');
-Route::get('signin',[AuthenticatedSessionController::class,'signin'])->name('signin');
+Route::get('login',[AuthenticatedSessionController::class,'signin'])->name('login');
 
 Route::get('/sendtest',function(){
     $details = ['title'=>'Test mail', 'body'=>'test mail from leverage point'];
