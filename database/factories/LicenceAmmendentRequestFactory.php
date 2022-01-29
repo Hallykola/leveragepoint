@@ -15,6 +15,15 @@ class LicenceAmmendentRequestFactory extends Factory
     {
         return [
             //
+            'user_id'=>$this->faker->randomNumber(),
+            'applicantname'=>$this->faker->name(),
+            'licencenumber'=>$this->faker->randomNumber(),
+            'extra'=>$this->faker->randomNumber(),
+            'applicantphonenumber'=>$this->faker->phoneNumber(),
+            'applicantemailaddress'=>$this->faker->unique()->safeEmail(),
+            'applicantfax'=>$this->faker->phoneNumber(),
+            'form'=>$this->faker->randomNumber(),
+
         ];
     }
 }

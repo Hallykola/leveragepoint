@@ -18,7 +18,7 @@
         </div>
         <div class="col">
         <div class="form-group">
-            <select class="custom-select" name="cardtype" required>
+            <select class="custom-select" name="cardtype" >
             <option value="">Select your card type</option>
             <option value="MasterCard">MasterCard</option>
             <option value="Visa Card">Visa Card</option>

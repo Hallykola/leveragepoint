@@ -26,7 +26,7 @@ class MyHelper{
             }
 
             $filepath = request()->file($filename)->store($path);
-            return $filepath;
+            return Storage::url($filepath);
 
 
         }else{

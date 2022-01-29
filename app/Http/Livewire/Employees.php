@@ -24,9 +24,9 @@ class Employees extends Component
 
     public function render()
     {
-     return view('livewire.employees', ['employees'=>employ::searchand($this->search, $this->searchname,$this->searchemploymentnumber,$this->searchposition ,$this->searchemail,$this->searchtelephone)
+     return view('livewire.employees', ['employees'=>employ::searchand( $this->searchname,$this->searchemploymentnumber,$this->searchposition ,$this->searchemail,$this->searchtelephone)
         ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
-        ->paginate($this->perPage)] );
+        ->simplePaginate($this->perPage)] );
     }
 
     public function updatingSearch(){
