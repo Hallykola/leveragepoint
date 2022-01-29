@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Payments;
 use App\Http\Requests\StorePaymentsRequest;
 use App\Http\Requests\UpdatePaymentsRequest;
+use Illuminate\Http\Request;
 
 use App\Models\User;
 
@@ -28,18 +29,25 @@ class PaymentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($amount,$form)
     {
         //
+        $pageTitle = 'Payment';
+        return view('paymentreg',['pageTitle'=>$pageTitle ,'amount'=>$amount, 'form'=>$form]);
     }
-
+    public function success($amount,$form)
+    {
+        //
+        $pageTitle = 'Payment Successful';
+        return view('paymentsuccessful',['pageTitle'=>$pageTitle ,'amount'=>$amount, 'form'=>$form]);
+    }
     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StorePaymentsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePaymentsRequest $request)
+    public function store(Request $request)
     {
         //
 
@@ -54,7 +62,9 @@ class PaymentsController extends Controller
 
 
         Payments::create([
+
             'user_id'=>Auth::user()->id,
+            'form'=>request()->input('form')?? '',
             'paymentdate'=>request()->input('paymentdate')?? '',
             'paymenttype'=>request()->input('paymenttype')?? '',
             'amount'=>request()->input('amount')?? '',
@@ -67,6 +77,10 @@ class PaymentsController extends Controller
             'billingaddress'=>request()->input('billingaddress')?? '',
 
             ]);
+            $amount = request()->input('amount')?? '';
+            $form =  request()->input('form')?? '';
+
+            return redirect('paymentsuccessful/'.$amount.'/'.$form);
     }
 
     /**

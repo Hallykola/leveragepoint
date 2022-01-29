@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\CompanyRequests;
 use App\Http\Requests\StoreCompanyRequestsRequest;
 use App\Http\Requests\UpdateCompanyRequestsRequest;
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+
+
 class CompanyRequestsController extends Controller
 {
     /**
@@ -19,6 +21,9 @@ class CompanyRequestsController extends Controller
     public function index()
     {
         //
+        $pageTitle = 'Company Applications';
+        return view('listofcompaniesb',['pageTitle' => $pageTitle]);
+
     }
 
     /**
@@ -26,7 +31,32 @@ class CompanyRequestsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
+    {
+        //
+        $id = request()->input('form'); //time();
+        $this->store($request,$id);
+        $pageTitle = 'Register a company (continued)';
+        return view('registercompanyb',['pageTitle' => $pageTitle, 'id'=>$id, 'details'=>CompanyRequests::where('form',$id)->first()]);
+
+    }
+
+    public function createwithid($form)
+    {
+        //
+
+        $pageTitle = 'Register a company  (continued)';
+        return view('registercompanyb',['pageTitle' => $pageTitle, 'id'=>$form,  'details'=>CompanyRequests::where('form',$form)->first()]);
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StoreCompanyRequestsRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request, $id)
     {
         //
         $vreq = request()->validate([
@@ -36,10 +66,13 @@ class CompanyRequestsController extends Controller
 
         ] );
 
+            $form = request()->input('form')?? $id;
+            if(!CompanyRequests::where('form',$form )->exists()){
 
 
         CompanyRequests::create([
             'user_id'=>Auth::user()->id,
+            'form'=>$form,
             'firstapplication'=>request()->input('firstapplication')?? '',
             'licencenumber'=>request()->input('licencenumber')?? '',
             'prevlicencerejected'=>request()->input('prevlicencerejected')?? '',
@@ -51,17 +84,7 @@ class CompanyRequestsController extends Controller
             'otherdocumentsurl'=>request()->input('otherdocumentsurl')?? '',
 
             ]);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreCompanyRequestsRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreCompanyRequestsRequest $request)
-    {
-        //
+        }
     }
 
     /**
@@ -93,10 +116,10 @@ class CompanyRequestsController extends Controller
      * @param  \App\Models\CompanyRequests  $companyRequests
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCompanyRequestsRequest $request, CompanyRequests $companyRequests)
+    public function update(Request $request)
     {
         //
-        $companyrequest = $companyRequests;
+        $companyrequest = CompanyRequests::where('form',request()->input('form'))->first();
 
         $vreq = request()->validate([
             //'user_id'=>'required',
@@ -105,21 +128,27 @@ class CompanyRequestsController extends Controller
 
         ] );
 
-
+        $idcard = MyHelper::saveimage('valididurl');
+        $clearance = MyHelper::saveimage('taxclearanceurl');
+        $otherdocs =MyHelper::saveimage('otherdocumentsurl');
 
         $companyrequest->update([
             'user_id'=>Auth::user()->id,
+            'form'=>request()->input('form')?? '',
             'firstapplication'=>request()->input('firstapplication')?? '',
             'licencenumber'=>request()->input('licencenumber')?? '',
             'prevlicencerejected'=>request()->input('prevlicencerejected')?? '',
             'prevlicencesurrendered'=>request()->input('prevlicencesurrendered')?? '',
             'prevlicencecancelled'=> request()->input('prevlicencecancelled')??'',
             'personsemployed'=> request()->input('personsemployed')??'',
-            'valididurl'=>request()->input('valididurl')?? '',
-            'taxclearanceurl'=>request()->input('taxclearanceurl')?? '',
-            'otherdocumentsurl'=>request()->input('otherdocumentsurl')?? '',
+            'valididurl'=>$idcard,
+            'taxclearanceurl'=>$clearance,
+            'otherdocumentsurl'=>$otherdocs,
 
             ]);
+            $amount = '500';
+            $form = request()->input('form')?? '';
+            return redirect('/payment/'.$amount.'/'.$form);
     }
 
     /**

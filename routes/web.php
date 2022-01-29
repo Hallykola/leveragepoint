@@ -2,10 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SurrenderlicenceController;
 use App\Http\Controllers\ChangeOwnershipRequestsController;
+use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\CompanyRequestsController;
 use App\Mail\NotificationEmail;
 use Illuminate\Support\Facades\Mail;
 /*
@@ -62,6 +65,22 @@ Route::middleware('auth')->group(function() {
   Route::get('/newsurrenderlicence',[SurrenderlicenceController::class,'showform'])->name('storesl');
   Route::get('/viewsurrenderlicence',[SurrenderlicenceController::class,'show'])->name('showsl');
   Route::get('/listsurrenderlicence',[SurrenderlicenceController::class,'index'])->name('listsl');
+
+  Route::get('/registercompany',[CompaniesController::class,'create'])->name('showcoform');
+  Route::get('/registercompany/{id}',[CompaniesController::class,'createwithid'])->name('showcomformid');
+  Route::post('/updateregistercompanyform',[CompaniesController::class,'update'])->name('regformupdate');
+  Route::post('/newcomanyregistration',[CompaniesController::class,'store'])->name('storeco');
+  Route::get('/viewcompanyregform/{appno}/',[CompaniesController::class,'show'])->name('viewchangeownership');
+  Route::get('/listofcompanyregistrations',[CompaniesController::class,'index'])->name('listco');
+
+  Route::get('/registercompanyb',[CompanyRequestsController::class,'create'])->name('registercompanyb');
+  Route::get('/registercompanyb/{id}',[CompanyRequestsController::class,'createwithid'])->name('showcomformid');
+  Route::post('/updateregistercompanyformb',[CompanyRequestsController::class,'update'])->name('regformupdate');
+
+  Route::get('/payment/{amount}/{form}',[PaymentsController::class,'create'])->name('payment');
+  Route::post('/pay',[PaymentsController::class,'store'])->name('pay');
+  Route::get('/paymentsuccessful/{amount}/{form}',[PaymentsController::class,'success'])->name('paymentsuccessful');
+
 
 
 });

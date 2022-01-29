@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payments extends Model
 {
+    protected $guarded = [];
     use HasFactory;
 
     public static function searchand($search,$searchname,$searchemploymentnumber,$searchposition ,$searchemail,$searchtelephone){

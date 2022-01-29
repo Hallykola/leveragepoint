@@ -15,6 +15,7 @@ class CreateCompanyRequestsTable extends Migration
     {
         Schema::create('company_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('form');
             $table->string('user_id');
             $table->string('firstapplication');
             $table->string('licencenumber');

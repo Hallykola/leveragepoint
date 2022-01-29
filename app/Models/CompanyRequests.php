@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class CompanyRequests extends Model
 {
+    protected $guarded = [];
+
     use HasFactory;
     public static function searchand(
         $firstapplication,

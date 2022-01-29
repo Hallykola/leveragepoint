@@ -17,6 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('paymentdate');
+            $table->string('form');
             $table->string('paymenttype');
             $table->string('amount');
             $table->string('currency');
