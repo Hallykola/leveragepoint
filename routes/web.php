@@ -71,7 +71,7 @@ Route::middleware('auth')->group(function() {
   Route::get('/viewsurrenderlicence',[SurrenderlicenceController::class,'show'])->name('showsl');
   Route::get('/listsurrenderlicence',[SurrenderlicenceController::class,'index'])->name('listsl');
 
-    Route::get('/registercompany',[CompaniesController::class,'create'])->name('showcoform');
+    Route::get('/registercompany',[CompaniesController::class,'create'])->name('showregform');
     Route::get('/registercompany/{id}',[CompaniesController::class,'createwithid'])->name('showcomformid');
     Route::post('/updateregistercompanyform',[CompaniesController::class,'update'])->name('regformupdate');
     Route::post('/newcomanyregistration',[CompaniesController::class,'store'])->name('storeco');
