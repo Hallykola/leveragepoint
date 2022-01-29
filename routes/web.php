@@ -82,12 +82,7 @@ Route::middleware('auth')->group(function() {
   Route::get('/viewammendmentoflicence/{appno}/',[LicenceAmmendentRequestController::class,'show'])->name('showl');
   Route::get('/listammendmentoflicence',[LicenceAmmendentRequestController::class,'index'])->name('listsl');
 
-<<<<<<< HEAD
     Route::get('/registercompany',[CompaniesController::class,'create'])->name('showcomform');
-=======
-
-    Route::get('/registercompany',[CompaniesController::class,'create'])->name('showcoform');
->>>>>>> main
     Route::get('/registercompany/{id}',[CompaniesController::class,'createwithid'])->name('showcomformid');
     Route::post('/updateregistercompanyform',[CompaniesController::class,'update'])->name('regformupdate');
     Route::post('/newcomanyregistration',[CompaniesController::class,'store'])->name('storeco');
