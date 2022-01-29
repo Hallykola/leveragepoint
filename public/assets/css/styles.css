@@ -218,6 +218,7 @@
 /* Support.blade.php start */
 .SupportForm {
     background-color: #FFFFFF;
+    border-radius: 10px;
 }
 
 .SupportFormInput {
