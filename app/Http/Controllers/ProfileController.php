@@ -153,8 +153,8 @@ class ProfileController extends Controller
             'accounttype'=> request()->input('accounttype')??'',
             ]);
 
-            $pageTittle = 'Profile';
-        return view('profile',['pageTittle' => $pageTittle, 'profiledetails'=>$myprofile]);
+            $pageTitle = 'Profile';
+        return view('profile',['pageTitle' => $pageTitle, 'profiledetails'=>$myprofile]);
 
 
     }
