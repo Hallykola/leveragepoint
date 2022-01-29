@@ -272,3 +272,39 @@
     font-size: 18px;
 }
 /* Request.blade.php end */
+
+/* regitercompany start */
+.circleRed {
+    background-color: #FFFFFF;
+    border: 3px solid red;
+    border-radius: 30px;
+    min-height: 50px;
+    width: 50px;
+}
+
+.circleRedFill {
+    background-color: red;
+    border: 3px solid red;
+    border-radius: 30px;
+    min-height: 50px;
+    width: 50px;
+}
+
+.circleWhite {
+    background-color: #FFFFFF;
+    border: 3px solid #C8C8C8;
+    border-radius: 30px;
+    min-height: 50px;
+    width: 50px;
+}
+
+.lineWhite {
+    border: 2px solid #080707;
+    margin-top: 25px;
+}
+
+.lineRed {
+    border: 2px solid #b60000;
+    margin-top: 25px;
+}
+/* regitercompany end */
