@@ -87,7 +87,7 @@ class ProfileController extends Controller
             $this->store();
         }
         $pageTitle = 'Profile';
-        return view('profile',['pageTittle' => $pageTitle, 'profiledetails'=>$user->profile]);
+        return view('profile',['pageTitle' => $pageTitle, 'profiledetails'=>$user->profile]);
     }
 
     /**

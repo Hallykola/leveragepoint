@@ -52,9 +52,8 @@ Route::middleware('auth')->group(function() {
   Route::get('/meetings',[PagesController::class, 'Meetings'])->name('meetings');
   Route::get('/reports',[PagesController::class, 'Reports'])->name('reports');
   Route::get('/support',[PagesController::class, 'Support'])->name('support');
+  Route::get('requests',[PagesController::class, 'Requests'])->name('requests');
 
-  Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
-  Route::post('/updateprofile',[ProfileController::class,'update'])->name('updateprofile');
 
   Route::get('/changeownership',[ChangeOwnershipRequestsController::class,'create'])->name('showcoform');
   Route::post('/newchangeownership',[ChangeOwnershipRequestsController::class,'store'])->name('storeco');
@@ -66,22 +65,24 @@ Route::middleware('auth')->group(function() {
   Route::get('/viewsurrenderlicence',[SurrenderlicenceController::class,'show'])->name('showsl');
   Route::get('/listsurrenderlicence',[SurrenderlicenceController::class,'index'])->name('listsl');
 
-  Route::get('/registercompany',[CompaniesController::class,'create'])->name('showcoform');
-  Route::get('/registercompany/{id}',[CompaniesController::class,'createwithid'])->name('showcomformid');
-  Route::post('/updateregistercompanyform',[CompaniesController::class,'update'])->name('regformupdate');
-  Route::post('/newcomanyregistration',[CompaniesController::class,'store'])->name('storeco');
-  Route::get('/viewcompanyregform/{appno}/',[CompaniesController::class,'show'])->name('viewchangeownership');
-  Route::get('/listofcompanyregistrations',[CompaniesController::class,'index'])->name('listco');
+    Route::get('/registercompany',[CompaniesController::class,'create'])->name('showcoform');
+    Route::get('/registercompany/{id}',[CompaniesController::class,'createwithid'])->name('showcomformid');
+    Route::post('/updateregistercompanyform',[CompaniesController::class,'update'])->name('regformupdate');
+    Route::post('/newcomanyregistration',[CompaniesController::class,'store'])->name('storeco');
+    Route::get('/viewcompanyregform/{appno}/',[CompaniesController::class,'show'])->name('viewchangeownership');
+    Route::get('/listofcompanyregistrations',[CompaniesController::class,'index'])->name('listco');
 
-  Route::get('/registercompanyb',[CompanyRequestsController::class,'create'])->name('registercompanyb');
-  Route::get('/registercompanyb/{id}',[CompanyRequestsController::class,'createwithid'])->name('showcomformid');
-  Route::post('/updateregistercompanyformb',[CompanyRequestsController::class,'update'])->name('regformupdate');
+    Route::get('/registercompanyb',[CompanyRequestsController::class,'create'])->name('registercompanyb');
+    Route::get('/registercompanyb/{id}',[CompanyRequestsController::class,'createwithid'])->name('showcomformid');
+    Route::post('/updateregistercompanyformb',[CompanyRequestsController::class,'update'])->name('regformupdate');
 
-  Route::get('/payment/{amount}/{form}',[PaymentsController::class,'create'])->name('payment');
-  Route::post('/pay',[PaymentsController::class,'store'])->name('pay');
-  Route::get('/paymentsuccessful/{amount}/{form}',[PaymentsController::class,'success'])->name('paymentsuccessful');
+    Route::get('/payment/{amount}/{form}',[PaymentsController::class,'create'])->name('payment');
+    Route::post('/pay',[PaymentsController::class,'store'])->name('pay');
+    Route::get('/paymentsuccessful/{amount}/{form}',[PaymentsController::class,'success'])->name('paymentsuccessful');
 
 
+    Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
+    Route::post('/updateprofile',[ProfileController::class,'update'])->name('updateprofile');
 
 });
 require __DIR__.'/auth.php';

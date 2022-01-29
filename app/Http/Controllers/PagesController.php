@@ -12,39 +12,45 @@ class PagesController extends Controller
     }
 
     public function dashboard(Request $request){
-        $pageTittle = 'Dashboard';
-        return view('dashBoard', ['pageTittle' => $pageTittle]);
+        $pageTitle = 'Dashboard';
+        // dd('Dashboard');
+        return view('dashBoard', ['pageTitle' => $pageTitle]);
     }
 
     public function profile(){
         $user  = Auth::user();
-        $pageTittle = 'Profile';
+        $pageTitle = 'Profile';
         // dd($user->notifications->count());
-        return view('profile',['pageTittle' => $pageTittle]);
+        return view('profile',['pageTitle' => $pageTitle]);
     }
 
     public function Payments(){
-        $pageTittle = 'Payments';
-        return view('Payments',['pageTittle' => $pageTittle]);
+        $pageTitle = 'Payments';
+        return view('Payments',['pageTitle' => $pageTitle]);
     }
 
     public function Licences(){
-        $pageTittle = 'Licences';
-        return view('Licences',['pageTittle' => $pageTittle]);
+        $pageTitle = 'Licences';
+        return view('Licences',['pageTitle' => $pageTitle]);
     }
 
     public function Meetings(){
-        $pageTittle = 'Meetings';
-        return view('Meetings',['pageTittle' => $pageTittle]);
+        $pageTitle = 'Meetings';
+        return view('Meetings',['pageTitle' => $pageTitle]);
     }
 
     public function Reports(){
-        $pageTittle = 'Reports';
-        return view('Reports',['pageTittle' => $pageTittle]);
+        $pageTitle = 'Reports';
+        return view('Reports',['pageTitle' => $pageTitle]);
     }
 
     public function Support(){
-        $pageTittle = 'Support';
-        return view('Support',['pageTittle' => $pageTittle]);
+        $pageTitle = 'Support';
+        return view('Support',['pageTitle' => $pageTitle]);
+    }
+
+    public function Requests(){
+        $pageTitle = 'Requests';
+        return view('Requests',['pageTitle' => $pageTitle]);
     }
 }
