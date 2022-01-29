@@ -26,11 +26,12 @@
                     </thead>
                     <tbody>
                         <tr >
+                            {{$searchname}}
                         <td><input wire:model.debounce.300ms="searchname" type="text"  name="search" placeholder="Search name"/> </td>
                         <td><input wire:model.debounce.300ms="searchemploymentnumber" type="text"  name="search" placeholder="Search name employment number"/></td>
                         <td><input wire:model.debounce.300ms="searchposition" type="text"  name="search" placeholder="Search position"/></td>
-                        <td><input wire:model.debounce.300ms="searchemail" type="text"  name="search" placeholder="Search email"/></td>
-                        <td><input wire:model.debounce.300ms="searchtelephone" type="text"  name="search " placeholder="Search telephone"/></td>
+                        <td><input wire:model.debounce.300ms="searchtelephone" type="text"  name="search" placeholder="Search telephone"/></td>
+                        <td><input wire:model.debounce.300ms="searchemail" type="text"  name="search " placeholder="Search email "/></td>
 
                         </tr>
     @foreach($employees as $employee)
@@ -50,6 +51,6 @@
             </div>
         </div>
 
-  {{ $employees->onEachSide(3)->links('pagination::bootstrap-4') }}
+  {{ $employees->links() }}
 </div>
 </div>

@@ -13,12 +13,13 @@
       <div class="col">
         <form action="/newchangeownership" method="post" enctype="multipart/form-data" class="SupportForm p-5">
             @csrf
+            <input type="hidden" name="form" value="{{$form}}">
             <div class="container">
               <h4 style="font-weight: 500;color: #565555">Enter contact detail of the Applicant</h4>
-              <div class="form-group py-3">
+              <!-- <div class="form-group py-3">
                   <label for="appno label">Application Number:</label>
                   <input type="text" class="form-control SupportFormInput" id="appno" name="applicationnumber" value="{{rand(100,500).time()}}" readonly>
-                </div>
+                </div> -->
               <div class="form-group py-3">
                   <input type="text" class="form-control SupportFormInput" name="applicantphone" placeholder="Enter phone munber of applicant">
               </div>
@@ -62,7 +63,7 @@
                   <input class="btn btn-primary" type="submit" name="change"/>
                 </div>
               </div>
-              
+
             </div>
         </form>
       </div>

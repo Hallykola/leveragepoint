@@ -25,6 +25,7 @@
             <span></span>
           </div>          
         </div>
+<<<<<<< HEAD
       </div>
     </div>
     <div class="row">
@@ -75,6 +76,16 @@
         </form>
       </div>
     </div>
+=======
+        <div class="col">
+        <div class="form-group">
+            <select class="custom-select" name="cardtype" >
+            <option value="">Select your card type</option>
+            <option value="MasterCard">MasterCard</option>
+            <option value="Visa Card">Visa Card</option>
+            <option value="Verve">Verve</option>
+            </select>
+>>>>>>> main
   </div>
 </div>
 

@@ -35,10 +35,12 @@ class ChangeOwnershipRequestsController extends Controller
 
 
 
-    public function create()
+    public function create(Request $request)
     {
+        $id = time();
+        $this->store($request,$id);
         $pageTitle = 'Change of Ownership';
-        return view('changeofownership',['pageTitle' => $pageTitle]);
+        return view('changeofownership',['form'=>$id,'pageTitle' => $pageTitle]);
     }
 
     /**
@@ -47,7 +49,7 @@ class ChangeOwnershipRequestsController extends Controller
      * @param  \App\Http\Requests\StoreChangeOwnershipRequestsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request , $id)
     {
 
           $vreq = request()->validate([
@@ -56,6 +58,8 @@ class ChangeOwnershipRequestsController extends Controller
             // 'role'=> 'required',
 
         ] );
+        $form = request()->input('form')?? $id;
+        if(!ChangeOwnershipRequests::where('form',$form )->exists()){
 
         $idcard = MyHelper::saveimage('transfereeid');
         $clearance = MyHelper::saveimage('clearancecertificate');
@@ -75,12 +79,13 @@ class ChangeOwnershipRequestsController extends Controller
             'nameoftransferee'=> request()->input('nameoftransferee')??'',
             'licenceephysicaladdress'=> request()->input('licenceephysicaladdress')??'',
             'licenceepostaladdress'=>request()->input('licenceepostaladdress')?? '',
-            'applicationnumber'=>request()->input('applicationnumber')?? '',
+            'form'=>$id,
 
             ]);
-            $applicationnumber = request()->input('applicationnumber');
-            return redirect(route('viewchangeownership', ['appno' => $applicationnumber]));
-            //return redirect(route('viewchangeownership/'.$applicationnumber));
+
+        }
+
+            // return redirect(route('viewchangeownership', ['appno' => $form]));
     }
 
     /**
@@ -93,7 +98,7 @@ class ChangeOwnershipRequestsController extends Controller
     {
         //
         $pageTitle = 'View Application';
-        $myapplication = ChangeOwnershipRequests::where('applicationnumber',$appno)->first();
+        $myapplication = ChangeOwnershipRequests::where('form',$appno)->first();
         return view('showchangeownershipform', ['myapplication'=>$myapplication, 'pageTitle'=>$pageTitle ]);
     }
 
@@ -115,10 +120,10 @@ class ChangeOwnershipRequestsController extends Controller
      * @param  \App\Models\ChangeOwnershipRequests  $changeOwnershipRequests
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateChangeOwnershipRequestsRequest $request, ChangeOwnershipRequests $changeOwnershipRequests)
+    public function update(Request $request )
     {
         //
-        $changeOwnershipRequest = $changeOwnershipRequests;
+        $changeOwnership = ChangeOwnershipRequests::where('form',request()->input('form'));
 
         $vreq = request()->validate([
             //'user_id'=>'required',
@@ -129,7 +134,7 @@ class ChangeOwnershipRequestsController extends Controller
 
 
 
-        $changeOwnershipRequest->update([
+        $changeOwnership->update([
             'user_id'=>Auth::user()->id,
             'applicantphone'=>request()->input('applicantphone')?? '',
             'applicantaddress'=>request()->input('applicantaddress')?? '',
@@ -142,9 +147,12 @@ class ChangeOwnershipRequestsController extends Controller
             'nameoftransferee'=> request()->input('nameoftransferee')??'',
             'licenceephysicaladdress'=> request()->input('licenceephysicaladdress')??'',
             'licenceepostaladdress'=>request()->input('licenceepostaladdress')?? '',
-            'applicationnumber'=>request()->input('applicationnumber')?? '',
+            'form'=>request()->input('form')?? '',
 
             ]);
+            $form = request()->input('form');
+
+            return redirect(route('changeownershipb', ['form' => $form]));
     }
 
     /**
@@ -161,5 +169,39 @@ class ChangeOwnershipRequestsController extends Controller
     public function showform()
     {
         return view('changeofownership');
+    }
+
+
+    public function showb(Request $request)
+    {
+        $form = request()->input('form');
+        $pageTitle = 'Change of Ownership B';
+
+        return view('changeofownershipb',['form'=>$form, 'details'=>ChangeOwnershipRequests::where('form',$form)->first(), 'pageTitle'=>$pageTitle]);
+    }
+    public function updateb(Request $request){
+        $change = ChangeOwnershipRequests::where('form',request()->input('form'));
+
+        $vreq = request()->validate([
+            //'user_id'=>'required',
+            // 'profile_name'=> 'required',
+            // 'role'=> 'required',
+
+        ] );
+
+
+
+        $change->update([
+            'applicantname'=>request()->input('applicantname')?? '',
+            'licencenumber'=>request()->input('licencenumber')?? '',
+            'nameoftransferee'=> request()->input('nameoftransferee')??'',
+            'licenceephysicaladdress'=> request()->input('licenceephysicaladdress')??'',
+            'licenceepostaladdress'=>request()->input('licenceepostaladdress')?? '',
+            'form'=>request()->input('form')?? '',
+
+            ]);
+            $amount = '500';
+            $form = request()->input('form')?? '';
+            return redirect('/payment/'.$amount.'/'.$form);
     }
 }

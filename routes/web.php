@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
@@ -63,7 +65,10 @@ Route::middleware('auth')->group(function() {
 
 
   Route::get('/changeownership',[ChangeOwnershipRequestsController::class,'create'])->name('showcoform');
-  Route::post('/newchangeownership',[ChangeOwnershipRequestsController::class,'store'])->name('storeco');
+  Route::get('/changeownershipb',[ChangeOwnershipRequestsController::class,'showb'])->name('changeownershipb');
+  Route::post('/updatechangeownershipb',[ChangeOwnershipRequestsController::class,'updateb'])->name('showcoform');
+
+  Route::post('/newchangeownership',[ChangeOwnershipRequestsController::class,'update'])->name('storeco');
   Route::get('/viewchangeownership/{appno}/',[ChangeOwnershipRequestsController::class,'show'])->name('viewchangeownership');
   Route::get('/listchangeownerships',[ChangeOwnershipRequestsController::class,'index'])->name('listco');
 
@@ -77,7 +82,12 @@ Route::middleware('auth')->group(function() {
   Route::get('/viewammendmentoflicence/{appno}/',[LicenceAmmendentRequestController::class,'show'])->name('showl');
   Route::get('/listammendmentoflicence',[LicenceAmmendentRequestController::class,'index'])->name('listsl');
 
+<<<<<<< HEAD
     Route::get('/registercompany',[CompaniesController::class,'create'])->name('showcomform');
+=======
+
+    Route::get('/registercompany',[CompaniesController::class,'create'])->name('showcoform');
+>>>>>>> main
     Route::get('/registercompany/{id}',[CompaniesController::class,'createwithid'])->name('showcomformid');
     Route::post('/updateregistercompanyform',[CompaniesController::class,'update'])->name('regformupdate');
     Route::post('/newcomanyregistration',[CompaniesController::class,'store'])->name('storeco');
@@ -104,4 +114,11 @@ Route::middleware('auth')->group(function() {
     Route::post('/updateprofile',[ProfileController::class,'update'])->name('updateprofile');
 
 });
+
+Route::get('/mail/{email}', function ($email)
+{
+    mail($email,"Test","Hello, Test Mail");
+
+});
+
 require __DIR__.'/auth.php';
