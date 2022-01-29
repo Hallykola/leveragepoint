@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Http\Request;
+
 use App\Models\LicenceAmmendentRequest;
 use App\Http\Requests\StoreLicenceAmmendentRequestRequest;
 use App\Http\Requests\UpdateLicenceAmmendentRequestRequest;
@@ -26,9 +29,15 @@ class LicenceAmmendentRequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+
+        $id = time();
+        $this->store($request,$id);
+        $pageTitle = 'Ammendment of Licence';
+        return view('ammendmentoflicence',['pageTitle' => $pageTitle, 'id'=>$id, 'details'=>LicenceAmmendentRequest::where('form',$id)->first()]);
+
     }
 
     /**
@@ -37,7 +46,7 @@ class LicenceAmmendentRequestController extends Controller
      * @param  \App\Http\Requests\StoreLicenceAmmendentRequestRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreLicenceAmmendentRequestRequest $request)
+    public function store(Request $request,$id)
     {
         //
 
@@ -49,7 +58,7 @@ class LicenceAmmendentRequestController extends Controller
         ] );
 
 
-
+            $form = $id;
         LicenceAmmendentRequest::create([
             'user_id'=>Auth::user()->id,
             'applicantname'=>request()->input('applicantname')?? '',
@@ -58,6 +67,7 @@ class LicenceAmmendentRequestController extends Controller
             'applicantphonenumber'=>request()->input('applicantphonenumber')?? '',
             'applicantemailaddress'=> request()->input('applicantemailaddress')??'',
             'applicantfax'=> request()->input('applicantfax')??'',
+            'form'=> $id ,
 
             ]);
     }
@@ -79,10 +89,11 @@ class LicenceAmmendentRequestController extends Controller
      * @param  \App\Models\LicenceAmmendentRequest  $licenceAmmendentRequest
      * @return \Illuminate\Http\Response
      */
-    public function edit(LicenceAmmendentRequest $licenceAmmendentRequest)
+    public function update(Request $licenceAmmendentRequest)
     {
         //
-        //$licenceAmmendentRequest = $licenceAmmendentRequest;
+//$licenceAmmendentRequest = $licenceAmmendentRequest;
+        $licence = LicenceAmmendentRequest::where('form',request()->input('form'))->first();
 
         $vreq = request()->validate([
             //'user_id'=>'required',
@@ -93,7 +104,7 @@ class LicenceAmmendentRequestController extends Controller
 
 
 
-        $licenceAmmendentRequest->update([
+        $licence->update([
             'user_id'=>Auth::user()->id,
             'applicantname'=>request()->input('applicantname')?? '',
             'licencenumber'=>request()->input('licencenumber')?? '',
@@ -101,8 +112,13 @@ class LicenceAmmendentRequestController extends Controller
             'applicantphonenumber'=>request()->input('applicantphonenumber')?? '',
             'applicantemailaddress'=> request()->input('applicantemailaddress')??'',
             'applicantfax'=> request()->input('applicantfax')??'',
+            'form'=> request()->input('form')??'',
 
             ]);
+
+            $amount = '300';
+            $form = request()->input('form')?? '';
+            return redirect('/payment/'.$amount.'/'.$form);
     }
 
     /**
@@ -112,7 +128,7 @@ class LicenceAmmendentRequestController extends Controller
      * @param  \App\Models\LicenceAmmendentRequest  $licenceAmmendentRequest
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateLicenceAmmendentRequestRequest $request, LicenceAmmendentRequest $licenceAmmendentRequest)
+    public function edit(UpdateLicenceAmmendentRequestRequest $request, LicenceAmmendentRequest $licenceAmmendentRequest)
     {
         //
     }

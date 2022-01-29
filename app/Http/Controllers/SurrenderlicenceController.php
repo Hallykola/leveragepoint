@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Surrenderlicence;
 use App\Http\Requests\StoreSurrenderlicenceRequest;
 use App\Http\Requests\UpdateSurrenderlicenceRequest;
+use Illuminate\Http\Request;
+
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -26,20 +28,27 @@ class SurrenderlicenceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+
+        $id = time();
+        $this->store($request,$id);
+        $pageTitle = 'Surrender Licence';
+        return view('surrenderoflicence',['pageTitle' => $pageTitle, 'id'=>$id, 'details'=>SurrenderLicence::where('form',$id)->first()]);
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSurrenderlicenceRequest  $request
+     * @param  \App\Http\Requests\StoreLicenceAmmendentRequestRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSurrenderlicenceRequest $request)
+    public function store(Request $request,$id)
     {
         //
+
         $vreq = request()->validate([
             //'user_id'=>'required',
             // 'profile_name'=> 'required',
@@ -48,8 +57,8 @@ class SurrenderlicenceController extends Controller
         ] );
 
 
-
-        Surrenderlicence::create([
+            $form = $id;
+        SurrenderLicence::create([
             'user_id'=>Auth::user()->id,
             'applicantname'=>request()->input('applicantname')?? '',
             'licencenumber'=>request()->input('licencenumber')?? '',
@@ -57,6 +66,7 @@ class SurrenderlicenceController extends Controller
             'applicantphone'=>request()->input('applicantphone')?? '',
             'applicantemail'=> request()->input('applicantemail')??'',
             'applicantfax'=> request()->input('applicantfax')??'',
+            'form'=> $id ,
 
             ]);
     }
@@ -64,10 +74,10 @@ class SurrenderlicenceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Surrenderlicence  $surrenderlicence
+     * @param  \App\Models\LicenceAmmendentRequest  $licenceAmmendentRequest
      * @return \Illuminate\Http\Response
      */
-    public function show(Surrenderlicence $surrenderlicence)
+    public function show(Request $licenceAmmendentRequest)
     {
         //
     }
@@ -75,25 +85,13 @@ class SurrenderlicenceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Surrenderlicence  $surrenderlicence
+     * @param  \App\Models\LicenceAmmendentRequest  $licenceAmmendentRequest
      * @return \Illuminate\Http\Response
      */
-    public function edit(Surrenderlicence $surrenderlicence)
+    public function update(Request $licenceAmmendentRequest)
     {
         //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateSurrenderlicenceRequest  $request
-     * @param  \App\Models\Surrenderlicence  $surrenderlicence
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateSurrenderlicenceRequest $request, Surrenderlicence $surrenderlicence)
-    {
-        //
-       // $surrenderlicence = $surrenderlicence ;
+        $licence = SurrenderLicence::where('form',request()->input('form'))->first();
 
         $vreq = request()->validate([
             //'user_id'=>'required',
@@ -104,7 +102,7 @@ class SurrenderlicenceController extends Controller
 
 
 
-        $surrenderlicence->update([
+        $licence->update([
             'user_id'=>Auth::user()->id,
             'applicantname'=>request()->input('applicantname')?? '',
             'licencenumber'=>request()->input('licencenumber')?? '',
@@ -112,17 +110,34 @@ class SurrenderlicenceController extends Controller
             'applicantphone'=>request()->input('applicantphone')?? '',
             'applicantemail'=> request()->input('applicantemail')??'',
             'applicantfax'=> request()->input('applicantfax')??'',
+            'form'=> request()->input('form')??'',
 
             ]);
+
+            $amount = '300';
+            $form = request()->input('form')?? '';
+            return redirect('/payment/'.$amount.'/'.$form);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateLicenceAmmendentRequestRequest  $request
+     * @param  \App\Models\LicenceAmmendentRequest  $licenceAmmendentRequest
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Request $request)
+    {
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Surrenderlicence  $surrenderlicence
+     * @param  \App\Models\LicenceAmmendentRequest  $licenceAmmendentRequest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Surrenderlicence $surrenderlicence)
+    public function destroy(Request $licenceAmmendentRequest)
     {
         //
     }

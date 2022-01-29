@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class LicenceAmmendentRequest extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     public static function searchand(
         $applicantname,
         $licencenumber,

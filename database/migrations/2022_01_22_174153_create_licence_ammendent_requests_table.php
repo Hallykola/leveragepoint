@@ -18,16 +18,16 @@ class CreateLicenceAmmendentRequestsTable extends Migration
             $table->string('user_id');
             $table->string('applicantname');
             $table->string('licencenumber');
-            $table->string('extra');
+            $table->string('extra')->nullable();
             $table->string('applicantphonenumber');
             $table->string('applicantemailaddress');
             $table->string('applicantfax');
-            $table->string('applicationnumber');
-            $table->string('town');
-            $table->string('submittedby');
-            $table->string('applicationdate');
-            $table->string('status');
-            $table->string('applicant');            
+            $table->string('form');
+            $table->string('town')->nullable();
+            $table->string('submittedby')->nullable();
+            $table->string('applicationdate')->nullable();
+            $table->string('status')->nullable();
+            $table->string('applicant')->nullable();
             $table->timestamps();
         });
     }
