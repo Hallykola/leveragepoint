@@ -9,7 +9,13 @@ use App\Http\Controllers\SurrenderlicenceController;
 use App\Http\Controllers\ChangeOwnershipRequestsController;
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\CompanyRequestsController;
+use App\Http\Controllers\LicenceRenewalRequestController;
+use App\Http\Controllers\RenewlicenceoneController;
+use App\Http\Controllers\RenewlicencetwoController;
 use App\Mail\NotificationEmail;
+use App\Models\LicenceRenewalRequest;
+use App\Models\renewlicenceone;
+use App\Models\renewlicencetwo;
 use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +86,13 @@ Route::middleware('auth')->group(function() {
     Route::post('/pay',[PaymentsController::class,'store'])->name('pay');
     Route::get('/paymentsuccessful/{amount}/{form}',[PaymentsController::class,'success'])->name('paymentsuccessful');
 
+    Route::get('/renewlicence',[RenewlicenceoneController::class,'create'])->name('renewlicence');
+    Route::get('/renewlicence/{id}',[RenewlicenceoneController::class,'createwithid'])->name('showcomformid');
+    Route::post('/updaterenewlicenceform',[RenewlicenceoneController::class,'update'])->name('regformupdate');
+
+    Route::get('/renewlicenceb',[RenewlicencetwoController::class,'create'])->name('renewlicenceb');
+    Route::get('/renewlicenceb/{id}',[RenewlicencetwoController::class,'createwithid'])->name('showcomformid');
+    Route::post('/updaterenewlicenceformb',[RenewlicencetwoController::class,'update'])->name('regformupdate');
 
     Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
     Route::post('/updateprofile',[ProfileController::class,'update'])->name('updateprofile');
