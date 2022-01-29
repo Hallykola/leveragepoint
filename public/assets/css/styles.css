@@ -261,4 +261,13 @@
     font-size: 15px;
     justify-content: space-between;
 }
-/* profile.blade.php start */
+/* profile.blade.php end */
+
+/* Request.blade.php start */
+/* Request.blade.php start */
+.reqCardText {
+    color: #00489F;
+    font-weight: 600;
+    font-size: 18px;
+}
+/* Request.blade.php end */

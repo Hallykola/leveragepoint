@@ -49,20 +49,21 @@ Route::middleware('auth')->group(function() {
   Route::get('/meetings',[PagesController::class, 'Meetings'])->name('meetings');
   Route::get('/reports',[PagesController::class, 'Reports'])->name('reports');
   Route::get('/support',[PagesController::class, 'Support'])->name('support');
+  Route::get('requests',[PagesController::class, 'Requests'])->name('requests');
 
-  Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
-  Route::post('/updateprofile',[ProfileController::class,'update'])->name('updateprofile');
-
+  
   Route::get('/changeownership',[ChangeOwnershipRequestsController::class,'create'])->name('showcoform');
   Route::post('/newchangeownership',[ChangeOwnershipRequestsController::class,'store'])->name('storeco');
   Route::get('/viewchangeownership/{appno}/',[ChangeOwnershipRequestsController::class,'show'])->name('viewchangeownership');
   Route::get('/listchangeownerships',[ChangeOwnershipRequestsController::class,'index'])->name('listco');
-
+  
   Route::get('/surrenderlicence',[SurrenderlicenceController::class,'create'])->name('showslform');
   Route::get('/newsurrenderlicence',[SurrenderlicenceController::class,'showform'])->name('storesl');
   Route::get('/viewsurrenderlicence',[SurrenderlicenceController::class,'show'])->name('showsl');
   Route::get('/listsurrenderlicence',[SurrenderlicenceController::class,'index'])->name('listsl');
-
-
+  
+  
+  Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
+  Route::post('/updateprofile',[ProfileController::class,'update'])->name('updateprofile');
 });
 require __DIR__.'/auth.php';

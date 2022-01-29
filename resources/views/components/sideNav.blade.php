@@ -58,7 +58,7 @@
         <div class="col-12 sideNavItem">
             @if($pageTitle == 'Requests')
                 <div class="container-fluid active">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('requests') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/bi_send-check-fill1.png" width="30px">
                         </div>
@@ -67,7 +67,7 @@
                 </div>
             @else
                 <div class="container-fluid">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('requests') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/bi_send-check-fill.png" width="30px">
                         </div>
