@@ -9,6 +9,7 @@ use App\Http\Controllers\SurrenderlicenceController;
 use App\Http\Controllers\ChangeOwnershipRequestsController;
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\CompanyRequestsController;
+use App\Http\Controllers\LicenceAmmendentRequestController;
 use App\Http\Controllers\LicenceRenewalRequestController;
 use App\Http\Controllers\RenewlicenceoneController;
 use App\Http\Controllers\RenewlicencetwoController;
@@ -67,35 +68,40 @@ Route::middleware('auth')->group(function() {
   Route::get('/listchangeownerships',[ChangeOwnershipRequestsController::class,'index'])->name('listco');
 
   Route::get('/surrenderlicence',[SurrenderlicenceController::class,'create'])->name('showslform');
-  Route::get('/newsurrenderlicence',[SurrenderlicenceController::class,'showform'])->name('storesl');
+  Route::post('/updatesurrenderlicence',[SurrenderlicenceController::class,'update'])->name('storesl');
   Route::get('/viewsurrenderlicence',[SurrenderlicenceController::class,'show'])->name('showsl');
   Route::get('/listsurrenderlicence',[SurrenderlicenceController::class,'index'])->name('listsl');
 
-  Route::get('/registercompany',[CompaniesController::class,'create'])->name('showregform');
-  Route::get('/registercompany/{id}',[CompaniesController::class,'createwithid'])->name('showcomformid');
-  Route::post('/updateregistercompanyform',[CompaniesController::class,'update'])->name('regformupdate');
-  Route::post('/newcomanyregistration',[CompaniesController::class,'store'])->name('storeco');
-  Route::get('/viewcompanyregform/{appno}/',[CompaniesController::class,'show'])->name('viewchangeownership');
-  Route::get('/listofcompanyregistrations',[CompaniesController::class,'index'])->name('listco');
+  Route::get('/ammendmentoflicence',[LicenceAmmendentRequestController::class,'create'])->name('ammendlicence');
+  Route::post('/upadateammendmentoflicence',[LicenceAmmendentRequestController::class,'update'])->name('ammendl');
+  Route::get('/viewammendmentoflicence/{appno}/',[LicenceAmmendentRequestController::class,'show'])->name('showl');
+  Route::get('/listammendmentoflicence',[LicenceAmmendentRequestController::class,'index'])->name('listsl');
 
-  Route::get('/registercompanyb',[CompanyRequestsController::class,'create'])->name('registercompanyb');
-  Route::get('/registercompanyb/{id}',[CompanyRequestsController::class,'createwithid'])->name('showcomformid');
-  Route::post('/updateregistercompanyformb',[CompanyRequestsController::class,'update'])->name('regformupdate');
+    Route::get('/registercompany',[CompaniesController::class,'create'])->name('showcoform');
+    Route::get('/registercompany/{id}',[CompaniesController::class,'createwithid'])->name('showcomformid');
+    Route::post('/updateregistercompanyform',[CompaniesController::class,'update'])->name('regformupdate');
+    Route::post('/newcomanyregistration',[CompaniesController::class,'store'])->name('storeco');
+    Route::get('/viewcompanyregform/{appno}/',[CompaniesController::class,'show'])->name('viewchangeownership');
+    Route::get('/listofcompanyregistrations',[CompaniesController::class,'index'])->name('listco');
 
-  Route::get('/payment/{amount}/{form}',[PaymentsController::class,'create'])->name('payment');
-  Route::post('/pay',[PaymentsController::class,'store'])->name('pay');
-  Route::get('/paymentsuccessful/{amount}/{form}',[PaymentsController::class,'success'])->name('paymentsuccessful');
+    Route::get('/registercompanyb',[CompanyRequestsController::class,'create'])->name('registercompanyb');
+    Route::get('/registercompanyb/{id}',[CompanyRequestsController::class,'createwithid'])->name('showcomformid');
+    Route::post('/updateregistercompanyformb',[CompanyRequestsController::class,'update'])->name('regformupdate');
 
-  Route::get('/renewlicence',[RenewlicenceoneController::class,'create'])->name('renewlicence');
-  Route::get('/renewlicence/{id}',[RenewlicenceoneController::class,'createwithid'])->name('showcomformid');
-  Route::post('/updaterenewlicenceform',[RenewlicenceoneController::class,'update'])->name('regformupdate');
+    Route::get('/payment/{amount}/{form}',[PaymentsController::class,'create'])->name('payment');
+    Route::post('/pay',[PaymentsController::class,'store'])->name('pay');
+    Route::get('/paymentsuccessful/{amount}/{form}',[PaymentsController::class,'success'])->name('paymentsuccessful');
 
-  Route::get('/renewlicenceb',[RenewlicencetwoController::class,'create'])->name('renewlicenceb');
-  Route::get('/renewlicenceb/{id}',[RenewlicencetwoController::class,'createwithid'])->name('showcomformid');
-  Route::post('/updaterenewlicenceformb',[RenewlicencetwoController::class,'update'])->name('regformupdate');
+    Route::get('/renewlicence',[RenewlicenceoneController::class,'create'])->name('renewlicence');
+    Route::get('/renewlicence/{id}',[RenewlicenceoneController::class,'createwithid'])->name('showcomformid');
+    Route::post('/updaterenewlicenceform',[RenewlicenceoneController::class,'update'])->name('regformupdate');
 
-  Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
-  Route::post('/updateprofile',[ProfileController::class,'update'])->name('updateprofile');
+    Route::get('/renewlicenceb',[RenewlicencetwoController::class,'create'])->name('renewlicenceb');
+    Route::get('/renewlicenceb/{id}',[RenewlicencetwoController::class,'createwithid'])->name('showcomformid');
+    Route::post('/updaterenewlicenceformb',[RenewlicencetwoController::class,'update'])->name('regformupdate');
+
+    Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
+    Route::post('/updateprofile',[ProfileController::class,'update'])->name('updateprofile');
 
 });
 require __DIR__.'/auth.php';

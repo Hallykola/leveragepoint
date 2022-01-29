@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Surrenderlicence extends Model
 {
+    protected $guarded = [];
     use HasFactory;
     public static function searchand($search,$searchname,$searchemploymentnumber,$searchposition ,$searchemail,$searchtelephone){
         return (empty($search) && empty($searchname)&&empty($searchemploymentnumber)&&empty($searchposition)&&empty($searchemail) && empty($searchtelephone)) ? static::query()  //->where('user_id', Auth::user()->id)
