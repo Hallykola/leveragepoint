@@ -66,7 +66,7 @@ Route::middleware('auth')->group(function() {
 
   Route::get('/changeownership',[ChangeOwnershipRequestsController::class,'create'])->name('showcoform');
   Route::get('/changeownershipb',[ChangeOwnershipRequestsController::class,'showb'])->name('changeownershipb');
-  Route::post('/updatechangeownershipb',[ChangeOwnershipRequestsController::class,'updateb'])->name('showcoform');
+  Route::post('/updatechangeownershipb',[ChangeOwnershipRequestsController::class,'updateb'])->name('updateb');
 
   Route::post('/newchangeownership',[ChangeOwnershipRequestsController::class,'update'])->name('storeco');
   Route::get('/viewchangeownership/{appno}/',[ChangeOwnershipRequestsController::class,'show'])->name('viewchangeownership');
