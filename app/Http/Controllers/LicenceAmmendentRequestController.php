@@ -22,6 +22,8 @@ class LicenceAmmendentRequestController extends Controller
     public function index()
     {
         //
+        $pageTitle = 'Ammendment of Licence Applications';
+        return view('licenceammendment',['pageTitle' => $pageTitle]);
     }
 
     /**

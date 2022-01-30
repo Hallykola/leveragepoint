@@ -13,7 +13,7 @@
                             <input id="applicantadd" class="form-control SupportFormInput" type="text" name="applicantadd" value="{{$details->applicantadd}}">
                           </div>
                           <div class="form-group">
-                            <label for="appliedfor" class="labels">First Name</label>
+                            <label for="appliedfor" class="labels">Private Security Applied for</label>
                             <input id="appliedfor" class="form-control SupportFormInput" type="text" name="appliedfor" value="{{$details->appliedfor}}" >
                           </div>
                           <h5>Directors</h5>

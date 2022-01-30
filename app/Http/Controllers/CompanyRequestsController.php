@@ -22,7 +22,7 @@ class CompanyRequestsController extends Controller
     {
         //
         $pageTitle = 'Company Applications';
-        return view('listofcompaniesb',['pageTitle' => $pageTitle]);
+        return view('listofcompanies',['pageTitle' => $pageTitle]);
 
     }
 

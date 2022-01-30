@@ -1,6 +1,6 @@
 @extends('layouts.dashBoardframe')
 @section('content')
 
-<livewire:employees/>
+<livewire:licencelv/>
 
 @endsection

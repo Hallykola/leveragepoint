@@ -16,6 +16,7 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('form');
+            $table->string('status')->default('WAITING');
             $table->string('user_id');
             $table->string('applicantname');
             $table->string('applicationnumber');

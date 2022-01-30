@@ -16,6 +16,7 @@ use App\Http\Controllers\LicenceRenewalRequestController;
 use App\Http\Controllers\RenewlicenceoneController;
 use App\Http\Controllers\RenewlicencetwoController;
 use App\Mail\NotificationEmail;
+use App\Models\ChangeOwnershipRequests;
 use App\Models\LicenceRenewalRequest;
 use App\Models\renewlicenceone;
 use App\Models\renewlicencetwo;
@@ -63,6 +64,10 @@ Route::middleware('auth')->group(function() {
   Route::get('/support',[PagesController::class, 'Support'])->name('support');
   Route::get('requests',[PagesController::class, 'Requests'])->name('requests');
 
+  Route::get('/setuserrole',[PagesController::class, 'setuserrole'])->name('setuserrole');
+  Route::post('setuserrolescript',[PagesController::class, 'setuserrolescript'])->name('setuserrolescript');
+
+
 
   Route::get('/changeownership',[ChangeOwnershipRequestsController::class,'create'])->name('showcoform');
   Route::get('/changeownershipb',[ChangeOwnershipRequestsController::class,'showb'])->name('changeownershipb');
@@ -105,6 +110,15 @@ Route::middleware('auth')->group(function() {
     Route::get('/renewlicenceb',[RenewlicencetwoController::class,'create'])->name('renewlicenceb');
     Route::get('/renewlicenceb/{id}',[RenewlicencetwoController::class,'createwithid'])->name('showcomformid');
     Route::post('/updaterenewlicenceformb',[RenewlicencetwoController::class,'update'])->name('regformupdate');
+
+    Route::get('/listchangeofownership',[ChangeOwnershipRequestsController::class,'index'])->name('lischangeofownership');
+    Route::get('/listammendmentoflicence',[LicenceAmmendentRequestController::class,'index'])->name('listammendment');
+    Route::get('/listsurrenderlicence',[SurrenderlicenceController::class,'index'])->name('listsurrender');
+    Route::get('/listpayments',[PaymentsController::class,'index'])->name('listpayment');
+    Route::get('/listrenewlicence',[RenewlicenceoneController::class,'index'])->name('listrenewal');
+    Route::get('/listlicences',[CompanyRequestsController::class,'index'])->name('listrenewal');
+
+
 
     Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
     Route::post('/updateprofile',[ProfileController::class,'update'])->name('updateprofile');

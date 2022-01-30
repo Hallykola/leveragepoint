@@ -22,7 +22,7 @@
                             <th scope="col" class="TheadBlue"  >Submitted by </th>
                             <th scope="col" class="TheadBlue" >Application date</th>
                             <th scope="col" class="TheadBlue" >Status</th>
-                            <th scope="col" class="TheadBlue" style="border-radius: 0px 10px 0px 0px;">Applicant </th>
+                            <th scope="col" class="TheadBlue" style="border-radius: 0px 10px 0px 0px;">Applied for </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,16 +36,16 @@
                         <td><input wire:model.debounce.300ms="applicant" type="text"  name="search " placeholder="Search applicants"/></td>
 
                         </tr>
-    @foreach($newlicences as $newlicence)
+    @foreach($renewlicences as $renewlicence)
 
         <tr>
-        <td>{{$newlicence->applicationnumber}}</td>
-        <td>{{$newlicence->applicantname}}</td>
-        <td>{{$newlicence->town}}</td>
-        <td>{{$newlicence->submittedby}}</td>
-        <td>{{$newlicence->aplicationdate}}</td>
-        <td>{{$newlicence->status}}</td>
-        <td>{{$newlicence->applicant}}</td>
+        <td>{{$renewlicence->form}}</td>
+        <td>{{$renewlicence->applicantname}}</td>
+        <td>{{$renewlicence->applicantadd}}</td>
+        <td>{{$renewlicence->applicantname}}</td>
+        <td>{{$renewlicence->created_at}}</td>
+        <td>{{$renewlicence->status}}</td>
+        <td>{{$renewlicence->appliedfor}}</td>
 
       </tr>
 
@@ -55,6 +55,6 @@
             </div>
         </div>
 
-  {{ $newlicences->onEachSide(3)->links('pagination::bootstrap-4') }}
+  {{ $renewlicences->onEachSide(3)->links('pagination::bootstrap-4') }}
 </div>
 </div>

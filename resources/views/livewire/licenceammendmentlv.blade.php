@@ -1,5 +1,5 @@
 <div>
-    {{-- In work, do what you enjoy. --}}
+    {{-- Do your work, then step back. --}}
     <div class="table-responsive">
 <div class="container">
 
@@ -37,16 +37,16 @@
                         <td><input wire:model.debounce.300ms="applicant" type="text"  name="search " placeholder="Search applicants"/></td>
 
                         </tr>
-    @foreach($transferoflicencerequests as $transferoflicencerequest)
+    @foreach($ammendmentoflicences as $ammendmentoflicence)
 
         <tr>
-        <td>{{$transferoflicencerequest->form}}</td>
-        <td>{{$transferoflicencerequest->applicantname}}</td>
-        <td>{{$transferoflicencerequest->applicantphone}}</td>
-        <td>{{$transferoflicencerequest->applicantaddress}}</td>
-        <td>{{$transferoflicencerequest->created_at}}</td>
-        <td>{{$transferoflicencerequest->status}}</td>
-        <td>{{$transferoflicencerequest->applicantname}}</td>
+        <td>{{$ammendmentoflicence->form}}</td>
+        <td>{{$ammendmentoflicence->applicantname}}</td>
+        <td>{{$ammendmentoflicence->applicantphonenumber}}</td>
+        <td>{{$ammendmentoflicence->applicantemailaddress}}</td>
+        <td>{{$ammendmentoflicence->created_at}}</td>
+        <td>{{$ammendmentoflicence->status}}</td>
+        <td>{{$ammendmentoflicence->applicantname}}</td>
 
       </tr>
 
@@ -56,6 +56,6 @@
             </div>
         </div>
 
-  {{ $transferoflicencerequests->onEachSide(3)->links('pagination::bootstrap-4') }}
+  {{ $ammendmentoflicences->onEachSide(3)->links('pagination::bootstrap-4') }}
 </div>
 </div>

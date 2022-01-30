@@ -2,11 +2,15 @@
 
 namespace App\Http\Livewire;
 
-use Illuminate\Support\Facades\DB;
-use Livewire\Component;
 use Livewire\WithPagination;
-class Licencerenewallv extends Component
+
+use Livewire\Component;
+use Illuminate\Support\Facades\DB;
+
+class Licenceammendmentlv extends Component
 {
+
+
     use WithPagination;
     protected $listeners= ['delete'];
 
@@ -17,9 +21,8 @@ class Licencerenewallv extends Component
 
     public function render()
     {
-
-        return view('livewire.licencerenewallv',
-        ['renewlicences'=>DB::table('renewlicenceone') ->paginate($this->perPage)]
+        return view('livewire.licenceammendmentlv',
+        ['ammendmentoflicences'=>DB::table('licence_ammendent_requests') ->paginate($this->perPage)]
 
     );
     }

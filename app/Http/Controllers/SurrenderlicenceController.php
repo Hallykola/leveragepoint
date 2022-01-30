@@ -21,6 +21,8 @@ class SurrenderlicenceController extends Controller
     public function index()
     {
         //
+        $pageTitle = 'Surrender of Licence Applications';
+        return view('licencesurrender',['pageTitle' => $pageTitle]);
     }
 
     /**
