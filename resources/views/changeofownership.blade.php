@@ -69,5 +69,8 @@
       </div>
     </div>
   </div>
+  @if(Auth::user()->usertype=="ADMIN")
+@livewire('approverlv',['form' =>$details->form, 'type'=>'COFO'])
+@endif
 </div>
 @endsection

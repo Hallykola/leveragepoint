@@ -33,5 +33,9 @@
        </div>
        <button>Proceed to Payment Page</button>
 </form>
+
+@if(Auth::user()->usertype=="ADMIN")
+@livewire('approverlv',['form' =>$details->form, 'type'=>'SURRENDER'])
+@endif
     </div>
 @endsection

@@ -73,6 +73,7 @@ class RenewlicenceoneController extends Controller
             'applicantname'=>request()->input('applicantname')?? '',
             'applicantadd'=>request()->input('applicantadd')?? '',
             'form'=>$form,
+             'status'=>'WAITING',
             'appliedfor'=>request()->input('appliedfor')?? '',
             'director1name'=> request()->input('director1name')??'',
             'director2name'=> request()->input('director2name')??'',
@@ -136,6 +137,7 @@ class RenewlicenceoneController extends Controller
 
         $company->update([
             'user_id'=>Auth::user()->id,
+            'status'=>'WAITING',
             'applicantname'=>request()->input('applicantname')?? '',
             'applicationnumber'=>request()->input('applicationnumber')?? '',
             'applicantadd'=>request()->input('applicantadd')?? '',

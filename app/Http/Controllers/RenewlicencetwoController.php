@@ -73,6 +73,7 @@ class RenewlicencetwoController extends Controller
         renewlicencetwo::create([
             'user_id'=>Auth::user()->id,
             'form'=>$form,
+            //'status'=>'WAITING',
             'firstapplication'=>request()->input('firstapplication')?? '',
             'licencenumber'=>request()->input('licencenumber')?? '',
             'prevlicencerejected'=>request()->input('prevlicencerejected')?? '',
@@ -134,6 +135,7 @@ class RenewlicencetwoController extends Controller
 
         $renewlicencetwo->update([
             'user_id'=>Auth::user()->id,
+            //'status'=>'WAITING',
             'form'=>request()->input('form')?? '',
             'firstapplication'=>request()->input('firstapplication')?? '',
             'licencenumber'=>request()->input('licencenumber')?? '',

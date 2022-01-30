@@ -22,7 +22,7 @@
           </div>
           <div class="col-1 circleWhite">
             <span></span>
-          </div>          
+          </div>
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@
                 <label for="licencenumber" class="labels">If yes, enter licence number </label>
               </div>
               <div class="col">
-                <input id="licencenumber" class="form-control SupportFormInput" 
+                <input id="licencenumber" class="form-control SupportFormInput"
                   type="text" name="licencenumber" value="{{$details->licencenumber}}"
                 >
               </div>
@@ -79,7 +79,7 @@
           <div class="col">
             <div class="form-group">
               <label for="personsemployed" class="labels">Number of Persons presently in your employ </label>
-              <input id="personsemployed" class="form-control SupportFormInput" 
+              <input id="personsemployed" class="form-control SupportFormInput"
                 type="text" name="personsemployed" value="{{$details->personsemployed}}"
               >
             </div>
@@ -104,6 +104,9 @@
             <div class="col-4">
               Upload other supporting documents
             </div>
+            @if($details->validid!=' ')
+                <img src="{{$details->validid}}" alt="" srcset="">
+            @endif
             <div class="col">
               <input type="file" name="otherdocumentsurl" id="">
             </div>
@@ -115,19 +118,25 @@
           </div>
           <div class="row">
             <div class="col text-start">
-              <a class="btn btn-outline-primary" data-mdb-ripple-color="dark" 
+              <a class="btn btn-outline-primary" data-mdb-ripple-color="dark"
                 href="/registercompany/{{$id}}">
                 <i class="fas fa-step-backward"></i> Previous</a>
             </div>
             <div class="col text-end">
-              <button class="btn btn-primary" type="submit">NEXT 
+              <button class="btn btn-primary" type="submit">NEXT
                 <i class="fas fa-step-forward"></i>
               </button>
             </div>
           </div>
-        </form>
+
+
+
+@if(Auth::user()->usertype=="ADMIN")
+@livewire('approverlv',['form' =>$details->form, 'type'=>'NEW'])
+@endif
+</form>
       </div>
     </div>
-  </div>
+</div>
 </div>
 @endsection

@@ -63,6 +63,10 @@
 <!-- <a href="/registercompany/{{$id}}">NEXT</a> -->
 </div>
 <button type="submit">NEXT</button>
+
+@if(Auth::user()->usertype=="ADMIN")
+@livewire('approverlv',['form' =>$details->form, 'type'=>'RENEW'])
+@endif
 </form>
 </div>
 @endsection

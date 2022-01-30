@@ -3,4 +3,6 @@
 
 <livewire:licencelv/>
 
+<livewire:companyrequestslv/>
+
 @endsection
