@@ -9,6 +9,24 @@
         <h3 style="font-weight: 600; color: #383838">Change of Ownership</h3>
       </div>
     </div>
+    <div class="row pb-3" style="margin-left: 5px; margin-right: 5px;">
+      <div class="col">
+        <div class="row">
+          <div class="col-1 circleRed">
+          </div>
+          <div class="col p-0">
+            <hr class="linewhite">
+          </div>
+          <div class="col-1 circlewhite">
+          </div>
+          <div class="col p-0">
+            <hr class="lineWhite">
+          </div>
+          <div class="col-1 circleWhite">
+          </div>          
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col">
         <form action="/newchangeownership" method="post" enctype="multipart/form-data" class="SupportForm p-5">

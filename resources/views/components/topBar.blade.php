@@ -1,4 +1,4 @@
-<div class="row pt-3 pb-3 shadow">
+<div class="row pt-3 pb-3 shadow" style="background-color: #FFFFFF;">
     <div class="col-8 d-inline-flex pt-2 pe-0">
         <div class="row" style="width: 100%;">
             <div class="col-11" style="position: relative">
