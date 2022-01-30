@@ -6,7 +6,7 @@
             <div class="col">
                 <div class="container pt-3 welcomeTab">
                     <h4 class="py-3">Good Morning {{ Auth::user()->name}},</h4>
-                    <p class="py-3">You have 3 new notifications, 1 new  invitation and an item to review in 
+                    <p class="py-3">You have 3 new notifications, 1 new  invitation and an item to review in
                         the verification centre.</p>
                 </div>
             </div>
@@ -113,10 +113,10 @@
                             <td class="border" style="padding: 0.8rem 10px 0.8rem 10px;">
                                 <div class="row p-0">
                                     <div class="col quickLinks">
-                                        <a href="#">
+                                        <a href="/listlicences">
                                             <div class="row">
                                                 <div class="col-10">
-                                                    View Licences 
+                                                    View Licences
                                                 </div>
                                                 <div class="col-1">
                                                     <img src="/assets/img/dashbord/Vector.svg">
@@ -131,10 +131,10 @@
                             <td class="border" style="padding: 0.8rem 10px 0.8rem 10px;">
                                 <div class="row p-0">
                                     <div class="col quickLinks">
-                                        <a href="#">
+                                        <a href="/listrenewlicence">
                                             <div class="row">
                                                 <div class="col-10">
-                                                    Renew Licence 
+                                                    Renew Licence
                                                 </div>
                                                 <div class="col-1">
                                                     <img src="/assets/img/dashbord/Vector.svg">
@@ -149,7 +149,7 @@
                             <td class="border" style="padding: 0.8rem 10px 0.8rem 10px;">
                                 <div class="row p-0">
                                     <div class="col quickLinks">
-                                        <a href="#">
+                                        <a href="/listchangeofownership">
                                             <div class="row">
                                                 <div class="col-10">
                                                     Change of ownership
@@ -167,10 +167,10 @@
                             <td class="border" style="padding: 0.8rem 10px 0.8rem 10px;">
                                 <div class="row p-0">
                                     <div class="col quickLinks">
-                                        <a href="#">
+                                        <a href="listsurrenderlicence">
                                             <div class="row">
                                                 <div class="col-10">
-                                                    Surrender licence 
+                                                    Surrender licence
                                                 </div>
                                                 <div class="col-1">
                                                     <img src="/assets/img/dashbord/Vector.svg">
@@ -185,7 +185,7 @@
                             <td class="border" style="padding: 0.8rem 10px 0.8rem 10px;">
                                 <div class="row p-0">
                                     <div class="col quickLinks">
-                                        <a href="#">
+                                        <a href="listammendmentoflicence">
                                             <div class="row">
                                                 <div class="col-10">
                                                     Ammendment of licence
@@ -259,7 +259,7 @@
                                         <a href="{{ route('dashboard')}}">
                                             <div class="row">
                                                 <div class="col-9" style="color: #FFFFFF">
-                                                    View All 
+                                                    View All
                                                 </div>
                                                 <div class="col-3">
                                                     <img src="/assets/img/dashbord/Vector2.svg">

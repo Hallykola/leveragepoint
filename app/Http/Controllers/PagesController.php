@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
     public function index(){
-        return view('home');
+        //return view('home');
+        return redirect(route('dashboard'));
     }
 
     public function dashboard(Request $request){
@@ -22,6 +24,23 @@ class PagesController extends Controller
         $pageTitle = 'Profile';
         // dd($user->notifications->count());
         return view('profile',['pageTitle' => $pageTitle]);
+    }
+
+    public function setuserrole (){
+        return view('setuserrole',['pageTitle'=>'SET SYSTEM USER ROLE']);
+    }
+
+    public function setuserrolescript (Request $request){
+        $email = request()->input('email');
+        $user = User::where('email',$email)->first();
+        $pageTitle = 'SET SYSTEM USER ROLE';
+        if($user!=null){
+            $user->update(['usertype'=>request()->input('role')]);
+            return view('notify',['message'=>'Successfully changed user role','title'=>'User role changed','pageTitle'=>$pageTitle]);
+
+        }
+        return view('notify',['title'=>'Something went wrong','message'=>'No user exist for this email','pageTitle'=>$pageTitle]);
+
     }
 
     public function Payments(){

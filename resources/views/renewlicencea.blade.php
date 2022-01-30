@@ -1,7 +1,5 @@
 @extends('layouts.dashBoardframe')
 @section('content')
-<div class="row" style="background-color: #E5E5E5">
-  <div class="col p-5">
     <div class="row">
       <div class="col">
         <h3 style="font-weight: 600; color: #383838">Renewal of Licence</h3>

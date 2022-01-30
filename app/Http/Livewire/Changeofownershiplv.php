@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\ChangeOwnershipRequests;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -37,8 +38,11 @@ class Changeofownershiplv extends Component
 
     public function render()
     {
-        return view('livewire.changeofownershiplv',['transferoflicencerequests'=>ChangeOwnershipRequests::searchand($this->applicantphone, $this->applicantaddress,$this->applicantfax,$this->transfereeid,$this->clearancecertificate,$this->otherdocuments,$this->applicantname,$this->licencenumber,$this->nameoftransferee,$this->licenceephysicaladdress,$this->licenceepostaladdress)
-        ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
-        ->paginate($this->perPage)] );
+        return view('livewire.changeofownershiplv',
+        ['transferoflicencerequests'=>DB::table('change_ownership_requests') ->paginate($this->perPage)]
+        // ['transferoflicencerequests'=>ChangeOwnershipRequests::searchand($this->applicantphone, $this->applicantaddress,$this->applicantfax,$this->transfereeid,$this->clearancecertificate,$this->otherdocuments,$this->applicantname,$this->licencenumber,$this->nameoftransferee,$this->licenceephysicaladdress,$this->licenceepostaladdress)
+        // ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+        // ->paginate($this->perPage)]
+     );
     }
 }

@@ -3,4 +3,4 @@
 
 <livewire:employees/>
 
-@sections
+@endsection

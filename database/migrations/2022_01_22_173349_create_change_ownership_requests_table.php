@@ -28,6 +28,8 @@ class CreateChangeOwnershipRequestsTable extends Migration
             $table->string('licenceephysicaladdress');
             $table->string('licenceepostaladdress');
             $table->string('form');
+            $table->string('status')->default('WAITING');
+
             $table->timestamps();
         });
     }

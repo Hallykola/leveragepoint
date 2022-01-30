@@ -22,7 +22,7 @@ class RenewlicenceoneController extends Controller
     {
         //
         $pageTitle = 'Company Applications';
-        return view('listofrenewlicenceone',['pageTitle' => $pageTitle]);
+        return view('listofrenewlicence',['pageTitle' => $pageTitle]);
     }
 
     /**

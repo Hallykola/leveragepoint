@@ -37,10 +37,10 @@
     @foreach($licenceapplications as $licenceapplication)
 
         <tr>
-        <td>{{$licenceapplication->applicationnumber}}</td>
+        <td>{{$licenceapplication->form}}</td>
         <td>{{$licenceapplication->created_at}}</td>
         <td>{{$licenceapplication->position}}</td>
-        <td>{{$licenceapplication->type}}</td>
+        <td>{{$licenceapplication->appliedfor}}</td>
         <td>{{$licenceapplication->applicationdate}}</td>
         <td>{{$licenceapplication->status}}</td>
 

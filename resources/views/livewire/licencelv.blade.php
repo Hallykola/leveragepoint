@@ -4,7 +4,7 @@
 <div class="container">
 <div class="row">
 <div class="col-md-6">
-
+<h2>Licences</h2>
 </div>
 </div>
 </div>
@@ -25,7 +25,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr >
+                        <tr style="display: none;" >
                         <td><input wire:model.debounce.300ms="licencenumber" type="text"  name="search" placeholder="Search licence number"/> </td>
                         <td><input wire:model.debounce.300ms="formid" type="text"  name="search" placeholder="Search formid"/> </td>
                         <td><input wire:model.debounce.300ms="licencedate" type="text"  name="search" placeholder="Search licence date"/> </td>

@@ -23,6 +23,8 @@ class CreateSurrenderlicencesTable extends Migration
             $table->string('applicantphone');
             $table->string('applicantemail');
             $table->string('applicantfax');
+            $table->string('status')->default('WAITING');
+
             $table->timestamps();
         });
     }

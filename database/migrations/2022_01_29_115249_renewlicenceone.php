@@ -34,6 +34,7 @@ class Renewlicenceone extends Migration
             $table->string('shareholder2address');
             $table->string('shareholder1nationality');
             $table->string('shareholder2nationality');
+            $table->string('status');
 
 
 

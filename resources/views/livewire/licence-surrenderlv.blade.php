@@ -1,5 +1,6 @@
 <div>
-    {{-- In work, do what you enjoy. --}}
+    {{-- The Master doesn't talk, he acts. --}}
+
     <div class="table-responsive">
 <div class="container">
 <div class="row">
@@ -17,16 +18,16 @@
                         <tr>
 
                             <th scope="col" class="TheadBlue" style="border-radius: 10px 0px 0px 0px;">Application number</th>
-                            <th scope="col" class="TheadBlue" >Applicant name</th>
-                            <th scope="col" class="TheadBlue" >Town</th>
-                            <th scope="col" class="TheadBlue"  >Submitted by </th>
+                            <th scope="col" class="TheadBlue" >Licence Number</th>
+                            <th scope="col" class="TheadBlue" >Email</th>
+                            <th scope="col" class="TheadBlue"  >Name </th>
+                            <th scope="col" class="TheadBlue" >Phone</th>
                             <th scope="col" class="TheadBlue" >Application date</th>
-                            <th scope="col" class="TheadBlue" >Status</th>
-                            <th scope="col" class="TheadBlue" style="border-radius: 0px 10px 0px 0px;">Applied for </th>
+                            <th scope="col" class="TheadBlue" style="border-radius: 0px 10px 0px 0px;">Status </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr >
+                        <tr style="display: none;">
                         <td><input wire:model.debounce.300ms="applicationnumber" type="text"  name="search" placeholder="Search application number"/> </td>
                         <td><input wire:model.debounce.300ms="applicantname" type="text"  name="search" placeholder="Search applicant names"/> </td>
                         <td><input wire:model.debounce.300ms="town" type="text"  name="search" placeholder="Search town"/> </td>
@@ -36,16 +37,16 @@
                         <td><input wire:model.debounce.300ms="applicant" type="text"  name="search " placeholder="Search applicants"/></td>
 
                         </tr>
-    @foreach($renewlicences as $renewlicence)
+    @foreach($surrenderlicences as $surrenderlicence)
 
         <tr>
-        <td>{{$renewlicence->form}}</td>
-        <td>{{$renewlicence->applicantname}}</td>
-        <td>{{$renewlicence->applicantadd}}</td>
-        <td>{{$renewlicence->applicantname}}</td>
-        <td>{{$renewlicence->created_at}}</td>
-        <td>{{$renewlicence->status}}</td>
-        <td>{{$renewlicence->appliedfor}}</td>
+        <td>{{$surrenderlicence->form}}</td>
+        <td>{{$surrenderlicence->licencenumber}}</td>
+        <td>{{$surrenderlicence->applicantemail}}</td>
+        <td>{{$surrenderlicence->applicantname}}</td>
+        <td>{{$surrenderlicence->applicantphone}}</td>
+        <td>{{$surrenderlicence->created_at}}</td>
+        <td>{{$surrenderlicence->status}}</td>
 
       </tr>
 
@@ -55,6 +56,6 @@
             </div>
         </div>
 
-  {{ $renewlicences->onEachSide(3)->links('pagination::bootstrap-4') }}
+  {{ $surrenderlicences->onEachSide(3)->links('pagination::bootstrap-4') }}
 </div>
 </div>
