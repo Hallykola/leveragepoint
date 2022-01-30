@@ -23,6 +23,12 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
+    public function newcreate()
+    {
+        $pageTittle = 'Register';
+        return view('auth.newregister', ['pageTittle'=> $pageTittle]);
+    }
+
     /**
      * Handle an incoming registration request.
      *

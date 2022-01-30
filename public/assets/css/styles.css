@@ -10,9 +10,20 @@
     font-family: "Poppins";
     src: url("/assets/fonts/Poppins/Poppins-Regular.ttf");
   }
+  .error {
+      color: red;
+      font-style: italic;
+  }
 /* Signin.blade.php start */
 #siginSideB {
     background-image: url('/assets/img/signin/676345(4)2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 90vh;
+    color: #FFFFFF;
+}
+#regSideB {
+    background-image: url('/assets/img/signin/reg.png');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 90vh;
