@@ -71,7 +71,7 @@ Route::middleware('auth')->group(function() {
 
   Route::get('/changeownership',[ChangeOwnershipRequestsController::class,'create'])->name('showcoform');
   Route::get('/changeownershipb',[ChangeOwnershipRequestsController::class,'showb'])->name('changeownershipb');
-  Route::post('/updatechangeownershipb',[ChangeOwnershipRequestsController::class,'updateb'])->name('showcoform');
+  Route::post('/updatechangeownershipb',[ChangeOwnershipRequestsController::class,'updateb'])->name('updateb');
 
   Route::post('/newchangeownership',[ChangeOwnershipRequestsController::class,'update'])->name('storeco');
   Route::get('/viewchangeownership/{appno}/',[ChangeOwnershipRequestsController::class,'show'])->name('viewchangeownership');
@@ -87,8 +87,7 @@ Route::middleware('auth')->group(function() {
   Route::get('/viewammendmentoflicence/{appno}/',[LicenceAmmendentRequestController::class,'show'])->name('showl');
   Route::get('/listammendmentoflicence',[LicenceAmmendentRequestController::class,'index'])->name('listsl');
 
-
-    Route::get('/registercompany',[CompaniesController::class,'create'])->name('showcoform');
+    Route::get('/registercompany',[CompaniesController::class,'create'])->name('showcomform');
     Route::get('/registercompany/{id}',[CompaniesController::class,'createwithid'])->name('showcomformid');
     Route::post('/updateregistercompanyform',[CompaniesController::class,'update'])->name('regformupdate');
     Route::post('/newcomanyregistration',[CompaniesController::class,'store'])->name('storeco');
