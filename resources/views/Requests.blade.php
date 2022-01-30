@@ -25,7 +25,7 @@
             <div class="col-4 text-center">
                 <div class="row">
                     <div class="col-9 offset-1">
-                        <a href="{{ route('requests')}}" class="card py-4">
+                        <a href="{{ route('renewlicence')}}" class="card py-4">
                             <div>
                                 <img src="/assets/img/Request/clarity_form-line.png" alt="">
                             </div>
