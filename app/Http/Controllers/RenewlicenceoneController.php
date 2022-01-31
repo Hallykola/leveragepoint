@@ -137,7 +137,6 @@ class RenewlicenceoneController extends Controller
 
         $company->update([
             'user_id'=>Auth::user()->id,
-            'status'=>'WAITING',
             'applicantname'=>request()->input('applicantname')?? '',
             'applicationnumber'=>request()->input('applicationnumber')?? '',
             'applicantadd'=>request()->input('applicantadd')?? '',

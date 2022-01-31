@@ -78,6 +78,7 @@ Route::middleware('auth')->group(function() {
   Route::get('/listchangeownerships',[ChangeOwnershipRequestsController::class,'index'])->name('listco');
 
   Route::get('/surrenderlicence',[SurrenderlicenceController::class,'create'])->name('showslform');
+  Route::get('/surrenderlicence/{id}',[SurrenderlicenceController::class,'show'])->name('showslform');
   Route::post('/updatesurrenderlicence',[SurrenderlicenceController::class,'update'])->name('storesl');
   Route::get('/viewsurrenderlicence',[SurrenderlicenceController::class,'show'])->name('showsl');
   Route::get('/listsurrenderlicence',[SurrenderlicenceController::class,'index'])->name('listsl');
