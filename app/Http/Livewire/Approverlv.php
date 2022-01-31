@@ -5,7 +5,8 @@ namespace App\Http\Livewire;
 use App\Models\ChangeOwnershipRequests;
 use Livewire\Component;
 use App\Models\User;
-use App\Models\CompanyRequests;
+// use App\Models\CompanyRequests;
+use App\Models\Companies;
 use App\Models\LicenceAmmendentRequest;
 use App\Models\renewlicenceone;
 use App\Models\Surrenderlicence;
@@ -21,7 +22,7 @@ class Approverlv extends Component
 
     public function mount(){
         if($this->type=='NEW'){
-            $this->mymodel = CompanyRequests::where('form',$this->form);
+            $this->mymodel = Companies::where('form',$this->form);
         }elseif($this->type=='RENEW'){
             $this->mymodel = renewlicenceone::where('form',$this->form);
         }elseif($this->type=='COFO'){
@@ -45,7 +46,7 @@ class Approverlv extends Component
 
     public function approve(){
         if($this->type=='NEW'){
-            $mymodel = CompanyRequests::where('form',$this->form);
+            $mymodel = Companies::where('form',$this->form);
         }elseif($this->type=='RENEW'){
             $mymodel = renewlicenceone::where('form',$this->form);
         }elseif($this->type=='COFO'){
@@ -63,7 +64,7 @@ class Approverlv extends Component
     }
     public function decline(){
         if($this->type=='NEW'){
-            $mymodel = CompanyRequests::where('form',$this->form);
+            $mymodel = Companies::where('form',$this->form);
         }elseif($this->type=='RENEW'){
             $mymodel = renewlicenceone::where('form',$this->form);
         }elseif($this->type=='COFO'){
@@ -81,7 +82,7 @@ class Approverlv extends Component
     public function pending(){
 
         if($this->type=='NEW'){
-            $mymodel = CompanyRequests::where('form',$this->form);
+            $mymodel = Companies::where('form',$this->form);
         }elseif($this->type=='RENEW'){
             $mymodel = renewlicenceone::where('form',$this->form);
         }elseif($this->type=='COFO'){

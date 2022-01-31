@@ -3,6 +3,17 @@
 
 <livewire:licencelv/>
 
-<livewire:companyrequestslv/>
+@livewire('tablewidget',
+['tablename' =>'companies',
+ 'headings'=>['Form Number','Applicant Name','Address', 'Applied for',' Status '],
+ 'datacolumns'=>['form','applicantname','applicantadd','appliedfor','status'],
+ 'link'=>['form'=>['prefix'=>'/registercompany/', 'suffix'=>''],
+],
+ 'style'=>[]
+ ]
+ )
+
+
+
 
 @endsection
