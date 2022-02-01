@@ -40,7 +40,7 @@ class ChangeOwnershipRequestsController extends Controller
         $id = time();
         $this->store($request,$id);
         $pageTitle = 'Change of Ownership';
-        return view('changeofownership',['form'=>$id,'pageTitle' => $pageTitle]);
+        return view('changeofownership',['form'=>$id,'pageTitle' => $pageTitle,'details'=>ChangeOwnershipRequests::where('form',$id)->first()]);
     }
 
     /**
