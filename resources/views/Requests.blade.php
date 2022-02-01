@@ -69,7 +69,7 @@
             <div class="col-4 text-center">
                 <div class="row">
                     <div class="col-9 offset-1">
-                        <a href="{{ route('showslform') }}" class="card py-4">
+                        <a href="{{ route('showslform-a') }}" class="card py-4">
                             <div>
                                 <img src="/assets/img/Request/Vector.png" alt="">
                             </div>

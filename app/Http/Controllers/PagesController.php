@@ -72,4 +72,14 @@ class PagesController extends Controller
         $pageTitle = 'Requests';
         return view('Requests',['pageTitle' => $pageTitle]);
     }
+
+    public function Training(){
+        $pageTitle = 'Training';
+        return view('Training',['pageTitle' => $pageTitle]);
+    }
+
+    public function HRM(){
+        $pageTitle = 'HRM';
+        return view('HRM',['pageTitle' => $pageTitle]);
+    }
 }

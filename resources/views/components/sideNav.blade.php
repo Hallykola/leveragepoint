@@ -102,7 +102,7 @@
         <div class="col-12 sideNavItem">
             @if($pageTitle == 'HRM')
                 <div class="container-fluid active">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('hrm') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/Vector.png" width="30px">
                         </div>
@@ -111,7 +111,7 @@
                 </div>
             @else
                 <div class="container-fluid">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('hrm') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/hrm.png" width="30px">
                         </div>
@@ -124,7 +124,7 @@
         <div class="col-12 sideNavItem">
             @if($pageTitle == 'Training')
                 <div class="container-fluid active">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('training') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/Vector2.png" width="30px">
                         </div>
@@ -133,7 +133,7 @@
                 </div>
             @else
                 <div class="container-fluid">
-                    <a class="sideNavLink" href="{{ route('dashboard') }}" style="color: inherit !important">
+                    <a class="sideNavLink" href="{{ route('training') }}" style="color: inherit !important">
                         <div class="text-center pt-1">
                             <img src="/assets/img/sideNav/training.png" width="30px">
                         </div>

@@ -54,39 +54,39 @@ return view('dashboard');
 
 
 Route::middleware('auth')->group(function() {
-  Route::get('/dashboard',[PagesController::class,'dashboard'])->name('dashboard');
-  Route::get('/profile',[ProfileController::class,'show'])->name('profile');
-  Route::get('/profiledetails',[ProfileController::class,'profiledetails'])->name('profiledetails');
-  Route::get('/payments',[PagesController::class,'Payments'])->name('payments');
-  Route::get('/licences', [PagesController::class, 'Licences'])->name('licences');
-  Route::get('/meetings',[PagesController::class, 'Meetings'])->name('meetings');
-  Route::get('/reports',[PagesController::class, 'Reports'])->name('reports');
-  Route::get('/support',[PagesController::class, 'Support'])->name('support');
-  Route::get('requests',[PagesController::class, 'Requests'])->name('requests');
+    Route::get('/dashboard',[PagesController::class,'dashboard'])->name('dashboard');
+    Route::get('/profile',[ProfileController::class,'show'])->name('profile');
+    Route::get('/profiledetails',[ProfileController::class,'profiledetails'])->name('profiledetails');
+    Route::get('/payments',[PagesController::class,'Payments'])->name('payments');
+    Route::get('/licences', [PagesController::class, 'Licences'])->name('licences');
+    Route::get('/meetings',[PagesController::class, 'Meetings'])->name('meetings');
+    Route::get('/reports',[PagesController::class, 'Reports'])->name('reports');
+    Route::get('/support',[PagesController::class, 'Support'])->name('support');
+    Route::get('/requests',[PagesController::class, 'Requests'])->name('requests');
 
-  Route::get('/setuserrole',[PagesController::class, 'setuserrole'])->name('setuserrole');
-  Route::post('setuserrolescript',[PagesController::class, 'setuserrolescript'])->name('setuserrolescript');
+    Route::get('/setuserrole',[PagesController::class, 'setuserrole'])->name('setuserrole');
+    Route::post('setuserrolescript',[PagesController::class, 'setuserrolescript'])->name('setuserrolescript');
 
 
 
-  Route::get('/changeownership',[ChangeOwnershipRequestsController::class,'create'])->name('showcoform');
-  Route::get('/changeownershipb',[ChangeOwnershipRequestsController::class,'showb'])->name('changeownershipb');
-  Route::post('/updatechangeownershipb',[ChangeOwnershipRequestsController::class,'updateb'])->name('updateb');
+    Route::get('/changeownership',[ChangeOwnershipRequestsController::class,'create'])->name('showcoform');
+    Route::get('/changeownershipb',[ChangeOwnershipRequestsController::class,'showb'])->name('changeownershipb');
+    Route::post('/updatechangeownershipb',[ChangeOwnershipRequestsController::class,'updateb'])->name('updateb');
 
-  Route::post('/newchangeownership',[ChangeOwnershipRequestsController::class,'update'])->name('storeco');
-  Route::get('/viewchangeownership/{appno}/',[ChangeOwnershipRequestsController::class,'show'])->name('viewchangeownership');
-  Route::get('/listchangeownerships',[ChangeOwnershipRequestsController::class,'index'])->name('listco');
+    Route::post('/newchangeownership',[ChangeOwnershipRequestsController::class,'update'])->name('storeco');
+    Route::get('/viewchangeownership/{appno}/',[ChangeOwnershipRequestsController::class,'show'])->name('viewchangeownership');
+    Route::get('/listchangeownerships',[ChangeOwnershipRequestsController::class,'index'])->name('listco');
 
-  Route::get('/surrenderlicence',[SurrenderlicenceController::class,'create'])->name('showslform');
-  Route::get('/surrenderlicence/{id}',[SurrenderlicenceController::class,'show'])->name('showslform');
-  Route::post('/updatesurrenderlicence',[SurrenderlicenceController::class,'update'])->name('storesl');
-  Route::get('/viewsurrenderlicence',[SurrenderlicenceController::class,'show'])->name('showsl');
-  Route::get('/listsurrenderlicence',[SurrenderlicenceController::class,'index'])->name('listsl');
+    Route::get('/surrenderlicence',[SurrenderlicenceController::class,'create'])->name('showslform-a');
+    Route::get('/surrenderlicence/{id}',[SurrenderlicenceController::class,'show'])->name('showslform');
+    Route::post('/updatesurrenderlicence',[SurrenderlicenceController::class,'update'])->name('storesl');
+    Route::get('/viewsurrenderlicence',[SurrenderlicenceController::class,'show'])->name('showsl');
+    Route::get('/listsurrenderlicence',[SurrenderlicenceController::class,'index'])->name('listsl');
 
-  Route::get('/ammendmentoflicence',[LicenceAmmendentRequestController::class,'create'])->name('ammendlicence');
-  Route::post('/upadateammendmentoflicence',[LicenceAmmendentRequestController::class,'update'])->name('ammendl');
-  Route::get('/viewammendmentoflicence/{appno}/',[LicenceAmmendentRequestController::class,'show'])->name('showl');
-  Route::get('/listammendmentoflicence',[LicenceAmmendentRequestController::class,'index'])->name('listsl');
+    Route::get('/ammendmentoflicence',[LicenceAmmendentRequestController::class,'create'])->name('ammendlicence');
+    Route::post('/upadateammendmentoflicence',[LicenceAmmendentRequestController::class,'update'])->name('ammendl');
+    Route::get('/viewammendmentoflicence/{appno}/',[LicenceAmmendentRequestController::class,'show'])->name('showl');
+    Route::get('/listammendmentoflicence',[LicenceAmmendentRequestController::class,'index'])->name('listsl');
 
     Route::get('/registercompany',[CompaniesController::class,'create'])->name('showcomform');
     Route::get('/registercompany/{id}',[CompaniesController::class,'createwithid'])->name('showcomformid');
@@ -117,6 +117,10 @@ Route::middleware('auth')->group(function() {
     Route::get('/listpayments',[PaymentsController::class,'index'])->name('listpayment');
     Route::get('/listrenewlicence',[RenewlicenceoneController::class,'index'])->name('listrenewal');
     Route::get('/listlicences',[CompanyRequestsController::class,'index'])->name('listrenewal');
+
+    Route::get('/training', [PagesController::class,'Training'])->name('training');
+
+    Route::get('/hrm',[PagesController::class,'HRM'])->name('hrm');
 
 
 
