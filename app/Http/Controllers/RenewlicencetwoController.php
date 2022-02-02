@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\renewlicencetwo;
-
+use App\Notifications\RenewLicenceNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Notification;
+
 
 class RenewlicencetwoController extends Controller
 {
@@ -148,6 +150,10 @@ class RenewlicencetwoController extends Controller
             'otherdocumentsurl'=>$otherdocs,
 
             ]);
+
+            $user = Auth::user();
+            Notification::send($user,new RenewLicenceNotification($renewlicencetwo));
+
             $amount = '500';
             $form = request()->input('form')?? '';
             return redirect('/payment/'.$amount.'/'.$form);

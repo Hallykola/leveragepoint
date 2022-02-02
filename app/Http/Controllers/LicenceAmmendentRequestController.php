@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\LicenceAmmendentRequest;
 use App\Http\Requests\StoreLicenceAmmendentRequestRequest;
 use App\Http\Requests\UpdateLicenceAmmendentRequestRequest;
+use App\Notifications\AmmendmentNotification;
+use Illuminate\Support\Facades\Notification;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -118,6 +120,8 @@ class LicenceAmmendentRequestController extends Controller
 
             ]);
 
+            $user = Auth::user();
+            Notification::send($user,new AmmendmentNotification($licence));
             $amount = '300';
             $form = request()->input('form')?? '';
             return redirect('/payment/'.$amount.'/'.$form);

@@ -6,9 +6,11 @@ use App\Models\Payments;
 use App\Http\Requests\StorePaymentsRequest;
 use App\Http\Requests\UpdatePaymentsRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
+
 
 use App\Models\User;
-
+use App\Notifications\PaymentNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -77,6 +79,10 @@ class PaymentsController extends Controller
             'billingaddress'=>request()->input('billingaddress')?? '',
 
             ]);
+            $user = Auth::user();
+            $payment = Payments::where('form',request()->input('form'));
+            Notification::send($user,new PaymentNotification($payment));
+
             $amount = request()->input('amount')?? '';
             $form =  request()->input('form')?? '';
 
@@ -140,6 +146,9 @@ class PaymentsController extends Controller
             'billingaddress'=>request()->input('billingaddress')?? '',
 
             ]);
+            $user = Auth::user();
+            Notification::send($user,new PaymentNotification($payment));
+
     }
 
     /**

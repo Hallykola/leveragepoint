@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\LicenceRenewalRequest;
 use App\Http\Requests\StoreLicenceRenewalRequestRequest;
 use App\Http\Requests\UpdateLicenceRenewalRequestRequest;
+use App\Notifications\RenewLicenceNotification;
+use Illuminate\Support\Facades\Notification;
+
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -125,6 +128,8 @@ class LicenceRenewalRequestController extends Controller
             'beneficialshareholders'=> request()->input('beneficialshareholders')??'',
 
             ]);
+            $user = Auth::user();
+            Notification::send($user,new RenewLicenceNotification($licenceRenewalRequest));
     }
 
     /**
