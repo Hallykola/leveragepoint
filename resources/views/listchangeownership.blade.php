@@ -1,6 +1,7 @@
 @extends('layouts.dashBoardframe')
 @section('content')
 
+<h1 style="margin-bottom: 50px; margin-top:50px">  Licence Change of Ownership Applications</h1>
 
 
 @livewire('tablewidget',

@@ -26,7 +26,13 @@
                 </div>
             </div>
             <div class="col-3">
-                <img src="/assets/img/topBar/unsplash_8qFarlWZY-U.png" width="56px">
+            <img
+            @if( Auth::user()->profile->profilephoto=="")
+                         src="/assets/img/profile/profilephoto.png"
+                        @else
+                        src="{{ Auth::user()->profile->profilephoto}}"
+                        @endif
+                 width="56px" style = " border-radius:50%">
             </div>
         </div>
     </div>

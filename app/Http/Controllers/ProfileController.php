@@ -140,7 +140,10 @@ class ProfileController extends Controller
 
         ] );
 
-        $valididurl = $this->saveimage('valididurl');
+        $valididurl = MyHelper::saveimage('valididurl');
+        $profilephoto = MyHelper::saveimage('profilephoto');
+        $taxclearanceurl  = MyHelper::saveimage('taxclearanceurl');
+        $healthcertificateurl = MyHelper::saveimage('healthcertificateurl');
 
         $myprofile->update([
             'user_id'=>Auth::user()->id,
@@ -151,11 +154,11 @@ class ProfileController extends Controller
             'mobilenumber'=> request()->input('mobilenumber')??'',
             'address1'=> request()->input('address1')??'',
             'address2'=>request()->input('address2')?? '',
-            'profilephoto'=>request()->input('profilephoto')?? '',
+            'profilephoto'=>$profilephoto,
             'gender'=> request()->input('gender')??'',
-            'taxclearanceurl'=> request()->input('taxclearanceurl')??'',
+            'taxclearanceurl'=> $taxclearanceurl ,
             'valididurl'=> $valididurl,
-            'healthcertificateurl'=> request()->input('healthcertificateurl')??'',
+            'healthcertificateurl'=> $healthcertificateurl,
             'accounttype'=> request()->input('accounttype')??'',
             ]);
 
@@ -176,39 +179,7 @@ class ProfileController extends Controller
         //
     }
 
-    public function saveimage(String $filename){
-        print_r('in image saver for:'.$filename);
-        if(request()->hasFile($filename)&&request()->file($filename)->isValid()){
-            $user = Auth::user();
-            $userid = Auth::user()->id;
-            $path = 'public/userimages/'.$userid;
-
-            print_r('file name dey'.$filename);
-            if(!File::exists($path)) {
-                // path does not exist
-                print_r("path no dey");
-                File::makeDirectory($path, $mode = 0777, true, true);
-
-            }
-
-            $filepath = request()->file($filename)->store($path);
-            return $filepath;
 
 
-        }else{
-
-            return "";
-        }
-
-
-
-    }
-
-    public function removeImage(String $path, String $filename){
-        // if($path!=null&&$path!=''&&$filename!=null&&$filename!=''){
-        //     Storage::delete($path.'/'.$filename);
-        // }
-        Storage::delete($path.'/'.$filename);
-    }
 }
 

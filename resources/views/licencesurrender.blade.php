@@ -1,6 +1,7 @@
 @extends('layouts.dashBoardframe')
 @section('content')
 
+<h1 style="margin-bottom: 50px; margin-top:50px">   Applications to Surrender Licence</h1>
 
 
 @livewire('tablewidget',

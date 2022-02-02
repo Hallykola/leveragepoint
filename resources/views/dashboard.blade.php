@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col">
                 <div class="container pt-3 welcomeTab">
-                    <h4 class="py-3">Good Morning {{ Auth::user()->name}},</h4>
-                    <p class="py-3">You have 3 new notifications, 1 new  invitation and an item to review in
+                    <h4 class="py-3">Howdy {{ Auth::user()->name}},</h4>
+                    <p class="py-3">You have {{auth()->user()->unreadNotifications->count()}} new notification(s) to review in
                         the verification centre.</p>
                 </div>
             </div>
@@ -260,7 +260,7 @@
                                             <div class="row">
                                                 <div class="col-9" style="color: #FFFFFF">
                                                     <a href="/dismissnotifications">
-                                                    Mark All as Read
+                                                    Read all
                                                     </a>
 
                                                 </div>

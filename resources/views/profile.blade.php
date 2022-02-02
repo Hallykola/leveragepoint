@@ -8,8 +8,8 @@
         <!-- Tabs navs -->
         <ul class="nav nav-tabs nav-fill mb-3" id="ex1" role="tablist">
           <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="ex2-tab-1" data-mdb-toggle="tab" href="#ex2-tabs-1" 
-             role="tab" aria-controls="ex2-tabs-1" aria-selected="true" 
+            <a class="nav-link active" id="ex2-tab-1" data-mdb-toggle="tab" href="#ex2-tabs-1"
+             role="tab" aria-controls="ex2-tabs-1" aria-selected="true"
              style="border-radius: 10px 0px 0px 10px;"
              >
              Basic Information
@@ -43,7 +43,13 @@
                   <div class="col-3">
                     <div class="row pt-5">
                       <div class="col py-2">
-                        <img src="/assets/img/profile/profilephoto.png" class="img-thumbnail" alt="not available" width="100%">
+                        <img
+                        @if($profiledetails->profilephoto=="")
+                         src="/assets/img/profile/profilephoto.png"
+                        @else
+                        src="{{$profiledetails->profilephoto}}"
+                        @endif
+                          class="img-thumbnail" alt="not available" width="100%">
                       </div>
                     </div>
                     <div class="row">

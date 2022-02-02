@@ -65,18 +65,7 @@ Route::get('/sendtest',function(Request $request){
         $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
         $message->to('haliruyusuf6@gmail.com','User Name');
     });
-//     $details = ['title'=>'Test mail', 'body'=>'test mail from leverage point'];
-//     Mail::to('haliruyusuf6@gmail.com')->send(new NotificationEmail($details));
-// $arrayEmails = ['someone@mail.com','stranger@mail.com'];
-// $emailSubject = 'My Subject';
-// $emailBody = 'Hello, this is my message content.';
 
-// Mail::send('emails.normal',
-// 	['msg' => $emailBody],
-// 	function($message) use ($arrayEmails, $emailSubject) {
-// 		$message->to($arrayEmails)
-//         ->subject($emailSubject);
-// 	}
 
 })->name('emailtest');
 
@@ -96,23 +85,31 @@ Route::middleware('auth')->group(function() {
     Route::post('setuserrolescript',[PagesController::class, 'setuserrolescript'])->name('setuserrolescript');
 
 
-
+    //route to change of ownership first page
     Route::get('/changeownership',[ChangeOwnershipRequestsController::class,'create'])->name('showcoform');
+    // route to change of ownership second form page
     Route::get('/changeownershipb',[ChangeOwnershipRequestsController::class,'showb'])->name('changeownershipb');
+    //route that change ownership  second form page submits to
     Route::post('/updatechangeownershipb',[ChangeOwnershipRequestsController::class,'updateb'])->name('updateb');
 
+    // route that change of ownership first page form submits to
     Route::post('/newchangeownership',[ChangeOwnershipRequestsController::class,'update'])->name('storeco');
+    // route that shows an already filled change of ownership form first page
     Route::get('/viewchangeownership/{appno}/',[ChangeOwnershipRequestsController::class,'show'])->name('viewchangeownership');
+    // route that has a table to display all change of ownership application forms
     Route::get('/listchangeownerships',[ChangeOwnershipRequestsController::class,'index'])->name('listco');
 
+    //route that shows surrender licence form
     Route::get('/surrenderlicence',[SurrenderlicenceController::class,'create'])->name('showslform-a');
+    // route that shows an already filled surrender licence form by  its form number
     Route::get('/surrenderlicence/{id}',[SurrenderlicenceController::class,'show'])->name('showslform');
+    // route that surrender form page submits its form to
     Route::post('/updatesurrenderlicence',[SurrenderlicenceController::class,'update'])->name('storesl');
     Route::get('/viewsurrenderlicence',[SurrenderlicenceController::class,'show'])->name('showsl');
     Route::get('/listsurrenderlicence',[SurrenderlicenceController::class,'index'])->name('listsl');
 
     Route::get('/ammendmentoflicence',[LicenceAmmendentRequestController::class,'create'])->name('ammendlicence');
-    Route::post('/upadateammendmentoflicence',[LicenceAmmendentRequestController::class,'update'])->name('ammendl');
+    Route::post('/updateammendmentoflicence',[LicenceAmmendentRequestController::class,'update'])->name('ammendl');
     Route::get('/viewammendmentoflicence/{appno}/',[LicenceAmmendentRequestController::class,'show'])->name('showl');
     Route::get('/listammendmentoflicence',[LicenceAmmendentRequestController::class,'index'])->name('listsl');
 
@@ -157,10 +154,5 @@ Route::middleware('auth')->group(function() {
 
 });
 
-Route::get('/mail/{email}', function ($email)
-{
-    mail($email,"Test","Hello, Test Mail");
-
-});
 
 require __DIR__.'/auth.php';

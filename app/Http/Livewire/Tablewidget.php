@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -23,9 +25,20 @@ class Tablewidget extends Component
 
     public function render()
     {
-        return view('livewire.tablewidget',
-        ['data'=> DB::table($this->tablename)->paginate($this->perPage),'datacolumn'=>$this->datacolumns, 'heading'=>$this->headings]
+        $usertype = Auth::user()->usertype;
+        $userid = Auth::user()->id;
+        if($usertype=='ADMIN'){
+            return view('livewire.tablewidget',
+            ['data'=> DB::table($this->tablename)->paginate($this->perPage),'datacolumn'=>$this->datacolumns, 'heading'=>$this->headings]
 
-    );
+        );
+        }else{
+            return view('livewire.tablewidget',
+            ['data'=> DB::table($this->tablename)->where('user_id','=',$userid)->paginate($this->perPage),'datacolumn'=>$this->datacolumns, 'heading'=>$this->headings]
+
+        );
+        }
+
+
     }
 }

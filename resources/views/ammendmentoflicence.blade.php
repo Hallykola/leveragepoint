@@ -21,13 +21,13 @@
                 </div>
                 <div class="col-1 circleWhite">
                   <span></span>
-                </div>          
+                </div>
               </div>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <form action="/upadateammendmentoflicence" method="post" enctype="multipart/form-data" class="SupportForm p-5">
+                <form action="/updateammendmentoflicence" method="post" enctype="multipart/form-data" class="SupportForm p-5">
                     @csrf
                     <input type="hidden" name="form" value="{{$id}}">
                     <div class="row py-3">
@@ -51,9 +51,9 @@
                         </div>
                     </div>
                     <div class="py-3">
-                        do hereby, make an application for the ammendment of 
-                        the private security services licence issued to me in 
-                        terms of the provisions of the act and these Regulations, 
+                        do hereby, make an application for the ammendment of
+                        the private security services licence issued to me in
+                        terms of the provisions of the act and these Regulations,
                         in the following manner
                     </div>
                     <div class="form-group pb-3">
@@ -74,14 +74,14 @@
                             <button class="btn btn-primary">Proceed to Payment Page</button>
                         </div>
                     </div>
-                </form>                
+                </form>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 @if(Auth::user()->usertype=="ADMIN")
                     @livewire('approverlv',['form' =>$details->form, 'type'=>'AMMEND'])
-                @endif                
+                @endif
             </div>
         </div>
     </div>
