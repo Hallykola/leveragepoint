@@ -22,7 +22,7 @@
           </div>
           <div class="col-1 circleWhite">
             <span></span>
-          </div>          
+          </div>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
             <input id="applicantadd" class="form-control SupportFormInput" type="text" name="applicantadd" value="{{$details->applicantadd}}">
           </div>
           <div class="form-group">
-            <label for="appliedfor" class="labels">First Name</label>
+            <label for="appliedfor" class="labels">Application for:</label>
             <input id="appliedfor" class="form-control SupportFormInput" type="text" name="appliedfor" value="{{$details->appliedfor}}" >
           </div>
           <h5 class="py-2">Directors of Applicant</h5>

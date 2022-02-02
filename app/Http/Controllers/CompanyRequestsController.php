@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\CompanyRequests;
 use App\Http\Requests\StoreCompanyRequestsRequest;
 use App\Http\Requests\UpdateCompanyRequestsRequest;
+use App\Notifications\NewLicenceNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Notification;
+
 
 
 class CompanyRequestsController extends Controller
@@ -146,6 +149,8 @@ class CompanyRequestsController extends Controller
             'otherdocumentsurl'=>$otherdocs,
 
             ]);
+            $user = Auth::user();
+            Notification::send($user,new NewLicenceNotification($companyrequest));
             $amount = '500';
             $form = request()->input('form')?? '';
             return redirect('/payment/'.$amount.'/'.$form);

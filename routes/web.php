@@ -1,6 +1,9 @@
 <?php
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
+
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
@@ -20,6 +23,10 @@ use App\Models\ChangeOwnershipRequests;
 use App\Models\LicenceRenewalRequest;
 use App\Models\renewlicenceone;
 use App\Models\renewlicencetwo;
+use App\Models\User;
+use App\Notifications\NewLicenceNotification;
+use App\Notifications\RenewLicenceNotification;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +42,18 @@ use Illuminate\Support\Facades\Mail;
 Route::get('/',[PagesController::class, 'index'])->name('home');
 Route::get('login',[AuthenticatedSessionController::class,'signin'])->name('login');
 
-Route::get('/sendtest',function(){
-    $details = ['title'=>'Test mail', 'body'=>'test mail from leverage point'];
-    Mail::to('haliruyusuf6@gmail.com')->send(new NotificationEmail($details));
+Route::get('/notify',function(){
+    $user = Auth::user();
+    Notification::send($user,new NewLicenceNotification($user->profile));
+});
+Route::get('/sendtest',function(Request $request){
+    $ip = $request->ip();
+    Mail::raw('Hi na test mail from '. $ip, function($message){
+        $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+        $message->to('haliruyusuf6@gmail.com','User Name');
+    });
+//     $details = ['title'=>'Test mail', 'body'=>'test mail from leverage point'];
+//     Mail::to('haliruyusuf6@gmail.com')->send(new NotificationEmail($details));
 // $arrayEmails = ['someone@mail.com','stranger@mail.com'];
 // $emailSubject = 'My Subject';
 // $emailBody = 'Hello, this is my message content.';
@@ -48,8 +64,7 @@ Route::get('/sendtest',function(){
 // 		$message->to($arrayEmails)
 //         ->subject($emailSubject);
 // 	}
-// );
-return view('dashboard');
+
 })->name('emailtest');
 
 

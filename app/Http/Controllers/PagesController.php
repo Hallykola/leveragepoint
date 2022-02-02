@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Notifications\WelcomeNotification;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class PagesController extends Controller
 {
@@ -14,6 +16,14 @@ class PagesController extends Controller
     }
 
     public function dashboard(Request $request){
+         $profile = new ProfileController();
+
+        if(Auth::user()->profile==null){
+            $profile->store();
+            $user = Auth::user();
+    Notification::send($user,new WelcomeNotification());
+        return redirect('/profiledetails');
+        }
         $pageTitle = 'Dashboard';
         // dd('Dashboard');
         return view('dashBoard', ['pageTitle' => $pageTitle]);

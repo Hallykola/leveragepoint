@@ -9,6 +9,7 @@
             </div>
             <div class="col-1 pt-2 text-end">
                 <img src="/assets/img/topBar/carbon_notification-new.png">
+                {{auth()->user()->unreadNotifications->count()}}
             </div>
         </div>
     </div>

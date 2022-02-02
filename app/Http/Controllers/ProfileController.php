@@ -14,7 +14,13 @@ class ProfileController extends Controller
 {
 
     public function profiledetails(){
-        return view('profiledetails');
+       // return view('profiledetails');
+       $user  = Auth::user();
+       if($user->profile==null){
+           $this->store();
+       }
+       $pageTitle = 'Profile';
+       return view('profile',['pageTitle' => $pageTitle, 'profiledetails'=>$user->profile]);
     }
     /**
      * Display a listing of the resource.
