@@ -259,7 +259,10 @@
                                         <a href="{{ route('dashboard')}}">
                                             <div class="row">
                                                 <div class="col-9" style="color: #FFFFFF">
-                                                    View All
+                                                    <a href="/dismissnotifications">
+                                                    Mark All as Read
+                                                    </a>
+
                                                 </div>
                                                 <div class="col-3">
                                                     <img src="/assets/img/dashbord/Vector2.svg">
@@ -274,6 +277,37 @@
                     <tbody>
                         <tr>
                             <td>
+                            @foreach (auth::user()->notifications as $notification)
+
+                            @if($notification->type=='App\Notifications\RenewLicenceNotification')
+                            {{ $notification->data['data']['id'] }}
+                            @endif
+
+                            @if($notification->type=='App\Notifications\NewLicenceNotification')
+                            {{ $notification->data['data']['id'] }}
+                            @endif
+
+                            @if($notification->type=='App\Notifications\SurrenderNotification')
+                            {{ $notification->data['data']['id'] }}
+                            @endif
+
+                            @if($notification->type=='App\Notifications\PaymentNotification')
+                            {{ $notification->data['data']['id'] }}
+                            @endif
+                            @if($notification->type=='App\Notifications\AmmendmentNotification')
+                            {{ $notification->data['data']['id'] }}
+                            @endif
+                            @if($notification->type=='App\Notifications\ChangeofOwnershipNotification')
+                            {{ $notification->data['data']['id'] }}
+                            @endif
+
+
+                            @if($notification->type=='App\Notifications\WelcomeNotification')
+
+                                 <h6>Welcome aboard</h6>
+                            @endif
+
+                            @endforeach
                                 <div class="row py-2" style="height: 70px;">
                                     <div class="col-9 notifications">
                                         <div class="notiText py-2">You have  an  invite from the admin.</div>

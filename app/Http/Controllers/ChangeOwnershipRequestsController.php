@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\ChangeOwnershipRequests;
+use App\Models\User;
+
 use App\Http\Requests\StoreChangeOwnershipRequestsRequest;
 use App\Http\Requests\UpdateChangeOwnershipRequestsRequest;
 use App\Notifications\ChangeofOwnershipNotification;
@@ -206,6 +208,9 @@ class ChangeOwnershipRequestsController extends Controller
 
             $user = Auth::user();
             Notification::send($user,new ChangeofOwnershipNotification($change));
+            $admin = User::where('usertype','ADMIN')->get();
+            Notification::send($admin,new ChangeofOwnershipNotification($change));
+
             $amount = '500';
             $form = request()->input('form')?? '';
             return redirect('/payment/'.$amount.'/'.$form);

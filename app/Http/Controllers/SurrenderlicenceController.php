@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Surrenderlicence;
 use App\Http\Requests\StoreSurrenderlicenceRequest;
 use App\Http\Requests\UpdateSurrenderlicenceRequest;
+use App\Models\User;
 use App\Notifications\SurrenderNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
@@ -120,6 +121,10 @@ class SurrenderlicenceController extends Controller
             ]);
             $user = Auth::user();
             Notification::send($user,new SurrenderNotification($licence));
+
+            $user = User::where('usertype','ADMIN');
+            Notification::send($user,new SurrenderNotification($licence));
+
             $amount = '300';
             $form = request()->input('form')?? '';
             return redirect('/payment/'.$amount.'/'.$form);
