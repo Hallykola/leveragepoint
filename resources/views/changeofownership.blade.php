@@ -15,9 +15,9 @@
           <div class="col-1 circleRed">
           </div>
           <div class="col p-0">
-            <hr class="linewhite">
+            <hr class="lineWhite">
           </div>
-          <div class="col-1 circlewhite">
+          <div class="col-1 circleWhite">
           </div>
           <div class="col p-0">
             <hr class="lineWhite">
