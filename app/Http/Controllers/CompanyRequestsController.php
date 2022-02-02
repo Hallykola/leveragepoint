@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CompanyRequests;
 use App\Http\Requests\StoreCompanyRequestsRequest;
 use App\Http\Requests\UpdateCompanyRequestsRequest;
+use App\Models\User;
 use App\Notifications\NewLicenceNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -151,6 +152,10 @@ class CompanyRequestsController extends Controller
             ]);
             $user = Auth::user();
             Notification::send($user,new NewLicenceNotification($companyrequest));
+
+            $admin = User::where('usertype','ADMIN')->get();
+            Notification::send($admin,new NewLicenceNotification($companyrequest));
+
             $amount = '500';
             $form = request()->input('form')?? '';
             return redirect('/payment/'.$amount.'/'.$form);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\renewlicencetwo;
+use App\Models\User;
 use App\Notifications\RenewLicenceNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -152,6 +153,9 @@ class RenewlicencetwoController extends Controller
             ]);
 
             $user = Auth::user();
+            Notification::send($user,new RenewLicenceNotification($renewlicencetwo));
+
+            $admin = User::where('usertype','ADMIN')->get();
             Notification::send($user,new RenewLicenceNotification($renewlicencetwo));
 
             $amount = '500';

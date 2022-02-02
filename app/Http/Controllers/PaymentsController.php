@@ -82,6 +82,8 @@ class PaymentsController extends Controller
             $user = Auth::user();
             $payment = Payments::where('form',request()->input('form'));
             Notification::send($user,new PaymentNotification($payment));
+            $admin = User::where('usertype','ADMIN')->get();
+            Notification::send($admin,new PaymentNotification($payment));
 
             $amount = request()->input('amount')?? '';
             $form =  request()->input('form')?? '';
@@ -147,6 +149,8 @@ class PaymentsController extends Controller
 
             ]);
             $user = Auth::user();
+            Notification::send($user,new PaymentNotification($payment));
+            $admin = User::where('usertype','ADMIN')->get();
             Notification::send($user,new PaymentNotification($payment));
 
     }

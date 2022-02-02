@@ -24,6 +24,7 @@ use App\Models\LicenceRenewalRequest;
 use App\Models\renewlicenceone;
 use App\Models\renewlicencetwo;
 use App\Models\User;
+use App\Notifications\ChangeofOwnershipNotification;
 use App\Notifications\NewLicenceNotification;
 use App\Notifications\RenewLicenceNotification;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +45,19 @@ Route::get('login',[AuthenticatedSessionController::class,'signin'])->name('logi
 
 Route::get('/notify',function(){
     $user = Auth::user();
+
+    $admins = User::where('usertype','ADMIN')->get();
+    foreach($admins as $admin){
+        Notification::send($admin,new NewLicenceNotification($user->profile));
+
+    }
+
     Notification::send($user,new NewLicenceNotification($user->profile));
+});
+Route::get('/dismissnotifications',function(){
+    $user = Auth::user();
+    $user->unreadNotifications->markAsRead();
+    return redirect(route('dashboard'));
 });
 Route::get('/sendtest',function(Request $request){
     $ip = $request->ip();

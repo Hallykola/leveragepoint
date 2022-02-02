@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LicenceRenewalRequest;
 use App\Http\Requests\StoreLicenceRenewalRequestRequest;
 use App\Http\Requests\UpdateLicenceRenewalRequestRequest;
+use App\Models\User;
 use App\Notifications\RenewLicenceNotification;
 use Illuminate\Support\Facades\Notification;
 
@@ -129,7 +130,9 @@ class LicenceRenewalRequestController extends Controller
 
             ]);
             $user = Auth::user();
-            Notification::send($user,new RenewLicenceNotification($licenceRenewalRequest));
+            Notification::send($user,new RenewLicenceNotification($licenceRenewalRequest));          $user = Auth::user();
+            $admin = User::where('usertype','ADMIN')->get();
+            Notification::send($admin,new RenewLicenceNotification($licenceRenewalRequest));
     }
 
     /**
