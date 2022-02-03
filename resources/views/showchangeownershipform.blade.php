@@ -2,10 +2,9 @@
 
 @section('content')
 <div class="container">
-{{$myapplication->application}}
+@dd($myapplication);
+@dd('yaay');
 
-<p>{{$myapplication->clearancecertificate}}</p>
-<p>{{$myapplication->transferreid}}</p>
 </div>
 
 @endsection

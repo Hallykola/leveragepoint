@@ -83,9 +83,12 @@ class LicenceAmmendentRequestController extends Controller
      * @param  \App\Models\LicenceAmmendentRequest  $licenceAmmendentRequest
      * @return \Illuminate\Http\Response
      */
-    public function show(LicenceAmmendentRequest $licenceAmmendentRequest)
+    public function show($id)
     {
         //
+        $pageTitle = 'Ammendment of Licence';
+        return view('ammendmentoflicence',['pageTitle' => $pageTitle, 'id'=>$id, 'details'=>LicenceAmmendentRequest::where('form',$id)->first()]);
+
     }
 
     /**

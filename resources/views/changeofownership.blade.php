@@ -23,7 +23,7 @@
             <hr class="lineWhite">
           </div>
           <div class="col-1 circleWhite">
-          </div>          
+          </div>
         </div>
       </div>
     </div>
@@ -39,13 +39,13 @@
                   <input type="text" class="form-control SupportFormInput" id="appno" name="applicationnumber" value="{{rand(100,500).time()}}" readonly>
                 </div> -->
               <div class="form-group py-3">
-                  <input type="text" class="form-control SupportFormInput" name="applicantphone" placeholder="Enter phone munber of applicant">
+                  <input type="text" class="form-control SupportFormInput" name="applicantphone" value="{{$details->applicantphone}}" placeholder="Enter phone number of applicant">
               </div>
               <div class="form-group py-3">
-                <input type="text" class="form-control SupportFormInput"  name="applicantaddress" placeholder="Enter email address of applicant">
+                <input type="text" class="form-control SupportFormInput"  name="applicantaddress" value="{{$details->applicantaddress}}" placeholder="Enter email address of applicant">
               </div>
               <div class="form-group py-3">
-                <input type="text" class="form-control SupportFormInput"  name="applicantfax" placeholder="Enter fax for applicant">
+                <input type="text" class="form-control SupportFormInput"  name="applicantfax" value="{{$details->applicantfax}}" placeholder="Enter fax for applicant">
               </div>
               <div class="row py-3">
                 <div class="col-4">
@@ -53,6 +53,7 @@
                 </div>
                 <div class="col">
                   <input type="file" name="transfereeid" id="">
+                  <p>{{$details->transfereeid}}</p>
                 </div>
               </div>
               <div class="row py-3">
@@ -61,6 +62,7 @@
                 </div>
                 <div class="col">
                   <input type="file" name="clearancecertificate" id="">
+                  <p>{{$details->clearancecertificate}}</p>
                 </div>
               </div>
               <div class="row py-3">
@@ -69,6 +71,8 @@
                 </div>
                 <div class="col">
                   <input type="file" name="otherdocuments" id="">
+                  <p>{{$details->otherdocuments}}</p>
+
                 </div>
               </div>
               <div class="row">
@@ -87,8 +91,6 @@
       </div>
     </div>
   </div>
-  @if(Auth::user()->usertype=="ADMIN")
-@livewire('approverlv',['form' =>$details->form, 'type'=>'COFO'])
-@endif
+ 
 </div>
 @endsection

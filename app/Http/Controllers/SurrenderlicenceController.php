@@ -83,9 +83,12 @@ class SurrenderlicenceController extends Controller
      * @param  \App\Models\LicenceAmmendentRequest  $licenceAmmendentRequest
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $licenceAmmendentRequest)
+    public function show($id)
     {
         //
+        $pageTitle = 'Show Surrender Licence';
+        return view('surrenderoflicence',['pageTitle' => $pageTitle, 'id'=>$id, 'details'=>SurrenderLicence::where('form',$id)->first()]);
+
     }
 
     /**
@@ -122,12 +125,13 @@ class SurrenderlicenceController extends Controller
             $user = Auth::user();
             Notification::send($user,new SurrenderNotification($licence));
 
-            $user = User::where('usertype','ADMIN');
-            dd($licence);
+            $user = User::where('usertype','ADMIN')->get();
+            
             Notification::send($user,new SurrenderNotification($licence));
 
             $amount = '300';
             $form = request()->input('form')?? '';
+
             return redirect('/payment/'.$amount.'/'.$form);
     }
 

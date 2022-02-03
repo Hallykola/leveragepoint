@@ -67,7 +67,12 @@
               <button class="btn btn-primary">Proceed to Payment Page</button>
             </div>
           </div>
+
+        @if(Auth::user()->usertype=="ADMIN")
+@livewire('approverlv',['form' =>$details->form, 'type'=>'COFO'])
+@endif
         </form>
+
       </div>
     </div>
   </div>
