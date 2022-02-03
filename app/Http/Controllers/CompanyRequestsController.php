@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Notification;
 
 
-
 class CompanyRequestsController extends Controller
 {
     /**
@@ -150,11 +149,13 @@ class CompanyRequestsController extends Controller
             'otherdocumentsurl'=>$otherdocs,
 
             ]);
-            $user = Auth::user();
-            Notification::send($user,new NewLicenceNotification($companyrequest));
-
-            $admin = User::where('usertype','ADMIN')->get();
-            Notification::send($admin,new NewLicenceNotification($companyrequest));
+            if (Auth::user()->usertype == 'ADMIN') {
+                $admin = User::where('usertype','ADMIN')->get();
+                Notification::send($admin,new NewLicenceNotification($companyrequest));
+            } else {
+                $user = Auth::user();
+                Notification::send($user,new NewLicenceNotification($companyrequest));
+            }
 
             $amount = '500';
             $form = request()->input('form')?? '';

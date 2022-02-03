@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use \SendGrid\Mail\Mail;
+
+
 class LicenceAmmendentRequestController extends Controller
 {
     /**
@@ -120,12 +123,13 @@ class LicenceAmmendentRequestController extends Controller
             'form'=> request()->input('form')??'',
 
             ]);
-
-            $user = Auth::user();
-            Notification::send($user,new AmmendmentNotification($licence));
-
-            $admin = User::where('usertype','ADMIN')->get();
-            Notification::send($admin,new AmmendmentNotification($licence));
+            if (Auth::user()->usertype == "ADMIN") {
+                $admin = User::where('usertype','ADMIN')->get();
+                Notification::send($admin,new AmmendmentNotification($licence));
+            } else {
+                $user = Auth::user();            
+                Notification::send($user,new AmmendmentNotification($licence));
+            }
 
             $amount = '300';
             $form = request()->input('form')?? '';
