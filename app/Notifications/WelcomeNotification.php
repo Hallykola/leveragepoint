@@ -63,7 +63,7 @@ class WelcomeNotification extends Notification
     {
         return [
             //
-
+            // 'data'=>$this->form
         ];
     }
 }

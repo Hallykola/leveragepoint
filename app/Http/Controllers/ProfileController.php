@@ -116,6 +116,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
+        // dd($request);
         $this->store();
         //
         $myprofile =  Auth::user()->profile;
@@ -144,7 +145,6 @@ class ProfileController extends Controller
         $profilephoto = MyHelper::saveimage('profilephoto');
         $taxclearanceurl  = MyHelper::saveimage('taxclearanceurl');
         $healthcertificateurl = MyHelper::saveimage('healthcertificateurl');
-
         $myprofile->update([
             'user_id'=>Auth::user()->id,
             'firstname'=>request()->input('firstname')?? '',

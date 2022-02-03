@@ -123,6 +123,7 @@ class SurrenderlicenceController extends Controller
             Notification::send($user,new SurrenderNotification($licence));
 
             $user = User::where('usertype','ADMIN');
+            dd($licence);
             Notification::send($user,new SurrenderNotification($licence));
 
             $amount = '300';

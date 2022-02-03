@@ -6,8 +6,7 @@
             <div class="col">
                 <div class="container pt-3 welcomeTab">
                     <h4 class="py-3">Good Morning {{ Auth::user()->name}},</h4>
-                    <p class="py-3">You have 3 new notifications, 1 new  invitation and an item to review in
-                        the verification centre.</p>
+                    <p class="py-3">You have {{auth()->user()->unreadNotifications->count()}} unread notifications.</p>
                 </div>
             </div>
         </div>
@@ -245,7 +244,7 @@
                 </table>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="height: 300px; overflow-y: scroll;">
             <div class="col">
                 <table class="table table-borderless border">
                     <thead>
@@ -272,66 +271,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <div class="row py-2" style="height: 70px;">
-                                    <div class="col-9 notifications">
-                                        <div class="notiText py-2">You have  an  invite from the admin.</div>
-                                        <div class="row">
-                                            <div class="col-8 notiRed">
-                                                October 26, 2021
-                                            </div>
-                                            <div class="col-4 notiRed">
-                                                10:00 AM
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3" style="background-color: #F8F8F8;padding-top: 10px;">
-                                        <img src="/assets/img/dashbord/Remind Image.svg">
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="row py-2" style="height: 70px;">
-                                    <div class="col-9 notifications">
-                                        <div class="notiText py-2">You have  an  invite from the admin.</div>
-                                        <div class="row">
-                                            <div class="col-8 notiRed">
-                                                August 18, 2021
-                                            </div>
-                                            <div class="col-4 notiRed">
-                                                12:00 AM
+                        @foreach (auth()->user()->unreadNotifications as $item)
+                            <tr>
+                                <td>
+                                    <div class="row py-2" style="height: 70px;">
+                                        <div class="col-9 notifications">
+                                            <div class="notiText py-2">You have  an  invite from the admin.</div>
+                                            <div class="row">
+                                                <div class="col-8 notiRed">
+                                                    {{ explode(' ',$item->created_at)[0] }}
+                                                </div>
+                                                <div class="col-4 notiRed">
+                                                    {{ explode(' ',$item->created_at)[1] }}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-3" style="background-color: #F8F8F8;padding-top: 10px;">
-                                        <img src="/assets/img/dashbord/vector3.svg">
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="row py-2" style="height: 70px;">
-                                    <div class="col-9 notifications">
-                                        <div class="notiText py-2">You have  an  invite from the admin.</div>
-                                        <div class="row">
-                                            <div class="col-8 notiRed">
-                                                August 11, 2021
-                                            </div>
-                                            <div class="col-4 notiRed">
-                                                09:00 AM
-                                            </div>
+                                        <div class="col-3" style="background-color: #F8F8F8;padding-top: 10px;">
+                                            <img src="/assets/img/dashbord/Remind Image.svg">
                                         </div>
                                     </div>
-                                    <div class="col-3" style="background-color: #F8F8F8;padding-top: 10px;">
-                                        <img src="/assets/img/dashbord/vector3.svg">
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

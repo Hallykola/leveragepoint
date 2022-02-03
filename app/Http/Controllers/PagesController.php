@@ -21,11 +21,11 @@ class PagesController extends Controller
         if(Auth::user()->profile==null){
             $profile->store();
             $user = Auth::user();
-    Notification::send($user,new WelcomeNotification());
+            Notification::send($user,new WelcomeNotification());
         return redirect('/profiledetails');
         }
         $pageTitle = 'Dashboard';
-        // dd('Dashboard');
+        // dd(auth()->user()->unreadNotifications);
         return view('dashBoard', ['pageTitle' => $pageTitle]);
     }
 

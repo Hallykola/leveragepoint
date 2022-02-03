@@ -7,9 +7,13 @@
                     <img src="/assets/img/sideNav/bx_bx-search-alt.png">
                 </span>
             </div>
-            <div class="col-1 pt-2 text-end">
+            <div class="col-1 pt-2 text-end" style="position: relative">
                 <img src="/assets/img/topBar/carbon_notification-new.png">
-                {{auth()->user()->unreadNotifications->count()}}
+                @if (auth()->user()->unreadNotifications->count() > 0 )
+                    <span style="position: absolute;font-size: 10px; color: red">
+                        {{auth()->user()->unreadNotifications->count()}}
+                    </span>                    
+                @endif
             </div>
         </div>
     </div>

@@ -21,8 +21,8 @@ class MyHelper{
                 File::makeDirectory($path, $mode = 0777, true, true);
 
             }
-
             $filepath = request()->file($filename)->store($path);
+            dd($filepath);
             return Storage::url($filepath);
 
 
