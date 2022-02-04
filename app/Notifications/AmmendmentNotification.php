@@ -6,6 +6,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Auth;
+use SendGrid\Mail\Mail;
+
 
 class AmmendmentNotification extends Notification
 {
@@ -44,9 +47,7 @@ class AmmendmentNotification extends Notification
      */
     public function toMail($notifiable)
     {
-
-        $url = url('/registercompany/'.$this->form->id);
-
+        $url = url('/registercompany/'.$this->form->form);
         return (new MailMessage)
                     ->greeting('Hello!')
                     ->line('Your ammendment application has been sent!')
@@ -62,6 +63,35 @@ class AmmendmentNotification extends Notification
      */
     public function toArray($notifiable)
     {
+        $user = Auth::user();
+        $url = url('/viewammendmentoflicence/'.$this->form->form);
+        $email = new Mail();
+        $email->setFrom(
+            'info@leveragepoint.co.bw',
+            'leveragepoint'
+        );
+        $email->setSubject('ammendment application');
+        // Replace the email address and name with your recipient
+        $email->addTo(
+            $user->email,
+            $user->name
+        );
+        $email->addContent(
+            'text/html',
+            '<h2>Hello! '. $user->name .'</h2>
+            <p>Your ammendment application has been sent!</p>
+            <p>View Application form <a href="'.$url.'">click here</a></p>
+            We will get back to you shortly!
+            '
+        );
+        $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+        try {
+            $response =$sendgrid->send($email);
+        } catch (\Exception $e) {
+            echo 'Caught exception: '. $e->getMessage() ."\n";
+        }
+
+
         return [
             //
             'data'=>$this->form

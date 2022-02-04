@@ -151,12 +151,15 @@ class RenewlicencetwoController extends Controller
             'otherdocumentsurl'=>$otherdocs,
 
             ]);
+            if (Auth::user()->usertype == "ADMIN") {
+                $admin = User::where('usertype','ADMIN')->get();
+                Notification::send($admin,new RenewLicenceNotification($renewlicencetwo));
+            } else {
+                $user = Auth::user();
+                Notification::send($user,new RenewLicenceNotification($renewlicencetwo));
+            }
+            
 
-            $user = Auth::user();
-            Notification::send($user,new RenewLicenceNotification($renewlicencetwo));
-
-            $admin = User::where('usertype','ADMIN')->get();
-            Notification::send($user,new RenewLicenceNotification($renewlicencetwo));
 
             $amount = '500';
             $form = request()->input('form')?? '';

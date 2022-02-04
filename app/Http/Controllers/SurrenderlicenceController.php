@@ -121,13 +121,20 @@ class SurrenderlicenceController extends Controller
             'applicantfax'=> request()->input('applicantfax')??'',
             'form'=> request()->input('form')??'',
 
-            ]);
+        ]);
+
+
+
+        if (Auth::user()->usertype != "ADMIN") {
             $user = Auth::user();
             Notification::send($user,new SurrenderNotification($licence));
-
+        } 
             $user = User::where('usertype','ADMIN')->get();
-            
+
             Notification::send($user,new SurrenderNotification($licence));
+        
+        
+
 
             $amount = '300';
             $form = request()->input('form')?? '';

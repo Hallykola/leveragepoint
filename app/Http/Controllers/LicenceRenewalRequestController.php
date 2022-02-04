@@ -129,10 +129,13 @@ class LicenceRenewalRequestController extends Controller
             'beneficialshareholders'=> request()->input('beneficialshareholders')??'',
 
             ]);
-            $user = Auth::user();
-            Notification::send($user,new RenewLicenceNotification($licenceRenewalRequest));          $user = Auth::user();
-            $admin = User::where('usertype','ADMIN')->get();
-            Notification::send($admin,new RenewLicenceNotification($licenceRenewalRequest));
+            if (Auth::user()->usertype =="ADMIN") {
+                $admin = User::where('usertype','ADMIN')->get();
+                Notification::send($admin,new RenewLicenceNotification($licenceRenewalRequest));
+            } else {
+                $user = Auth::user();
+                Notification::send($user,new RenewLicenceNotification($licenceRenewalRequest));
+            }
     }
 
     /**

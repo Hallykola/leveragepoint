@@ -209,11 +209,13 @@ class ChangeOwnershipRequestsController extends Controller
             'form'=>request()->input('form')?? '',
 
             ]);
-
-            $user = Auth::user();
-            Notification::send($user,new ChangeofOwnershipNotification($change));
-            $admin = User::where('usertype','ADMIN')->get();
-            Notification::send($admin,new ChangeofOwnershipNotification($change));
+            if (Auth::user()->usertype == "ADMIN") {
+                $admin = User::where('usertype','ADMIN')->get();
+                Notification::send($admin,new ChangeofOwnershipNotification($change));
+            } else {
+                $user = Auth::user();
+                Notification::send($user,new ChangeofOwnershipNotification($change));
+            }
 
             $amount = '500';
             $form = request()->input('form')?? '';
