@@ -5,9 +5,8 @@
         <div class="row">
             <div class="col">
                 <div class="container pt-3 welcomeTab">
-                    <h4 class="py-3">Howdy {{ Auth::user()->name}},</h4>
-                    <p class="py-3">You have {{auth()->user()->unreadNotifications->count()}} new notification(s) to review in
-                        the verification centre.</p>
+                    <h4 class="py-3">Good Morning {{ Auth::user()->name}},</h4>
+                    <p class="py-3">You have {{auth()->user()->unreadNotifications->count()}} unread notifications.</p>
                 </div>
             </div>
         </div>
@@ -245,7 +244,7 @@
                 </table>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="height: 300px; overflow-y: scroll;">
             <div class="col">
                 <table class="table table-borderless border">
                     <thead>
@@ -259,10 +258,7 @@
                                         <a href="{{ route('dashboard')}}">
                                             <div class="row">
                                                 <div class="col-9" style="color: #FFFFFF">
-                                                    <a href="/dismissnotifications">
-                                                    Read all
-                                                    </a>
-
+                                                    View All
                                                 </div>
                                                 <div class="col-3">
                                                     <img src="/assets/img/dashbord/Vector2.svg">
@@ -275,97 +271,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                            @foreach (auth::user()->notifications as $notification)
-
-                            @if($notification->type=='App\Notifications\RenewLicenceNotification')
-                            {{ $notification->data['data']['id'] }}
-                            @endif
-
-                            @if($notification->type=='App\Notifications\NewLicenceNotification')
-                            {{ $notification->data['data']['id'] }}
-                            @endif
-
-                            @if($notification->type=='App\Notifications\SurrenderNotification')
-                            {{ $notification->data['data']['id'] }}
-                            @endif
-
-                            @if($notification->type=='App\Notifications\PaymentNotification')
-                            {{ $notification->data['data']['id'] }}
-                            @endif
-                            @if($notification->type=='App\Notifications\AmmendmentNotification')
-                            {{ $notification->data['data']['id'] }}
-                            @endif
-                            @if($notification->type=='App\Notifications\ChangeofOwnershipNotification')
-                            {{ $notification->data['data']['id'] }}
-                            @endif
-
-
-                            @if($notification->type=='App\Notifications\WelcomeNotification')
-
-                                 <h6>Welcome aboard</h6>
-                            @endif
-
-                            @endforeach
-                                <div class="row py-2" style="height: 70px;">
-                                    <div class="col-9 notifications">
-                                        <div class="notiText py-2">You have  an  invite from the admin.</div>
-                                        <div class="row">
-                                            <div class="col-8 notiRed">
-                                                October 26, 2021
-                                            </div>
-                                            <div class="col-4 notiRed">
-                                                10:00 AM
+                        @foreach (auth()->user()->unreadNotifications as $item)
+                            <tr>
+                                <td>
+                                    <div class="row py-2" style="height: 70px;">
+                                        <div class="col-9 notifications">
+                                            <div class="notiText py-2">You have  an  invite from the admin.</div>
+                                            <div class="row">
+                                                <div class="col-8 notiRed">
+                                                    {{ explode(' ',$item->created_at)[0] }}
+                                                </div>
+                                                <div class="col-4 notiRed">
+                                                    {{ explode(' ',$item->created_at)[1] }}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-3" style="background-color: #F8F8F8;padding-top: 10px;">
-                                        <img src="/assets/img/dashbord/Remind Image.svg">
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="row py-2" style="height: 70px;">
-                                    <div class="col-9 notifications">
-                                        <div class="notiText py-2">You have  an  invite from the admin.</div>
-                                        <div class="row">
-                                            <div class="col-8 notiRed">
-                                                August 18, 2021
-                                            </div>
-                                            <div class="col-4 notiRed">
-                                                12:00 AM
-                                            </div>
+                                        <div class="col-3" style="background-color: #F8F8F8;padding-top: 10px;">
+                                            <img src="/assets/img/dashbord/Remind Image.svg">
                                         </div>
                                     </div>
-                                    <div class="col-3" style="background-color: #F8F8F8;padding-top: 10px;">
-                                        <img src="/assets/img/dashbord/vector3.svg">
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="row py-2" style="height: 70px;">
-                                    <div class="col-9 notifications">
-                                        <div class="notiText py-2">You have  an  invite from the admin.</div>
-                                        <div class="row">
-                                            <div class="col-8 notiRed">
-                                                August 11, 2021
-                                            </div>
-                                            <div class="col-4 notiRed">
-                                                09:00 AM
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3" style="background-color: #F8F8F8;padding-top: 10px;">
-                                        <img src="/assets/img/dashbord/vector3.svg">
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

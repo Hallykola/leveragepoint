@@ -95,7 +95,7 @@ Route::middleware('auth')->group(function() {
     // route that change of ownership first page form submits to
     Route::post('/newchangeownership',[ChangeOwnershipRequestsController::class,'update'])->name('storeco');
     // route that shows an already filled change of ownership form first page
-    Route::get('/viewchangeownership/{appno}/',[ChangeOwnershipRequestsController::class,'show'])->name('viewchangeownership');
+    Route::get('/viewchangeownership/{id}/',[ChangeOwnershipRequestsController::class,'show'])->name('viewchangeownership');
     // route that has a table to display all change of ownership application forms
     Route::get('/listchangeownerships',[ChangeOwnershipRequestsController::class,'index'])->name('listco');
 
@@ -110,7 +110,7 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/ammendmentoflicence',[LicenceAmmendentRequestController::class,'create'])->name('ammendlicence');
     Route::post('/updateammendmentoflicence',[LicenceAmmendentRequestController::class,'update'])->name('ammendl');
-    Route::get('/viewammendmentoflicence/{appno}/',[LicenceAmmendentRequestController::class,'show'])->name('showl');
+    Route::get('/viewammendmentoflicence/{id}/',[LicenceAmmendentRequestController::class,'show'])->name('showl');
     Route::get('/listammendmentoflicence',[LicenceAmmendentRequestController::class,'index'])->name('listsl');
 
     Route::get('/registercompany',[CompaniesController::class,'create'])->name('showcomform');

@@ -99,12 +99,16 @@ class ChangeOwnershipRequestsController extends Controller
      * @param  \App\Models\ChangeOwnershipRequests  $changeOwnershipRequests
      * @return \Illuminate\Http\Response
      */
-    public function show($appno)
+    public function show($id)
     {
         //
         $pageTitle = 'View Application';
-        $myapplication = ChangeOwnershipRequests::where('form',$appno)->first();
-        return view('showchangeownershipform', ['myapplication'=>$myapplication, 'pageTitle'=>$pageTitle ]);
+
+        $formdata = ChangeOwnershipRequests::where('form',$id)->first();
+
+        return view('changeofownership',['form'=>$id,'pageTitle' => $pageTitle,'details'=> $formdata]);
+
+        //return view('showchangeownershipform', ['myapplication'=>$myapplication, 'pageTitle'=>$pageTitle ]);
     }
 
     /**
@@ -128,7 +132,7 @@ class ChangeOwnershipRequestsController extends Controller
     public function update(Request $request )
     {
         //
-        $changeOwnership = ChangeOwnershipRequests::where('form',request()->input('form'));
+        $changeOwnership = ChangeOwnershipRequests::where('form',request()->input('form'))->first();
 
         $vreq = request()->validate([
             //'user_id'=>'required',
@@ -144,14 +148,14 @@ class ChangeOwnershipRequestsController extends Controller
             'applicantphone'=>request()->input('applicantphone')?? '',
             'applicantaddress'=>request()->input('applicantaddress')?? '',
             'applicantfax'=>request()->input('applicantfax')?? '',
-            'transfereeid'=>request()->input('transfereeid')?? '',
-            'clearancecertificate'=> request()->input('clearancecertificate')??'',
-            'otherdocuments'=> request()->input('otherdocuments')??'',
-            'applicantname'=>request()->input('applicantname')?? '',
-            'licencenumber'=>request()->input('licencenumber')?? '',
-            'nameoftransferee'=> request()->input('nameoftransferee')??'',
-            'licenceephysicaladdress'=> request()->input('licenceephysicaladdress')??'',
-            'licenceepostaladdress'=>request()->input('licenceepostaladdress')?? '',
+            'transfereeid'=>request()->input('transfereeid')??  $changeOwnership->transfereeid,
+            'clearancecertificate'=> request()->input('clearancecertificate')??$changeOwnership->clearancecertificate,
+            'otherdocuments'=> request()->input('otherdocuments')?? $changeOwnership->otherdocuments,
+            // 'applicantname'=>request()->input('applicantname')?? '',
+            // 'licencenumber'=>request()->input('licencenumber')?? '',
+            // 'nameoftransferee'=> request()->input('nameoftransferee')??'',
+            // 'licenceephysicaladdress'=> request()->input('licenceephysicaladdress')??'',
+            // 'licenceepostaladdress'=>request()->input('licenceepostaladdress')?? '',
             'form'=>request()->input('form')?? '',
 
             ]);
