@@ -189,7 +189,7 @@ class ChangeOwnershipRequestsController extends Controller
         return view('changeofownershipb',['form'=>$form, 'details'=>ChangeOwnershipRequests::where('form',$form)->first(), 'pageTitle'=>$pageTitle]);
     }
     public function updateb(Request $request){
-        $change = ChangeOwnershipRequests::where('form',request()->input('form'));
+        $change = ChangeOwnershipRequests::where('form',request()->input('form'))->first();
 
         $vreq = request()->validate([
             //'user_id'=>'required',
@@ -198,7 +198,7 @@ class ChangeOwnershipRequestsController extends Controller
 
         ] );
 
-
+          
 
         $change->update([
             'applicantname'=>request()->input('applicantname')?? '',
